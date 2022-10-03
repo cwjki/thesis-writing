@@ -1,0 +1,68 @@
+\chapter{Descripción del diseño de la base de datos}\label{chapter:database}
+Para el almacenamiento de los datos hizo uso de SQLite 3
+como sistema de gestión de bases de datos relacionales,
+el cual viene integrada en Django por defecto.
+
+\section{Modelación de la asignación de docencia}
+Para la modelación de este proceso se crearon las 
+siguientes entidades:
+
+\subparagraph{Professor:}
+Agrupa los datos asociados a los profesores, 
+tales como: nombre, apellidos, categoría docente, grado 
+científico y departamento al que pertenece.
+
+\subparagraph{Subject:}
+Agrupa los datos asociados a las asignaturas,
+tales como: nombre, departamento responsable de impartir
+la asignatura, plan de estudio, semestre en el que se 
+imparte, cantidad de horas totales y carrera a la que 
+pertenece.
+
+\subparagraph{CarmenTable:}
+Entidad creada con el fin de representar
+el grupo escolar vigente en el año actual, cuenta con un
+'TeachingGroup', semestre actual, período de tiempo y 
+plan de estudio correspondiente. Por ejemplo representa 
+que el grupo C3 (Computación tercer año) con el plan de 
+estudio E, es el que esta vigente en el semestre actual.
+
+\subparagraph{SubjectDescription:}
+Entidad necesaria para separar las distintas actividades 
+que se imparten en una asignatura ( conferencia, clases 
+prácticas, seminarios, laboratorios, otras ) con el fin 
+de poder realizar la asignación. Cuenta con una 'subject',
+un tipo de actividad, y el CarmenTable correspondiente.
+
+
+\subparagraph{TeachingAssignment:}
+Entidad que modela la asignación de docencia, posee un
+'Professor', una 'SubjectDescription' y
+el porciento correspondiente a blah.
+
+Los campos carrera, facultad, departamento, plan de 
+estudio, grado científico, categoría docente, tipo de 
+clase, semestre, período de tiempo y grupo escolar fueron
+modelados como nomencladores en las entidades Career,
+Faculty, Department, StudyPlan, ScientificDegree, 
+TeachingCategory, ClassType, Semester, TimePeriod y 
+TeachingGroup respectivamente.
+
+
+\section{Modelación de los tribunales de tesis}
+Para la modelación de este proceso se crearon las 
+siguientes entidades:
+
+\subparagraph{Thesis:}
+Agrupa los datos asociados a una tesis, tales son:
+título, estudiante, tutor, posibles cotutores y palabras
+claves.
+
+\subparagraph{ThesisCommittee:}
+Entidad que representa un tribunal de tesis, cuenta con 
+una 'Thesis', una fecha, un lugar y tres relaciones con 
+la entidad 'Professor' para los roles de
+secretario, presidente y oponente.
+
+Los campos lugar y palabras claves fueron modelados como
+nomencladores en las entidades 'Place' y 'Keyword'.
