@@ -1,1 +1,72 @@
 \chapter{Descripción las herramientas implementadas}\label{chapter:implementation}
+
+
+\section{Salvar y llenar datos de la BD}
+
+En el servidor se implementó un módulo para el trabajo con la base de datos que permite salvar el estado de la base de datos en documentos csv, de igual forma permite llenar la base de datos a partir de documentos csv.
+
+Se crearon dos comandos para ejecutar en la terminal con el fin de realizar las tareas mencionadas previamente:
+
+\subsection{save database}
+
+El comando save database permite salvar tanto 
+una tabla como la base de datos completa.
+
+Para salvar solo una tabla se hace uso del 
+argumento -m y luego el nombre de la 
+tabla a salvar:
+
+\begin{verbatim}
+    python manage.py save_database -m Professors
+\end{verbatim}
+
+
+Para salvar la base de datos completa ejecutar 
+solo el comando:
+
+\begin{verbatim}
+    python manage.py save_database
+\end{verbatim}
+
+
+\subsection{fill database}
+El comando fill database permite llenar desde 
+documentos csv tanto una tabla como la base de 
+datos completa.
+
+Análogamente al comando anterior para llenar solo una tabla se hace uso del argumento -m y luego el nombre de la tabla a llenar:
+
+\begin{verbatim}
+    python manage.py fill_database -m Subjects
+\end{verbatim}
+
+Para llenar la base de datos completa ejecutar 
+solo el comando:
+
+\begin{verbatim}
+    python manage.py fill_database
+\end{verbatim}
+
+Los posibles nombres de entidades a utilizar con
+el parámetro -m tanto para los comandos 
+save database como fill database son:
+
+ClassTypes, Faculties,
+ScientificDegrees, TeachingCategories,
+Semesters, TeachingGroups, TimePeriods,
+Careers, StudyPlans, CarmenTable, Departments,
+Subjects, Professors, SubjectDescriptions, TeachingAssignments,
+Places, Keywords, Thesis, ThesisCommittee
+
+\section{Generar csv}
+
+Se implementó la funcionalidad de descargar las 
+asignaciones de docencia y los tribunales de 
+tesis en ficheros csv.
+
+\section{Generar asignaciones de docencia}
+
+Se implementó un modelo de optimización para la 
+generación de asignaciones de docencia, pendiente
+computar el peso de las asignaciones (dado las
+preferencias de los profesores y sus habilidades)
