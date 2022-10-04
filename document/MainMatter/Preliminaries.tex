@@ -1,50 +1,115 @@
 \chapter{Preliminares}\label{chapter:preliminaries}
-
+Este capítulo provee una breve introducción a los distintos 
+procesos que se llevan a cabo en un departamento de la Facultad
+de Matemática y Computación de La Universidad de La Habana, así
+como una descripción de las herramientas utilizadas en la 
+solución brindada. 
 
 \section{Funcionamiento de la facultad}
-En todas las instituciones se realizan un conjunto de procesos .....
-Algunos de estos procesos que son llevados a cabo en nuestra facultad son 
-los siguientes:
+Cada año en la Facultad de Matemática y Computación de La 
+Universidad de La Habana se realizan un conjunto de procesos de 
+planificación y administración relacionados con los cursos escolares.
+La ejecución de los procesos es delegada a los distintos
+departamentos de la facultad y en su mayoría, si no en su totalidad,
+se realizan actualmente de manera manual y no informatizada,
+por ejemplo:
+
+\begin{itemize}
+    \item Asignación de docencia
+    \item Confección de los tribunales de tesis 
+    \item Asignación de cursos optativos
+    \item Asignación de alumnos ayudantes
+    \item Planificación de las evaluaciones del semestre
+\end{itemize}
+
+
+A continuación se describen los procesos de asignación de docencia y 
+confección de tribunales de tesis que son llevados
+a cabo en la Facultad de Matemática y Computación de La 
+Universidad de La Habana:
 
 \subsection{Asignación de docencia}
-El proceso de asignación de docencia en un departamento consiste, en 
+El proceso de asignación de docencia en un departamento consiste en, 
 dadas las asignaturas a impartir en un semestre y el conjunto de 
-profesores del mismo, realizar una distribucion que satisfaga los
-requerimientos de dichas asignaturas, contemplando la disponibilidad
-de los profesores (mencionar algo de la capacidad y experiencia de los 
-profes).
+profesores del mismo, realizar una distribución que satisfaga los
+requerimientos de dichas asignaturas, contemplando la experiencia y 
+las preferencias de los profesores.
 
-Cada asignatura tiene algunas particularidades como la cantidad de horas
+Cada asignatura tiene sus particularidades, como la cantidad de horas
 a impartir en conferencias, clases prácticas, seminarios, laboratorios u
 otras modalidades, y la cantidad de grupos de clase que reciben dicha 
 actividad. Estas particularidades varían en dependencia de la matrícula 
 del curso y del plan de estudio al que la asignatura pertezca.
 
-Por ejemplo para la asignatura 'Modelos de Optimización I', perteneciente
-al plan de estudio D, para la carrera de Ciencias de la Computación que 
+Por ejemplo para la asignatura Modelos de Optimización I, perteneciente
+al plan de estudio D, para la carrera de Ciencia de la Computación que 
 se imparte en el tercer año, se tiene un total de horas a impartir de 64,
 de esas, 32 horas son de conferencia y 32 horas son de clases prácticas,
 además se tiene que las conferencias se imparten a un solo grupo mientras
 que las clases prácticas a dos.
 
+(No se si agregar algo sobre esto)
+Actualmente este proceso es ejecutado por una persona 'ciclano' y debe
+ponerse de acuerdo con los profes, muchas veces.
+
+
 \subsection{Tribunales de tesis}
-Para realizar la confección de un tribunal de tesis es necesario la
-asignación de tres profesores para que asuman los roles de secretario,
-presidente y oponente. Además se necesita fijar una fecha y un lugar para 
-la exposición de la misma.
-Los profesores que integren el tribunal no pueden ser tutores o cotutores
-de la tesis en cuestión y deben tener dominio sobre el tema que será 
-presentado.
+Para realizar la confección de un tribunal de tesis
+se necesitan definir tres incógnitas fundamentales: el local,
+la fecha y el tribunal. El tribunal debe estar compuesto por tres
+profesores que asuman los roles de secretario, presidente y 
+oponente. Los profesores que integren el tribunal no pueden ser 
+tutores o cotutores de la tesis en cuestión, y deben tener dominio
+sobre el tema que será presentado.
 Para la elección de la fecha y el local se debe tener en cuenta que la 
 defensa de una tesis dura aproximadamente 45 minutos.
 
-\section{Breve descripción de las herramientas que se usan}
-Para la informatización de estos procesos se implementó
-una aplicación web, con una arquitectura cliente-servidor.
-Para el desarrollo del back-end se hizo uso del framework Django, en particular Django Rest Framework, aprovechando la
+(No se si agregar algo sobre esto)
+lo mismo que en el proceso anterior, mencionar las desventajas de 
+hacer este proceso no informatizado
+
+
+
+
+\section{Descripción del software}
+Para la informatización de estos procesos se implementa 
+un sistema de gestión a través de una aplicación web,
+utilizando un modelo cliente-servidor.
+Para el desarrollo en el lado del servidor se hace uso del framework Django, en particular Django Rest Framework, aprovechando la
 versatilidad, seguridad, escalabilidad y mantenibilidad
 que el framework ofrece.
-En el front-end se implementó una aplicación web utilizando el framework Quasar, el cual está a su vez basado en Vue.js, creando una (SPA) fácil de mantener
-gracias a las componentes y características reactivas
-del framework.
+Mientras que en el lado del cliente se hace uso
+del framework Quasar, que se basa en Vue.js, creando una
+single-page application (SPA) o aplicación de página única.
+A continuación se profundiza en el modelo 
+y herramientas utilizadas.
 
+\subsection{Modelo cliente-servidor}
+El modelo cliente-servidor es uno de los más populares en
+el mundo de la informática actual, es utilizado para el 
+desarrollo de todo tipo de aplicaciones, incluso muchos 
+de los protocolos utilizados a diario implementan este modelo,
+tales como File Transfer Protocol (FTP), Simple Mail Transfer Protocol
+(SMTP) y Hypertext Transfer Protocol (HTTP).
+
+El modelo cliente-servidor puede ser definido como una arquitectura
+de software compuesta por los proveedores de un recurso o servicio, 
+denominados servidores, y los solicitantes del servicio, denominados
+clientes. En este modelo se realiza una comunicación de procesos
+que implica el intercambio de datos tanto por parte del cliente 
+como del servidor, realizando cada uno funciones diferentes. La comunicación
+se realiza frecuentemente a través de una red informática, pero 
+tanto el cliente como el servidor pueden residir en un mismo sistema.
+
+Entre las principales ventajas que ofrece este modelo se encuentran:
+
+\begin{itemize}
+    \item centralización de los recursos, los accesos y la integridad de los datos son controlados por el servidor de forma que un programa cliente defectuoso o no autorizado no pueda dañar el sistema.
+    \item divide el procesamiento de la aplicación en varios dispositivos.
+    \item permite la escalabilidad del sistema, en cualquier momento se puede mejorar la capacidad de procesamiento
+\end{itemize}
+ 
+
+
+\subsection{Backend}
+\subsection{Frontend}
