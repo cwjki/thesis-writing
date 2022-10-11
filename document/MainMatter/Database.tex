@@ -3,16 +3,73 @@ El desarrollo de la informática y la computación ha permitido
 el almacenamiento de grandes cantidades de datos en espacios 
 físicos limitados. Actualmente los sistemas de bases de datos juegan
 un papel fundamental en el desarrollo de todo tipo de sistemas computacionales.
-Un correcto diseño de la base de datos es esencial para garantizar 
-la consistencia de la información, eliminar datos redundantes,
-ejecutar consultas de manera eficiente y mejorar el 
-rendimiento de la base de datos.
+
+El diseño de base de datos es un proceso fundamental a la hora 
+de modelar el conjunto de datos y las operaciones que se deseen
+realizar sobre ellos. Un correcto diseño de la base de datos
+es esencial para garantizar la consistencia de la información,
+eliminar datos redundantes, ejecutar consultas de manera 
+eficiente y mejorar el rendimiento de la base de datos [REF LIBRO]. 
+
+\subsection{Metodología de diseño de bases de datos}
+La complejidad de la información y la cantidad de requisitos que se 
+deseen modelar en un sistema computacional hacen que el diseño de una 
+base de datos no sea una tarea sencilla. Por tanto es común es común 
+descomponer el proceso de diseño en tres etapas fundamentales: diseño conceptual,
+diseño lógico y diseño físico. 
+
+\paragraph{Diseño conceptual:}
+En esta fase se obtiene como resultado una representación 
+abstracta y de alto nivel de la realidad a partir de las 
+especificaciones de requisitos de usuario [REF libro]. Este 
+proceso comienza con la identificación de las necesidades de los 
+usuarios, que a menudo se pueden obtener a través de: examinar
+la documentación existente como formularios [REF COBOL], observando y
+analizando el procesamiento de la información en el proceso que 
+se desea modelar o mediante entrevistas a los usuarios finales.
+El objetivo del diseño conceptual es describir el contenido de 
+información de la base de datos, mediante un esquema conceptual de
+la base de datos [REF LIBRO U OTRO] que es independiente del SGBD
+que se utilice para manipular la base de datos.
+Los programadores o diseñadores utilizan modelos conceptuales de datos 
+para la construcción de esquemas. El modelo entidad-relación es uno 
+de los más utilizados para el diseño conceptual de bases de datos. Fue 
+introducido por Peter Chen en 1976 [REF], y está formado por 
+un conjunto de conceptos que permiten describir la realidad mediante 
+representaciones gráficas y lingüísticas. La metodología utilizada 
+para el desarrollo del modelo conceptual de datos para la modelación 
+de los procesos de asignación de docencia y confección de tribunales de 
+tesis fue la metodología genérica MER/XX [REF], que se basa en un enfoque
+híbrido entre el modelo entidad/relacional extendido y los conceptos de la 
+modelación orientada a objetos [REF LIBRO]. 
+
+
+\paragraph{Diseño lógico:}
+Es el proceso de transformar el esquema conceptual del dominio de la aplicación
+que se obtiene en la fase anterior,
+en un esquema para el modelo de datos subyacente a un SGBD particular.
+Existen diferentes modelos matemáticos utilizados para el diseño lógico
+de las bases de datos, tales como: el modelo de listas invertidas[REF], el modelo 
+jerárquico[REF], el modelo de redes[REF] y el modelo relacional[REF]. 
+El resultado de esta fase consiste en una descripción de las estructuras 
+de datos utilizadas para almacenar la base de datos[REF LIBRO], que se 
+ajuste al modelo que utilice el SGBD. Esto quiere decir que,
+si el modelo conceptual es expresado como un modelo 
+entidad-relación y el modelo lógico utilizado en el SGBD es el modelo 
+relacional, entonces las entidades, relaciones y los atributos del modelo entidad-relación
+deben representarse como relaciones[REF]. 
+
+
+% El objetivo del diseño de bases de datos lógicas es crear 
+% tablas bien estructuradas que reflejen adecuadamente el 
+% entorno empresarial de la empresa.
+
+\paragraph{Diseño físico:} A \\
 
 Para la implementación del sistema de gestión es necesario el almacenamiento
 y procesamiento de los datos que intervienen en los procesos de asignación de 
 docencia y confección de tribunales de tesis. A continuación se brinda una 
 descripción de cómo se modelaron estos procesos.
-
 
 % Para el almacenamiento de los datos hizo uso de SQLite 3
 % como sistema de gestión de bases de datos relacionales,
@@ -21,6 +78,12 @@ descripción de cómo se modelaron estos procesos.
 \section{Modelación de la asignación de docencia}
 Para la modelación de este proceso se crearon las 
 siguientes entidades:
+
+Primeramente se modelaron las entidades básicas que intervienen 
+en el proceso de la asignación de docencia. 
+
+
+
 
 \subparagraph{Professor:}
 Agrupa los datos asociados a los profesores, 
