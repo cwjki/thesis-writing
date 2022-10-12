@@ -11,22 +11,24 @@ es esencial para garantizar la consistencia de la información,
 eliminar datos redundantes, ejecutar consultas de manera 
 eficiente y mejorar el rendimiento de la base de datos [REF LIBRO]. 
 
-\subsection{Metodología de diseño de bases de datos}
+\section{Metodología de diseño de bases de datos}
 La complejidad de la información y la cantidad de requisitos que se 
 deseen modelar en un sistema computacional hacen que el diseño de una 
 base de datos no sea una tarea sencilla. Por tanto es común es común 
 descomponer el proceso de diseño en tres etapas fundamentales: diseño conceptual,
 diseño lógico y diseño físico. 
 
-\paragraph{Diseño conceptual:}
+
+\subsection{Diseño conceptual}
 En esta fase se obtiene como resultado una representación 
 abstracta y de alto nivel de la realidad a partir de las 
-especificaciones de requisitos de usuario [REF libro]. Este 
-proceso comienza con la identificación de las necesidades de los 
+especificaciones de requisitos de usuario [REF libro]. El diseño
+conceptual comienza con la identificación de las necesidades de los 
 usuarios, que a menudo se pueden obtener a través de: examinar
 la documentación existente como formularios [REF COBOL], observando y
 analizando el procesamiento de la información en el proceso que 
 se desea modelar o mediante entrevistas a los usuarios finales.
+
 El objetivo del diseño conceptual es describir el contenido de 
 información de la base de datos, mediante un esquema conceptual de
 la base de datos [REF LIBRO U OTRO] que es independiente del SGBD
@@ -36,21 +38,50 @@ para la construcción de esquemas. El modelo entidad-relación es uno
 de los más utilizados para el diseño conceptual de bases de datos. Fue 
 introducido por Peter Chen en 1976 [REF], y está formado por 
 un conjunto de conceptos que permiten describir la realidad mediante 
-representaciones gráficas y lingüísticas. La metodología utilizada 
+representaciones gráficas y lingüísticas.
+
+La metodología utilizada 
 para el desarrollo del modelo conceptual de datos para la modelación 
 de los procesos de asignación de docencia y confección de tribunales de 
 tesis fue la metodología genérica MER/XX [REF], que se basa en un enfoque
 híbrido entre el modelo entidad/relacional extendido y los conceptos de la 
 modelación orientada a objetos [REF LIBRO]. 
 
+El modelo entidad-relación extendido describe con un alto nivel de abstracción
+el significado de los datos, las relaciones entre ellos y las reglas de negocio 
+de un sistema de información. Sus dos elementos principales son las entidades y 
+las relaciones, además existen extensiones al modelo básico 
+como atributos de las entidades o cardinalidades de las relaciones, 
+que aportan al modelo una mayor expresividad.
 
-\paragraph{Diseño lógico:}
+
+\textbf{Hablar del concepto de entidad, relacion, atributos....}
+
+\textbf{Descripción del modelo conceptual para asignación de docencia y 
+tribunales de tesis.}
+
+
+\subsection{Diseño lógico}
 Es el proceso de transformar el esquema conceptual del dominio de la aplicación
 que se obtiene en la fase anterior,
 en un esquema para el modelo de datos subyacente a un SGBD particular.
 Existen diferentes modelos matemáticos utilizados para el diseño lógico
 de las bases de datos, tales como: el modelo de listas invertidas[REF], el modelo 
 jerárquico[REF], el modelo de redes[REF] y el modelo relacional[REF]. 
+
+El modelo relacional fue propuesto por Edgar Frank Codd en 1970. Es un 
+modelo que se basa en la lógica de predicados y en la teoría 
+de conjuntos, donde todos los datos se representan en términos de tuplas, 
+agrupados en relaciones.
+
+El modelo relacional fue el primer modelo de base de datos que se describió en términos 
+matemáticos formales. A pesar de que existen  
+implementaciones del modelo de base de datos relacional como lo definió originalmente 
+Codd, no han tenido éxito popular hasta el momento. No obstante al modelo relacional se le 
+atribuye un gran valor por su desarrollo teórico, que ha sido fundamento de muchos de los 
+sistemas de gestión de bases de datos relacionales que se utilizan hoy en la actualidad, como:
+MySQL, Oracle, SQL Server, PostgreSQL y Microsoft Access. 
+
 El resultado de esta fase consiste en una descripción de las estructuras 
 de datos utilizadas para almacenar la base de datos[REF LIBRO], que se 
 ajuste al modelo que utilice el SGBD. Esto quiere decir que,
@@ -64,16 +95,43 @@ deben representarse como relaciones[REF].
 % tablas bien estructuradas que reflejen adecuadamente el 
 % entorno empresarial de la empresa.
 
-\paragraph{Diseño físico:} A \\
+\subsection{Diseño físico}
+En esta etapa se transforma la estructura obtenida en la etapa del diseño
+lógico, con el objetivo de conseguir mayor eficiencia. Es necesario
+evaluar los aspectos de implementación física relacionados al SGBD que se utilice.
+Por ejemplo: si se trabaja con una base de datos relacional, la 
+transformación de la estructura puede consistir en crear una nueva relación que 
+sea la combinación de varias relaciones o separar una relación en varias relaciones o 
+añadir algún atributo calculable a una relación. \\
+
+
+
+
+% Para el almacenamiento de los datos hizo uso de SQLite 3
+% como sistema de gestión de bases de datos relacionales,
+% el cual viene integrada en Django por defecto.
+
+\section{Correcto diseño de bases de datos relacionales}
+
+El diseño de una base de datos mediante el enfoque relacional, es una 
+tarea no determinista, es posible obtener distintos esquemas relacionales 
+como propuestas de la base de datos.
+Si el diseño de una base de datos no responde apropiadamente a las exigencias
+del proceso que se modela, puede conllevar a la generación de dificultades o 
+errores en el acceso a los datos. Entre los principales errores que se obtienen 
+a partir de un diseño incorrecto de la base de datos se encuentran:
+
+\begin{itemize}
+    \item \textbf{Existencia de redundancia en los datos}, que provoca un aumento innecesario 
+    del tamaño de la base de datos, disminuyendo la eficiencia, además puede provocar 
+    inconsistencia de los datos que puede conducir a la corrupción de los mismos. 
+\end{itemize}
+
 
 Para la implementación del sistema de gestión es necesario el almacenamiento
 y procesamiento de los datos que intervienen en los procesos de asignación de 
 docencia y confección de tribunales de tesis. A continuación se brinda una 
 descripción de cómo se modelaron estos procesos.
-
-% Para el almacenamiento de los datos hizo uso de SQLite 3
-% como sistema de gestión de bases de datos relacionales,
-% el cual viene integrada en Django por defecto.
 
 \section{Modelación de la asignación de docencia}
 Para la modelación de este proceso se crearon las 
