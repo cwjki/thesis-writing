@@ -55,11 +55,6 @@ como atributos de las entidades o cardinalidades de las relaciones,
 que aportan al modelo una mayor expresividad.
 
 
-\textbf{Hablar del concepto de entidad, relacion, atributos....}
-
-\textbf{Descripción del modelo conceptual para asignación de docencia y 
-tribunales de tesis.}
-
 
 \subsection{Diseño lógico}
 Es el proceso de transformar el esquema conceptual del dominio de la aplicación
@@ -116,16 +111,59 @@ añadir algún atributo calculable a una relación. \\
 El diseño de una base de datos mediante el enfoque relacional, es una 
 tarea no determinista, es posible obtener distintos esquemas relacionales 
 como propuestas de la base de datos.
-Si el diseño de una base de datos no responde apropiadamente a las exigencias
-del proceso que se modela, puede conllevar a la generación de dificultades o 
-errores en el acceso a los datos. Entre los principales errores que se obtienen 
-a partir de un diseño incorrecto de la base de datos se encuentran:
+Un diseño incorrecto de una base de datos puede no responder apropiadamente a las exigencias
+del proceso que se modela, y puede conllevar a la generación de dificultades o 
+errores en el acceso a los datos. Entre los principales errores o dificultades que se pueden generar
+se encuentran:
 
 \begin{itemize}
-    \item \textbf{Existencia de redundancia en los datos}, que provoca un aumento innecesario 
+    \item \textbf{Redundancia en los datos}, provoca un aumento innecesario 
     del tamaño de la base de datos, disminuyendo la eficiencia, además puede provocar 
     inconsistencia de los datos que puede conducir a la corrupción de los mismos. 
+    \item \textbf{Violación de la integridad de los datos}, el término ``integridad de los datos'' se 
+    refiere a la correctitud y completitud de la información en una base de datos. Cuando los datos son 
+    modificados con sentencias INSERT, DELETE o UPDATE la integridad de los datos puede comprometerse.
 \end{itemize}
+
+\cite{bib1}
+
+Para lograr un correcto diseño de la base de datos se recomienda aplicar un método formal de 
+análisis a cada uno de los esquemas obtenidos intuitivamente durante la fase de diseño conceptual, 
+que se conoce como proceso de normalización.
+
+\subsection{Normalización}
+La normalización de una base de datos es un proceso que consiste 
+en aplicar una serie de reglas a las relaciones obtenidas 
+tras el paso del modelo entidad-relación (diseño conceptual) al modelo 
+relacional (diseño lógico), con el objetivo de minimizar la redundancia de datos [REF WIKI].
+Cada regla se denomina una ``forma normal'', si se cumple la primera regla, se dice que 
+la base de datos está en ``primera forma normal'', si se cumplen las tres 
+primeras reglas se dice que la base de datos está en ``tercera forma normal''. El proceso de 
+normalización se puede caracterizar como la transformación sucesiva de una colección de 
+relaciones hacia una forma más restrictiva, de modo que mientrás mas profundo sea el nivel 
+de normalización menor será la redundancia que albergue la base de datos [REF LIBRO pag 129].
+A continuación se introducen las definiciones de las reglas formales:
+
+\begin{itemize}
+    \item \textbf{Primera Forma Normal (1FN)}: una relación está en 1FN si y solo si, para 
+    cada ocurrencia de la relación, toda tupla contiene exactamente un valor del dominio subyacente en
+    cada atributo.
+    \item \textbf{Segunda Forma Normal (2FN)}: una relación está en 2FN si, además de estar en 
+    1FN, todos los atributos que no forman parte de alguna llave candidata constituyen información 
+    acerca de la(s) llave(s) completa(s) y no de algún subconjunto de ella(s).
+    \item \textbf{Tercera Forma Normal (3FN)}: una relación está en 3FN si, además de estar en 2FN,
+    los atributos que no forman parte de alguna llave candidata constituyen información solo acerca
+    de la(s) llave(s) y no acerca de otros atributos.
+\end{itemize}
+
+
+Aunque existen otros niveles de normalización como la ``Forma Normal de Boyce-Codd (BCFN)'',
+la ``Cuarta Forma Normal(4FN)'' y la ``Quinta Forma Normal (5FN)'',
+se considera que una base de datos en 3FN presenta niveles nulos o 
+admisibles de redundancia en los datos[REF Microsoft].
+
+
+
 
 
 Para la implementación del sistema de gestión es necesario el almacenamiento
