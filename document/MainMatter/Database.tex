@@ -281,14 +281,12 @@ Representa los tipos de actividades que se imparten en una asignatura,
 tales como: conferencias, clases prácticas, seminarios, laboratorios, otros. 
 
 \subparagraph{PLANIFICACIÓN DE ASIGNATURA:}
-Para la modelación de la asignación de docencia, 
-se crea el concepto de PLANIFICACIÓN DE ASIGNATURA, que representa
-la agregación de las entidades ASIGNATURA, ACTIVIDAD DE CLASE, GRUPO 
-ESCOLAR y PERÍODO DE TIEMPO. Esta entidad separa una asignatura según 
-las actividades de clases a impartir ( conferencia, clases 
-prácticas, seminarios, laboratorios, otras ), en un período de tiempo y para
-un grupo escolar específico. Los campos cantidad de horas y cantidad de grupos 
-fueron modelados como atributos.
+Se crea con el objetivo de modelar la separación de una asignatura
+según las actividades de clases a impartir, en un período de tiempo y para
+un grupo escolar específico. Está compuesta por la agregación de las entidades ASIGNATURA, ACTIVIDAD DE CLASE, GRUPO 
+ESCOLAR y PERÍODO DE TIEMPO.
+Se agregan los atributos cantidad de horas para el tipo de actividad a realizar y 
+la cantidad de grupos.
 Por ejemplo (poner ejemplo real de una asignatura
 con distintas act de clase y como queda la separación)
 
@@ -310,38 +308,57 @@ con distintas act de clase y como queda la separación)
 
 
 \subparagraph{ASIGNACIÓN DE DOCENCIA:}
-Como su nombre indica, en esta entidad se representa la asignación de docencia,
-se relaciona un PROFESOR con una PLANIFICACIÓN DE ASIGNATURA y el porciento correspondiete a 
-blah blah.
+Representa las asignaciones de planificaciones de asignaturas a profesores.
+Además se agrega un atributo porciento que indica el porcentaje del total de horas 
+a impartir que asume el profesor asignado. Un profesor puede 
+tener asignada cero o muchas planificaciones de asignaturas y una planificación de 
+asignatura puede estar asignada a uno o muchos profesores.
 
 
 \subparagraph{DESCRIPCIÓN DE CURSO:}
-Entidad creada con el fin de representar
-el grupo escolar vigente en el curso actual, es la 
-agrupación de un GRUPO ESCOLAR, en el PERÍODO DE TIEMPO 
-ACTUAL, con su respetivo PLAN DE ESTUDIO Y el semestre de la 
-carrera en el que se encuentra el grupo. Por ejemplo, 
-una DESCRIPCIÓN DE CURSO puede ser 
-que el grupo C3 (Computación tercer año), con el plan de 
-estudio E, en el PERÍODO DE T es el que esta vigente en el semestre actual.
+Representa el grupo escolar vigente en el curso actual. Está 
+compuesta por la agregación de las entidades GRUPO ESCOLAR,
+PERÍODO DE TIEMPO, PLAN DE ESTUDIO y SEMESTRE.  
+Por ejemplo, una DESCRIPCIÓN DE CURSO puede ser 
+que el grupo escolar C4 (Computación de cuarto año), con plan de
+estudio E, se encuentra en el semestre 8,  en el período de tiempo septiembre-diciembre.
 
 
 
 
-
-
-Los campos carrera, facultad, departamento, plan de 
-estudio, grado científico, categoría docente, tipo de 
-clase, semestre, período de tiempo y grupo escolar fueron
-modelados como nomencladores en las entidades Career,
-Faculty, Department, StudyPlan, ScientificDegree, 
-TeachingCategory, ClassType, Semester, TimePeriod y 
-TeachingGroup respectivamente.
 
 
 \section{Modelación de los tribunales de tesis}
-Para la modelación de este proceso se crearon las 
-siguientes entidades:
+Para la modelación del proceso de confección de los tribunales de tesis,
+se crea un esquema basado en el modelo entidad-relacional extendido como en el 
+proceso anterior. 
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.29]{Graphics/Database/MERXX-TC-FINAL.jpg}
+\end{figure}
+
+
+\subparagraph{TESIS:}
+Agrupa los datos asociados a una tesis.
+El título de la tesis y el autor se modelan como atributos mientras que
+el tutor, los cotutores y las palabras claves se modelan con relaciones con 
+las entidades PROFESOR (tutor y cotutores) y PALABRAS CLAVES.
+Una tesis tiene un único tutor, puede tener cero o muchos cotutores y tiene 
+una o muchas palabras claves. 
+
+\subparagraph{PALABRAS CLAVES:}
+\subparagraph{TRIBUNAL DE TESIS:}
+\subparagraph{DEFENSA DE TESIS:}
+\subparagraph{LUGAR:}
+
+
+
+
+\subparagraph{PROFESOR:}
+Se utiliza la misma entidad creada en el proceso de asignación de docencia.
+
+
 
 \subparagraph{Thesis:}
 Agrupa los datos asociados a una tesis, tales son:
