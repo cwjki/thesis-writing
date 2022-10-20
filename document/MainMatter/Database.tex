@@ -9,7 +9,7 @@ de modelar el conjunto de datos y las operaciones que se deseen
 realizar sobre ellos. Un correcto diseño de la base de datos
 es esencial para garantizar la consistencia de la información,
 eliminar datos redundantes, ejecutar consultas de manera 
-eficiente y mejorar el rendimiento de la base de datos [REF LIBRO]. 
+eficiente y mejorar el rendimiento de la base de datos [\cite{db_book_cap2}]. 
 
 \section{Metodología de diseño de bases de datos}
 La complejidad de la información y la cantidad de requisitos que se 
@@ -25,13 +25,13 @@ abstracta y de alto nivel de la realidad a partir de las
 especificaciones de requisitos de usuario [REF libro]. El diseño
 conceptual comienza con la identificación de las necesidades de los 
 usuarios, que a menudo se pueden obtener a través de: examinar
-la documentación existente como formularios [REF COBOL], observando y
+la documentación existente como formularios, observando y
 analizando el procesamiento de la información en el proceso que 
-se desea modelar o mediante entrevistas a los usuarios finales.
+se desea modelar o mediante entrevistas a los usuarios finales [\cite{db_requirement_analysis}].
 
 El objetivo del diseño conceptual es describir el contenido de 
 información de la base de datos, mediante un esquema conceptual de
-la base de datos [REF LIBRO U OTRO] que es independiente del SGBD
+la base de datos [\cite{db_book_cap3}], que es independiente del SGBD
 que se utilice para manipular la base de datos.
 Los programadores o diseñadores utilizan modelos conceptuales de datos 
 para la construcción de esquemas. El modelo entidad-relación es uno 
@@ -43,9 +43,9 @@ representaciones gráficas y lingüísticas.
 La metodología utilizada 
 para el desarrollo del modelo conceptual de datos para la modelación 
 de los procesos de asignación de docencia y confección de tribunales de 
-tesis fue la metodología genérica MER/XX [REF], que se basa en un enfoque
+tesis fue la metodología genérica MER/XX, que se basa en un enfoque
 híbrido entre el modelo entidad/relacional extendido y los conceptos de la 
-modelación orientada a objetos [REF LIBRO]. 
+modelación orientada a objetos [\cite{db_book_cap2}]. 
 
 El modelo entidad-relación extendido describe con un alto nivel de abstracción
 el significado de los datos, las relaciones entre ellos y las reglas de negocio 
@@ -78,12 +78,14 @@ sistemas de gestión de bases de datos relacionales que se utilizan hoy en la ac
 MySQL, Oracle, SQL Server, PostgreSQL y Microsoft Access. 
 
 El resultado de esta fase consiste en una descripción de las estructuras 
-de datos utilizadas para almacenar la base de datos[REF LIBRO], que se 
+de datos utilizadas para almacenar la base de datos[\cite{db_book_cap3}], que se 
 ajuste al modelo que utilice el SGBD. Esto quiere decir que,
 si el modelo conceptual es expresado como un modelo 
 entidad-relación y el modelo lógico utilizado en el SGBD es el modelo 
 relacional, entonces las entidades, relaciones y los atributos del modelo entidad-relación
-deben representarse como relaciones[REF]. 
+deben representarse como relaciones. 
+
+NOTA: ACLARAR el concepto de relación en el modelo relacional
 
 
 % El objetivo del diseño de bases de datos lógicas es crear 
@@ -125,7 +127,7 @@ se encuentran:
     modificados con sentencias INSERT, DELETE o UPDATE la integridad de los datos puede comprometerse.
 \end{itemize}
 
-\cite{bib1}
+
 
 Para lograr un correcto diseño de la base de datos se recomienda aplicar un método formal de 
 análisis a cada uno de los esquemas obtenidos intuitivamente durante la fase de diseño conceptual, 
@@ -135,13 +137,13 @@ que se conoce como proceso de normalización.
 La normalización de una base de datos es un proceso que consiste 
 en aplicar una serie de reglas a las relaciones obtenidas 
 tras el paso del modelo entidad-relación (diseño conceptual) al modelo 
-relacional (diseño lógico), con el objetivo de minimizar la redundancia de datos [REF WIKI].
+relacional (diseño lógico), con el objetivo de minimizar la redundancia de datos.
 Cada regla se denomina una ``forma normal'', si se cumple la primera regla, se dice que 
 la base de datos está en ``primera forma normal'', si se cumplen las tres 
 primeras reglas se dice que la base de datos está en ``tercera forma normal''. El proceso de 
 normalización se puede caracterizar como la transformación sucesiva de una colección de 
 relaciones hacia una forma más restrictiva, de modo que mientrás mas profundo sea el nivel 
-de normalización menor será la redundancia que albergue la base de datos [REF LIBRO pag 129].
+de normalización menor será la redundancia que albergue la base de datos [\cite{db_book_cap4}].
 A continuación se introducen las definiciones de las reglas formales:
 
 \begin{itemize}
@@ -160,59 +162,136 @@ A continuación se introducen las definiciones de las reglas formales:
 Aunque existen otros niveles de normalización como la ``Forma Normal de Boyce-Codd (BCFN)'',
 la ``Cuarta Forma Normal(4FN)'' y la ``Quinta Forma Normal (5FN)'',
 se considera que una base de datos en 3FN presenta niveles nulos o 
-admisibles de redundancia en los datos[REF Microsoft].
+admisibles de redundancia en los datos[\cite{ws_3FN}].
 
 
 
 
 
-Para la implementación del sistema de gestión es necesario el almacenamiento
-y procesamiento de los datos que intervienen en los procesos de asignación de 
-docencia y confección de tribunales de tesis. A continuación se brinda una 
-descripción de cómo se modelaron estos procesos.
+% Para la implementación del sistema de gestión es necesario el almacenamiento
+% y procesamiento de los datos que intervienen en los procesos de asignación de 
+% docencia y confección de tribunales de tesis. A continuación se brinda una 
+% descripción de cómo se modelaron estos procesos.
 
 \section{Modelación de la asignación de docencia}
-Para la modelación de este proceso se crearon las 
-siguientes entidades:
+En la fase de diseño conceptual se modelaron las entidades fundamentales
+que intervienen en el proceso de la asignación de docencia, 
+así como las interrelaciones que se establecen entre ellas
+y se obtuvo el siguiente
+esquema a partir del modelo entidad-relación extendido.
 
-Primeramente se modelaron las entidades básicas que intervienen 
-en el proceso de la asignación de docencia. 
+\begin{figure}[H]
+    \includegraphics[scale=0.2]{Graphics/Database/MERXX-TA-FINAL.png}
+\end{figure}
+
+
+Con el objetivo de simplificar la representación del modelo entidad-relación
+no se agregaron a la imagen los atributos correspondientes a cada entidad, por lo 
+que a continuación se describen las entidades en mayor profundidad.
+
+
+\subparagraph{FACULTAD:}
+Representa las facultades de la Universidad de La Habana.
+El nombre de la facultad se modela como un atributo, mientras que 
+las carreras que se estudian en la facultad y los departamentos que pertenecen 
+a ella, se modelan como relaciones con las entidades CARRERA y DEPARTAMENTO, respectivamente.
+Una facultad tiene uno o muchos departamentos, y en 
+una facultad se pueden estudiar una o más carreras.
+
+\subparagraph{CARRERA:}
+Representa las carreras que se estudian en la Universidad de La Habana.
+El nombre de la carrera se modela como un atributo, mientras que la facultad a la que pertenece la carrera y
+las asignaturas que se imparten en ella, se modelan como relaciones con las entidades FACULTAD y
+ASIGNATURA, respectivamente. 
+Una carrera pertenece a una única facultad y en una carrera se imparten una o muchas asignaturas.
+
+\subparagraph{DEPARTAMENTO:}
+Representa los departamentos de una facultad de la Universidad de La Habana.
+El nombre del departamento se modela como un atributo, mientras que los profesores que 
+pertenecen a un departamento, las asignatura que son atendidas por el departamento y la 
+facultad a la que pertenece el departamento, se modelan como relaciones con las entidades 
+PROFESOR, FACULTAD y ASIGNATURA, respectivamente. Un departamento pertenece a una única facultad,
+un departamento atiende una o muchas asignaturas y a un departamento pertenecen uno o muchos 
+profesores.
+
+\subparagraph{PROFESOR:}
+Agrupa los datos asociados a los profesores.
+Los campos nombre y apellidos fueron modelados como atributos,  
+mientras que, la categoría docente, el grado 
+científico de un profesor y el departamento al que pertenece, fueron modelados como 
+relaciones con las entidades CATEGORÍA DOCENTE, GRADO CIENTÍFICO y 
+DEPARTAMENTO, respectivamente. Un profesor pertenece a un único departamento y puede tener solo 
+un grado científico y una categoría docente. 
+
+
+\subparagraph{CATEGORÍA DOCENTE:}
+\subparagraph{GRADO CIENTÍFICO:}
+
+
+\subparagraph{ASIGNATURA:}
+Agrupa los datos asociados a las asignaturas.
+Los campos nombre de la asignatura y cantidad de horas 
+totales a impartir, fueron modelados como atributos, mientras que
+el plan de estudio asociado a la asignatura, el semestre en el que se 
+imparte, el departamento responsable de la asignatura y la carrera a la 
+que pertenece, fueron modelados como relaciones con las entidades
+PLAN DE ESTUDIO, SEMESTRE, DEPARTAMENTO y CARRERA respectivamente. Una asignatura 
+es atendida por un único departamento, pertenece a una única carrera, se imparte en un 
+único semestre y tiene un único plan de estudio. Las asignaturas que se imparten de forma 
+anual son representadas como dos asignaturas independientes.
 
 
 
 
-\subparagraph{Professor:}
-Agrupa los datos asociados a los profesores, 
-tales como: nombre, apellidos, categoría docente, grado 
-científico y departamento al que pertenece.
+\subparagraph{PLANIFICACIÓN DE ASIGNATURA:}
+Para la modelación de la asignación de docencia, 
+se crea el concepto de PLANIFICACIÓN DE ASIGNATURA, que representa
+la agregación de las entidades ASIGNATURA, ACTIVIDAD DE CLASE, GRUPO 
+ESCOLAR y PERÍODO DE TIEMPO. Esta entidad separa una asignatura según 
+las actividades de clases a impartir ( conferencia, clases 
+prácticas, seminarios, laboratorios, otras ), en un período de tiempo y para
+un grupo escolar específico. Los campos cantidad de horas y cantidad de grupos 
+fueron modelados como atributos.
+Por ejemplo (poner ejemplo real de una asignatura
+con distintas act de clase y como queda la separación)
 
-\subparagraph{Subject:}
-Agrupa los datos asociados a las asignaturas,
-tales como: nombre, departamento responsable de impartir
-la asignatura, plan de estudio, semestre en el que se 
-imparte, cantidad de horas totales y carrera a la que 
-pertenece.
 
-\subparagraph{CarmenTable:}
+
+% Entidad creada con el objetivo de separar las distintas actividades 
+% que se imparten en una asignatura ( conferencia, clases 
+% prácticas, seminarios, laboratorios, otras )  para
+% realizar la asignación de docencia. Cuenta con una ASIGNATURA,
+% en un PERÍODO DE TIEMPO, con el tipo de ACTIVIDAD DE CLASE y 
+% el GRUPO ESCOLAR correspondiente. Por ejemplo, una planificación de
+% asignatura pudiera ser (Poner ejemplo real). 
+% se hace necesaria 
+% la separación de una ASIGNATURA en más de una instancia para representar 
+% el tipo de actividad de clase ( conferencia, clases 
+% prácticas, seminarios, laboratorios, otras ), que va a recibir un 
+% grupo escolar, en un período de tiempo.
+
+
+
+\subparagraph{ASIGNACIÓN DE DOCENCIA:}
+Como su nombre indica, en esta entidad se representa la asignación de docencia,
+se relaciona un PROFESOR con una PLANIFICACIÓN DE ASIGNATURA y el porciento correspondiete a 
+blah blah.
+
+
+\subparagraph{DESCRIPCIÓN DE CURSO:}
 Entidad creada con el fin de representar
-el grupo escolar vigente en el año actual, cuenta con un
-'TeachingGroup', semestre actual, período de tiempo y 
-plan de estudio correspondiente. Por ejemplo representa 
-que el grupo C3 (Computación tercer año) con el plan de 
-estudio E, es el que esta vigente en el semestre actual.
-
-\subparagraph{SubjectDescription:}
-Entidad necesaria para separar las distintas actividades 
-que se imparten en una asignatura ( conferencia, clases 
-prácticas, seminarios, laboratorios, otras ) con el fin 
-de poder realizar la asignación. Cuenta con una 'subject',
-un tipo de actividad, y el CarmenTable correspondiente.
+el grupo escolar vigente en el curso actual, es la 
+agrupación de un GRUPO ESCOLAR, en el PERÍODO DE TIEMPO 
+ACTUAL, con su respetivo PLAN DE ESTUDIO Y el semestre de la 
+carrera en el que se encuentra el grupo. Por ejemplo, 
+una DESCRIPCIÓN DE CURSO puede ser 
+que el grupo C3 (Computación tercer año), con el plan de 
+estudio E, en el PERÍODO DE T es el que esta vigente en el semestre actual.
 
 
-\subparagraph{TeachingAssignment:}
-Entidad que modela la asignación de docencia, posee un
-'Professor', una 'SubjectDescription' y
-el porciento correspondiente a blah.
+
+
+
 
 Los campos carrera, facultad, departamento, plan de 
 estudio, grado científico, categoría docente, tipo de 
@@ -240,3 +319,4 @@ secretario, presidente y oponente.
 
 Los campos lugar y palabras claves fueron modelados como
 nomencladores en las entidades 'Place' y 'Keyword'.
+
