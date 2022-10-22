@@ -341,36 +341,53 @@ proceso anterior.
 
 \subparagraph{TESIS:}
 Agrupa los datos asociados a una tesis.
-El título de la tesis y el autor se modelan como atributos mientras que
-el tutor, los cotutores y las palabras claves se modelan con relaciones con 
+El título de la tesis y el autor se modelan como atributos, mientras que
+el tutor, los cotutores y las palabras claves se modelan como relaciones con 
 las entidades PROFESOR (tutor y cotutores) y PALABRAS CLAVES.
 Una tesis tiene un único tutor, puede tener cero o muchos cotutores y tiene 
 una o muchas palabras claves. 
 
 \subparagraph{PALABRAS CLAVES:}
+Representa las palabras claves que describen el contenido de una tesis.
+El nombre o texto de las palabras claves se modela como un atributo. Una 
+palabra clave puede aparecer en una o muchas tesis. 
+
+
 \subparagraph{TRIBUNAL DE TESIS:}
+Representa el tribunal de la defensa de una tesis.
+Está compuesto por los miembros del tribunal: presidente, secretario y oponente, 
+y la tesis, campos que se modelan como relaciones con las entidades PROFESOR y TESIS, respectivamente.
+Un tribunal de tesis tiene una única tesis, un único presidente, un único secretario y 
+un único oponente.
+
+
 \subparagraph{DEFENSA DE TESIS:}
-\subparagraph{LUGAR:}
+Representa el acto de defensa de la tesis. 
+Está compuesta por un tribunal de tesis, en un local y una 
+fecha determinada. La fecha se modela como un atributo mientras que 
+el tribunal y el local se modelan como relaciones con las entidades TRIBUNAL DE 
+TESIS y LOCAL, respectivamente. Una defensa de tesis tiene un único tribunal de tesis,
+una única fecha y un único local.
 
 
+
+\subparagraph{LOCAL:}
+Representa el local donde se lleva a cabo la defensa de las tesis.
+El nombre del local se modela como un atributo. 
+En un local se puede realizar la defensa de cero o muchas tesis.
 
 
 \subparagraph{PROFESOR:}
 Se utiliza la misma entidad creada en el proceso de asignación de docencia.
+Un profesor puede tener el rol de presidente, secretario u oponente en cero o 
+muchos tribunales de tesis. Un profesor puede ser 
+tutor o cotutor de cero o muchas tesis. \\
 
 
+DESPUES DE LA MODELACION DE CADA PROCESO CREO Q DEBO HABLAR UN 
+POCO DEL PROCESO DE NORMALIZACION PARA ESOS ESQUEMAS, Y REVISAR SI 
+ESTAN EN 3FN... 
 
-\subparagraph{Thesis:}
-Agrupa los datos asociados a una tesis, tales son:
-título, estudiante, tutor, posibles cotutores y palabras
-claves.
+NO SE QUE MAS MENCIONAR EN ESTE CAPITULO.
 
-\subparagraph{ThesisCommittee:}
-Entidad que representa un tribunal de tesis, cuenta con 
-una 'Thesis', una fecha, un lugar y tres relaciones con 
-la entidad 'Professor' para los roles de
-secretario, presidente y oponente.
-
-Los campos lugar y palabras claves fueron modelados como
-nomencladores en las entidades 'Place' y 'Keyword'.
 
