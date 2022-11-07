@@ -1,79 +1,21 @@
 \chapter{Preliminares}\label{chapter:preliminaries}
-En este capítulo se presenta una breve introducción a los distintos 
-procesos que se llevan a cabo en la Facultad
+En este capítulo se presenta una introducción a los procesos que se llevan a cabo en la Facultad
 de Matemática y Computación de La Universidad de La Habana, así
-como una descripción de las herramientas utilizadas en la 
-solución brindada. 
+como una descripción de las herramientas utilizadas 
+en este trabajo. 
+
+En la sección \ref{section:funcionamiento de la facultad} se describe el funcionamiento 
+de la facultad y se  y en la mas cual.
 
 \section{Funcionamiento de la facultad}\label{section:funcionamiento de la facultad}
-En la facultad de Matemática y Computación de La Universidad de la 
-Habana (MATCOM) se estudian las carreras de Matemática y Ciencia de la Computación. 
-Cada carrera se rige por un plan de estudio, que es un programa estructurado
-donde se definen los contenidos que forman parte del currículo de los 
-graduados. En el plan de estudio de una carrera 
-se debe caracterizar la profesión, describir las principales funciones de un profesional y 
-los valores a desarrollar durante la carrera. 
-Se realiza una planificación de las distintas 
-disciplinas que se deben estudiar. Las disciplinas están compuestas por una o varias 
-asignaturas y en el plan de estudio se debe especificar la cantidad de horas clase de 
-cada asignatura, así como el año y semestre en el que se deben impartir.
-Cada cierto tiempo el plan de estudio de una carrera universitaria cambia, principalmente
-para mantener la formación de los profesionales actualizada con el desarrollo de la 
-sociedad. 
-
-Cada facultad cuenta con distintos departamentos, que se organizan a partir de disciplinas afines.
-En un departamento se realizan actividades de coordinación de docencia, investigación, asesoría y 
-tutoría de estudiantes. Los departamentos están formados (voz pasiva) por profesores
-y cuentan con un jefe de departamento. Los profesores que integran un departamento tienen 
-un grado científico (Licenciado, Máster, Doctor) y una categoría docente (Titular, Auxiliar, Asistente) .
-
-
-En MATCOM existen 4 departamentos: departamento de Matemática
-, departamento de Matemática Aplicada,
-departamento de Programación y Sistemas de Información y departamento de Inteligencia 
-Artificial y Sistemas Computacionales. Los departamentos de una 
-de una facultad pueden brindan servicios a otras facultades, por ejemplo el departamento de 
-Matemática Aplicada imparte en el segundo año de la carrera de Geografía la asignatura 
-Estadística.
-
-% El departamento de Matemática es responsable de la disciplina de Matemática Básica 
-% que abarca las áreas: Álgebra, Análisis Matemático y Ecuaciones Diferenciales Ordinarias.
-
-% El departamento de Matemática Aplicada abarca las áreas: Probabilidades y Estadística,
-% Matemática Numérica y Optimización correspondientes a la disciplina de Matemática Aplicada.
-
-% El departamento de Programación y Sistemas de Información.
-% El departamento de Computación 2.
-
-% que abarca las áreas del conocimiento 
-% matemático 
-
-
-% , Departamento de Matemática Aplicada abarca las áreas del conocimiento
-% matemático 
-% Aplicadas, 
-
-Actualmente en la carrera de Ciencia de la 
-Computación de la Facultad de Matemática 
-y Computación de La Universidad de La Habana, exiten tres planes de estudios 
-vigentes. En el año 2018 se actualizó el plan de estudio para los profesionales de la 
-carrera de Ciencia de la Computación, se creó el plan de estudio E, donde el total de años 
-de estudio de la carrera se redujo de 5 a 4. Los estudiantes que ingresaron en la facultad en 
-el curso 2017-2018 se encuentran en el quinto año de la carrera y se rigen por el plan D. 
-Además, en consecuencia a la situación epidemiológica que provocó la epidemia de COVID-19 
-fue necesaria la modificación del plan E para la reducción de asignaturas del currículo, creándose 
-el plan de estudio E (COVID).   
-
-
 
 
 Cada año en la Facultad de Matemática y Computación de La 
-Universidad de La Habana se realizan un conjunto de procesos de 
-planificación y administración relacionados con los cursos escolares.
-La ejecución de los procesos se lleva a cabo en los distintos
-departamentos de la facultad y en su mayoría, si no en su totalidad,
-se realizan actualmente de manera manual y no informatizada.
-A continuación se describen algunos de estos procesos.
+Universidad de La Habana se realizan procesos administrativos y de 
+planificación relacionados con los cursos escolares. A continuación se describen 
+algunos de estos procesos.
+
+
 
 \paragraph{Asignación de docencia:}
 Consiste en dadas las asignaturas a impartir en el semestre actual,
@@ -108,10 +50,144 @@ de los tribunales de acuerdo a los horarios asignados, además estos profesores
 deben tener conocimientos sobre los temas que se aborden en las tesis en que participen. \\
 
 
-Este trabajo se centra en los procesos de asignación de docencia y confección de tribunales
-de tesis pero tiene como objetivo el desarrollo de una herramienta informática que permita
-la integración del resto de los procesos que ocurren en un departamento de la 
-Facultad de Matemática y Computación de La Universidad de La Habana.
+Este trabajo tiene como objetivo el desarrollo de una herramienta informática que permita
+la integración de los procesos mencionados anteriormente, pero se centra en resolver
+primeramente la asignación de docencia y  la confección de tribunales
+de tesis.
+
+
+\subsection{Asignación de docencia}
+
+En la facultad de Matemática y Computación de La Universidad de la 
+Habana (MATCOM) se estudian las carreras de Matemática y Ciencia de la Computación. 
+Cada carrera se rige por un plan de estudio, que es un programa estructurado
+donde se definen los contenidos que forman parte del currículo de los 
+graduados. En el plan de estudio de una carrera 
+se debe caracterizar la profesión, describir las principales funciones de un profesional y 
+los valores a desarrollar durante la carrera. 
+Además determina la cantidad de horas clase de cada asignatura,
+así como el año y semestre en el que se deben impartir.
+Cada cierto tiempo el plan de estudio de una carrera universitaria cambia, principalmente
+para mantener la formación de los profesionales actualizada con el desarrollo de la 
+sociedad.
+
+Actualmente en la carrera de Ciencia de la 
+Computación de la Facultad de Matemática 
+y Computación de La Universidad de La Habana, exiten tres planes de estudios 
+vigentes. En el año 2018 se actualizó el plan de estudio para los profesionales de la 
+carrera de Ciencia de la Computación, se creó el plan de estudio E,
+donde se redujo la cantidad de años escolares de 5 a 4. Además, como consecuencia de la situación epidemiológica que provocó la COVID-19 
+fue necesaria la modificación del plan E para la reducción de asignaturas del currículo, creándose 
+el plan de estudio E (COVID). Por tanto los estudiantes que ingresaron en la facultad en 
+el curso 2017-2018, que se encuentran en el quinto año de la carrera, se rigen por el plan D, 
+los estudiantes que se encuentran en el primer y tercer año se rigen por el plan E y los 
+estudiantes que cursan el segundo año se rigen por el E(COVID).   
+
+
+% Se realiza una planificación de las distintas 
+% disciplinas que se deben estudiar. Las disciplinas están compuestas por una o varias 
+% asignaturas y en el plan de estudio se debe especificar la cantidad de horas clase de 
+% cada asignatura, 
+
+En MATCOM existen 4 departamentos: Matemática, Matemática Aplicada,
+Programación y Sistemas de Información e Inteligencia 
+Artificial y Sistemas Computacionales.
+En un departamento se realizan actividades de coordinación de docencia, investigación y 
+tutoría de estudiantes. Los departamentos están formados (voz pasiva) por profesores
+y cuentan con un jefe de departamento. Los profesores que integran un departamento tienen 
+un grado científico (Licenciado, Máster, Doctor) y una categoría docente (Titular, Auxiliar, Instructor, Asistente) .
+Los departamentos de una 
+de una facultad pueden brindan servicios a otras facultades, por ejemplo el departamento de 
+Matemática Aplicada imparte en el segundo año de la carrera de Geografía la asignatura 
+Estadística.
+
+
+La dirección de la facultad realiza la planificación de la docencia, que consiste 
+en determinar las asignaturas que se deben impartir en el semestre,
+así como la cantidad de grupos de conferencias, clases prácticas u otras 
+actividades de clase. Cada departamento recibe la planificación 
+correspondiente a las asignaturas de las cuales se ocupa.
+En la tabla \ref{tabla-planificación} se muestra un fragmento 
+de la planificación de docencia para el departamento de Matemática 
+Aplicada. La notación en la columna de los grupos n/m indica que exiten n 
+cantidad de grupos de conferencia y m cantidad de grupos de clases 
+prácticas.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{| c | c | c | c | c |}
+        \hline
+        \thead{Facultad}   & \thead{Año} & \thead{Asignatura} & \thead{Horas} & \thead{Grupos}  \\ \hline
+        MATCOM     & M3  & Optimización Matemática I  &  64   &  1/1   \\ 
+        MATCOM     & C3  & Modelos de Optimización I  &  64   &  1/2   \\ 
+        GEOGRAFÍA  & G2  & Estadística                &  80   &  1/2   \\ 
+        \hline
+    \end{tabular}
+    \caption{Fragmento de la planificación de docencia.}
+    \label{tabla-planificación}
+\end{table}
+
+
+
+
+La asignación de docencia en un departamento consiste en distribuir a los profesores
+para cumplir con la planificación de docencia. En la tabla \ref{tabla-asignación} se muestra 
+un fragmento de una posible asignación de docencia para la planificación de la 
+tabla \ref{tabla-planificación}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{Asignatura} & \thead{Horas} & \thead{Grupos} & \thead{Profesores}\\
+      \hline
+      Optimización Matemática I &  64  & 1/1 & \makecell{C: PT. Aymeeé Marrero (32) \\ CP: PT. Gemayqzel Bouza(32)} \\
+      \hline
+      Modelos de Optimización I   &  64   &  1/2 & \makecell{C: A. Marrero(16) \\ C: Pas. Fernando Rodríguez (16) \\ CP: Daniela González(32) \\ CP: Camila Pérez(32)}    \\ 
+      \hline
+      Estadística                 &  80   &  1/2 &  \makecell{C: Elianys García (48) \\1CP: Ernesto Borrego(32) \\ 1CP: Niorlys o Elianys (32)} \\  
+      \hline
+    \end{tabular}
+    \caption{Fragmento de la planificación de docencia.}
+    \label{tabla-asignación}
+\end{table}
+
+
+
+Cada asignatura tiene un total de horas que se deben impartir de acuerdo 
+al plan de estudio al que pertenezcan. La distribución del total de horas 
+en las distintos tipos de clases como conferencias, clases prácticas, seminarios, 
+laboratorios u otros, se maneja por el colectivo de profesores de la asignatura e incluso
+puede cambiar de un año a otro. Por ejemplo, para la asignatura Modelos de Optimización I del
+plan de estudio D para la carrera de Ciencia de la Computación, que 
+se imparte en el tercer año, se tiene un total de horas a impartir de 64,
+de esas, 32 horas son de conferencia y 32 horas son de clases prácticas.
+
+
+
+
+
+% El departamento de Matemática es responsable de la disciplina de Matemática Básica 
+% que abarca las áreas: Álgebra, Análisis Matemático y Ecuaciones Diferenciales Ordinarias.
+
+% El departamento de Matemática Aplicada abarca las áreas: Probabilidades y Estadística,
+% Matemática Numérica y Optimización correspondientes a la disciplina de Matemática Aplicada.
+
+% El departamento de Programación y Sistemas de Información.
+% El departamento de Computación 2.
+
+% que abarca las áreas del conocimiento 
+% matemático 
+
+
+% , Departamento de Matemática Aplicada abarca las áreas del conocimiento
+% matemático 
+% Aplicadas, 
+
+
+
+
+
 
 
 % A continuación se describen los procesos de asignación de docencia y 
@@ -119,11 +195,11 @@ Facultad de Matemática y Computación de La Universidad de La Habana.
 % a cabo en la Facultad de Matemática y Computación de La 
 % Universidad de La Habana:
 
-\subsection{Asignación de docencia}
-El proceso de asignación de docencia en un departamento consiste en, 
-dadas las asignaturas que se imparten en un semestre y el conjunto de 
-profesores del departamento, realizar una distribución que satisfaga los
-requerimientos de dichas asignaturas.
+
+% El proceso de asignación de docencia en un departamento consiste en, 
+% dadas las asignaturas que se imparten en un semestre y el conjunto de 
+% profesores del departamento, realizar una distribución que satisfaga los
+% requerimientos de dichas asignaturas.
 
 % contemplando la experiencia y 
 % las preferencias de los profesores.
@@ -154,15 +230,14 @@ requerimientos de dichas asignaturas.
 % Las asignaturas que se imparten en una carrera universitaria se distribuyen 
 % en los departamentos de la facultad, en ocasiones una facultad brinda servicio a otras facultades
 % para .  
-Cada asignatura tiene un total de horas que se deben impartir de acuerdo 
-al plan de estudio al que pertenezcan. La distribución del total de horas 
-en las distintos tipos de clases como conferencias, clases prácticas, seminarios, 
-laboratorios u otros, se maneja por el colectivo de profesores de la asignatura e incluso
-puede cambiar de un año a otro. Por ejemplo para la asignatura Modelos de Optimización I, perteneciente
-al plan de estudio D, para la carrera de Ciencia de la Computación que 
-se imparte en el tercer año, se tiene un total de horas a impartir de 64,
-de esas, 32 horas son de conferencia y 32 horas son de clases prácticas.
 
+
+TABLA EJEMPLO DE ASIGNACION DE DOCENCIA
+
+
+le llegan desde (direccion de la facultad) asignaturas y cantidad de grupos de conferencia y clase practicas 
+A los efectos del departamento se debe solo decidir que profesor 
+imparte cada asignatura. maneja la cant de profesores por act ect.
 
 
 
@@ -196,8 +271,7 @@ todo el proceso investigativo y posteriormente la exposición o defensa del mism
 un tribunal.
 
 El tribunal de tesis debe estar compuesto por tres profesores que asuman los roles de 
-secretario, presidente y oponente. Los profesores que integren el tribunal no pueden 
-ser tutores o cotutores de la tesis y deben tener 
+secretario, presidente y oponente. Los profesores deben tener 
 dominio acerca de los temas que se aborden en la investigación.
 
 Decir algo acerca de que este año solo seran presidente y oponente en el 
@@ -207,6 +281,7 @@ Debo hablar de que ser oponente es una carga mucho mayor.
 Debo hablar sobre los principales problemas de realizar esa tarea 
 de forma manual.
 
+planificar momento y lugar.
 
 % Para realizar la confección de un tribunal de tesis
 % se necesitan definir tres incógnitas fundamentales: el local,
@@ -224,195 +299,15 @@ de forma manual.
 
 
 
-
-\section{Descripción del software}
-Para la informatización de los procesos
-de asignación de docencia y confección de los tribunales de tesis
-se implementa 
-un sistema de gestión a través de una aplicación web,
-utilizando un modelo cliente-servidor [REF].
-Para el desarrollo en el lado del servidor se hace uso del framework Django [REF], en particular Django Rest Framework, aprovechando la
-versatilidad, seguridad, escalabilidad y mantenibilidad
-que el framework ofrece.
-Mientras que en el lado del cliente se hace uso
-del framework Quasar [REF], que se basa en Vue.js [REF], creando una
-single-page application (SPA) o aplicación de página única.
-A continuación se profundiza en el modelo 
-y herramientas utilizadas.
-
-\subsection{Modelo cliente-servidor}
-[VOLVER A REDACTAR ESTE PARRAFO]
-El modelo cliente-servidor es uno de los más populares en
-el mundo de la informática actual [REF], se utiliza en el 
-desarrollo de todo tipo de aplicaciones, incluso muchos 
-de los protocolos utilizados a diario implementan este modelo,
-tales como File Transfer Protocol (FTP), Simple Mail Transfer Protocol
-(SMTP) y Hypertext Transfer Protocol (HTTP).
-
-El modelo cliente-servidor se define como una arquitectura
-de software compuesta por los proveedores de un recurso o servicio, 
-denominados servidores, y los solicitantes del servicio, denominados
-clientes. En este modelo se realiza una comunicación de procesos
-que implica el intercambio de datos tanto por parte del cliente 
-como del servidor, realizando cada uno funciones diferentes. La comunicación
-se realiza frecuentemente a través de una red informática, pero 
-tanto el cliente como el servidor pueden residir en un mismo sistema.
-
-Entre las principales ventajas que ofrece este modelo se encuentran:
-
-\begin{itemize}
-    \item centralización de los recursos, ya que los accesos y la integridad de los datos se controlan en el lado del servidor, de forma que un programa cliente defectuoso o no autorizado no puede dañar el sistema.
-    \item división del procesamiento de la aplicación en varios dispositivos.
-    \item permite la escalabilidad del sistema, en cualquier momento se puede mejorar la capacidad de procesamiento aumentando la cantidad de servidores sin que el funcionamiento de la red se vea afectado.
-    \item la separación en cliente y servidor permite el uso de tecnologías enfocadas en las labores específicas que realiza cada uno. 
-\end{itemize}
- 
-
-
-\subsection{Desarrollo del servidor}
-Para la implementación de los servicios que consumen los clientes del 
-sistema de gestión se hace uso del framework Django [REF]. Django es un framework
-web de alto nivel, gratuito y de código abierto que permite el desarrollo rápido de 
-sitios web seguros y mantenibles. Entre las principales características
-del framework se encuentran:
-
-\begin{itemize}
-    \item Django sigue la filosofía
-    de diseño DRY (Don't Repeat Yourself), brindando un conjunto de funcionalidades implementadas
-    por los desarrolladores para evitar la repetición de código en procesos
-    comunes en el desarrollo web.
-    \item Django implementa el patrón de diseño Model-View-Template (MVT), que
-    consta de tres componentes esenciales Modelo, Vista,
-    Plantilla. Estas componentes son responsables de diferentes
-    partes del código e incluso pueden utililizarse de forma independiente.
-    \item Django está implementado en Python, por lo que cuenta con un 
-    extenso conjunto de bibliotecas para resolver distintas tareas. Entre
-    las bibliotecas más utilizadas resalta Django REST framework, desarrollada 
-    para la creación de interfaces de programación de aplicaciones (APIs).
-    [X q es relevante en este trabajo?]
-    \item Django provee un Object Relational Mapper (ORM), 
-    que permite la interacción con la base de datos
-    de forma orientada a objetos. Brinda la posibilidad de crear tablas, insertar,
-    editar, borrar y extraer datos sin escribir consultas SQL, acelerando el proceso
-    de desarrollo web. 
-    \item Django sigue también la filosofía de ``Batteries Included'' o ``Baterías Incluidas''
-    proporcionando una biblioteca estándar rica y versátil con herramientas para
-    crear sistemas complejos sin la necesidad de instalar paquetes separados. Algunas de 
-    estas ``baterías'' son ``Django Admin'', ``Django ORM'', ``Authentication'' y
-    ``HTTP''.
-    \item Django cuenta con extensa documentación, desde la documentación oficial hasta 
-    contenido en forma de artículos, tutoriales y cursos en línea.
-    \item Django es escalable, utiliza una arquitectura de ``shared-nothing'' o ``nada compartido'',
-    que permite agregar hardware en cualquier nivel: servidores de bases de datos,
-    servidores de almacenamiento en caché o servidores web (REFERENCIA).
-
-\end{itemize}
-
- 
-
-
-\subsection{Desarrollo del cliente}
-Dentro de las tecnologías de desarrollo web más utilizadas, sin duda, 
-JavaScript es una de las más populares en la actualidad. JavaScript es 
-un lenguaje de programación ligero, interpretado o compilado ``just-in-time''
-o ``justo-a-tiempo'' con funciones de primera clase. Es un lenguaje de programación
-basado en prototipos, multiparadigma, de un solo hilo, dinámico, con
-soporte para programación orientada a objetos, imperativa y declarativa.
-Se usa principalmente del lado del cliente, implementado como parte de un navegador 
-web permitiendo mejorar las interfaces de usarios y la creación de
-páginas web dinámicas.
-
-La popularidad de JavaScript para el desarrollo web ha impulsado
-la creación de distintos frameworks, entre los más 
-utilizados se encuentran:
-
-\subparagraph{Angular}
-Lanzado en 2010, Google está a cargo de desarrollar y 
-mantener Angular. La principal filosofía tras Angular es 
-tener todo lo que el desarrollador necesita, es un framework
-con muchas características integradas, tales como: validaciones 
-de formularios, envíos de solicitudes http, enrutamiento y 
-manejo de estados, cuenta además con herramientas adicionales
-como: línea de comandos, interfaces para el manejo y 
-creación de proyectos. Debido a esto muchos han llamado a Angular
-una plataforma, más que un framework. Google y Wix se 
-encuentran entre las empresas más populares que utilizan
-Angular.
-
-\subparagraph{React}
-Lanzado en 2013, Facebook desarrolla y mantiene React.
-A diferencia de Angular, React se enfoca en ser lo más minimalista posible,
-especializada en el desarrollo de interfaces de usuario, describiéndose
-a sí misma como una biblioteca. Cuenta con muchas menos funciones integradas
-que Angular por lo que se terminan utilizando muchos paquetes o
-dependencias de terceros al desarrollar un proyecto, ya sea para enrutamiento, manejo de estados o
-envío de solicitudes http.
-Whatsapp, Instagram, Paypal, Glassdoor y BBC son algunas de 
-las compañías populares que usan React.
-
-\subparagraph{Vue.js}
-Lanzado en 2014, su desarrollo y mantenimiento es llevado a 
-cabo por un equipo de colaboradores a nivel mundial, siendo  
-Evan Yu, su principal creador, un ex ingeniero de Google.
-Se puede decir que Vue se encuentra entre Angular y React en cuanto 
-a la cantidad de funciones integradas que ofrece, más que React, pero 
-menos que Angular. Sitios web como GitLab y Alibaba están usando Vue. \\
-
-COMPARACION CON POPULARIDAD Y DESARROLLO\\
-Graficos y datos sobre estos frameworks?\\
-
-
-En los últimos años, Vue.js se ha convertido
-en un fuerte competidor de Angular y React. El 
-crecimiento de Vue.js se relaciona con la simplicidad 
-del framework, la disponibilidad de bibliotecas
-y materiales de aprendizaje. A pesar de que Vue.js es 
-un framework que se define en su sitio oficial como ``An approachable, performant and versatile framework for building web user interfaces''
-o ``Un marco accesible, eficaz y versátil para crear interfaces de usuario web.''
-no proporciona elementos o componentes de interfaz de usuarios. Es por esto que surgen  
-otros frameworks encima de Vue.js como una capa más de abstracción, que 
-brindan un conjunto de componentes reutilizables y con estilo. Entre 
-las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar.
-Este último fue el escogido para el desarrollo del front-end del sistema de gestión. 
-  
+BASES DE DATOS PRIMERO 
 
 
 
-\subparagraph{Quasar}
-Es un framework de código abierto desarrollado para Vue.js,
-que permite el desarrollo aplicaciones/sitios web de una sola página (SPA),
-aplicaciones/sitios web renderizados del lado del servidor (SSR),
-aplicaciones web progresivas (PWA), incluso aplicaciones móviles y de 
-escritorio, reutilizando el mismo código fuente. 
-Entre los principales beneficios que Quasar ofrece 
-se encuentran:
 
-\begin{itemize}
-    \item más de 70 componentes web personalizables y de alto rendimiento para cubrir la 
-    mayoría de las necesidades de la web.
-    \item buenas prácticas integradas tales como: compresión de código, 
-    manejo avanzado de caché, mapeo de fuentes y carga diferida. 
-    \item Quasar-CLI, una herramienta que genera de forma automática la estructura del 
-    proyecto en cuestión.
-    \item soporte para varios idiomas, incluyendo 
-    compatibilidad para idiomas RLT (right to left), tanto para los componentes de Quasar
-    como para el código del desarrollador.  
-    \item amplia comunidad y documentación.
-    \item ofrece una versión UMD (Definición de módulo unificado) para la migraración
-    de proyectos existentes sin necesidad de ningún proceso de compilación.
-    \item promueve las buenas prácticas para mantener la seguridad de las aplicaciones
-    desarrolladas con Quasar, en la documentación oficial se le dedica un capítulo
-    a este tema [REF].
-
-\end{itemize}
-
-
-% La minificación es el proceso de reducir el peso de los archivos de código
-% fuente a través de la eliminación de bytes innecesarios como los 
-% saltos de línea, espacios adicionales y comentarios. Es uno de 
-% los principales métodos utilizados para reducir los tiempos de carga y
-% el uso de ancho de banda en los sitios web  (HTML/CSS/JS minification)
-
+% La ejecución de los procesos se lleva a cabo en los distintos
+% departamentos de la facultad y en su mayoría, si no en su totalidad,
+% se realizan actualmente de manera manual y no informatizada.
+% A continuación se describen algunos de estos procesos.
 
 
 
@@ -591,3 +486,200 @@ admisibles de redundancia en los datos[\cite{ws_3FN}].
 % y procesamiento de los datos que intervienen en los procesos de asignación de 
 % docencia y confección de tribunales de tesis. A continuación se brinda una 
 % descripción de cómo se modelaron estos procesos.
+
+
+
+
+
+\section{Herramientas utilizadas para el desarrollo del software}
+Para la informatización de los procesos
+de asignación de docencia y confección de los tribunales de tesis
+se implementa 
+un sistema de gestión a través de una aplicación web,
+utilizando un modelo cliente-servidor [REF].
+Para el desarrollo en el lado del servidor se hace uso del framework Django [REF], en particular Django Rest Framework, aprovechando la
+versatilidad, seguridad, escalabilidad y mantenibilidad
+que el framework ofrece.
+Mientras que en el lado del cliente se hace uso
+del framework Quasar [REF], que se basa en Vue.js [REF], creando una
+single-page application (SPA) o aplicación de página única.
+A continuación se profundiza en el modelo 
+y herramientas utilizadas.
+
+\subsection{Modelo cliente-servidor}
+[VOLVER A REDACTAR ESTE PARRAFO]
+El modelo cliente-servidor es uno de los más populares en
+el mundo de la informática actual [REF], se utiliza en el 
+desarrollo de todo tipo de aplicaciones, incluso muchos 
+de los protocolos utilizados a diario implementan este modelo,
+tales como File Transfer Protocol (FTP), Simple Mail Transfer Protocol
+(SMTP) y Hypertext Transfer Protocol (HTTP).
+
+El modelo cliente-servidor se define como una arquitectura
+de software compuesta por los proveedores de un recurso o servicio, 
+denominados servidores, y los solicitantes del servicio, denominados
+clientes. En este modelo se realiza una comunicación de procesos
+que implica el intercambio de datos tanto por parte del cliente 
+como del servidor, realizando cada uno funciones diferentes. La comunicación
+se realiza frecuentemente a través de una red informática, pero 
+tanto el cliente como el servidor pueden residir en un mismo sistema.
+
+Entre las principales ventajas que ofrece este modelo se encuentran:
+
+\begin{itemize}
+    \item centralización de los recursos, ya que los accesos y la integridad de los datos se controlan en el lado del servidor, de forma que un programa cliente defectuoso o no autorizado no puede dañar el sistema.
+    \item división del procesamiento de la aplicación en varios dispositivos.
+    \item permite la escalabilidad del sistema, en cualquier momento se puede mejorar la capacidad de procesamiento aumentando la cantidad de servidores sin que el funcionamiento de la red se vea afectado.
+    \item la separación en cliente y servidor permite el uso de tecnologías enfocadas en las labores específicas que realiza cada uno. 
+\end{itemize}
+ 
+
+
+\subsection{Desarrollo del servidor}
+Para la implementación de los servicios que consumen los clientes del 
+sistema de gestión se hace uso del framework Django [REF]. Django es un framework
+web de alto nivel, gratuito y de código abierto que permite el desarrollo rápido de 
+sitios web seguros y mantenibles. Entre las principales características
+del framework se encuentran:
+
+\begin{itemize}
+    \item Django sigue la filosofía
+    de diseño DRY (Don't Repeat Yourself), brindando un conjunto de funcionalidades implementadas
+    por los desarrolladores para evitar la repetición de código en procesos
+    comunes en el desarrollo web.
+    \item Django implementa el patrón de diseño Model-View-Template (MVT), que
+    consta de tres componentes esenciales Modelo, Vista,
+    Plantilla. Estas componentes son responsables de diferentes
+    partes del código e incluso pueden utililizarse de forma independiente.
+    \item Django está implementado en Python, por lo que cuenta con un 
+    extenso conjunto de bibliotecas para resolver distintas tareas. Entre
+    las bibliotecas más utilizadas resalta Django REST framework, desarrollada 
+    para la creación de interfaces de programación de aplicaciones (APIs).
+    [X q es relevante en este trabajo?]
+    \item Django provee un Object Relational Mapper (ORM), 
+    que permite la interacción con la base de datos
+    de forma orientada a objetos. Brinda la posibilidad de crear tablas, insertar,
+    editar, borrar y extraer datos sin escribir consultas SQL, acelerando el proceso
+    de desarrollo web. 
+    \item Django sigue también la filosofía de ``Batteries Included'' o ``Baterías Incluidas''
+    proporcionando una biblioteca estándar rica y versátil con herramientas para
+    crear sistemas complejos sin la necesidad de instalar paquetes separados. Algunas de 
+    estas ``baterías'' son ``Django Admin'', ``Django ORM'', ``Authentication'' y
+    ``HTTP''.
+    \item Django cuenta con extensa documentación, desde la documentación oficial hasta 
+    contenido en forma de artículos, tutoriales y cursos en línea.
+    \item Django es escalable, utiliza una arquitectura de ``shared-nothing'' o ``nada compartido'',
+    que permite agregar hardware en cualquier nivel: servidores de bases de datos,
+    servidores de almacenamiento en caché o servidores web (REFERENCIA).
+
+\end{itemize}
+
+ 
+
+
+\subsection{Desarrollo del cliente}
+Dentro de las tecnologías de desarrollo web más utilizadas, sin duda, 
+JavaScript es una de las más populares en la actualidad. JavaScript es 
+un lenguaje de programación ligero, interpretado o compilado ``just-in-time''
+o ``justo-a-tiempo'' con funciones de primera clase. Es un lenguaje de programación
+basado en prototipos, multiparadigma, de un solo hilo, dinámico, con
+soporte para programación orientada a objetos, imperativa y declarativa.
+Se usa principalmente del lado del cliente, implementado como parte de un navegador 
+web permitiendo mejorar las interfaces de usarios y la creación de
+páginas web dinámicas.
+
+La popularidad de JavaScript para el desarrollo web ha impulsado
+la creación de distintos frameworks, entre los más 
+utilizados se encuentran:
+
+\subparagraph{Angular}
+Lanzado en 2010, Google está a cargo de desarrollar y 
+mantener Angular. La principal filosofía tras Angular es 
+tener todo lo que el desarrollador necesita, es un framework
+con muchas características integradas, tales como: validaciones 
+de formularios, envíos de solicitudes http, enrutamiento y 
+manejo de estados, cuenta además con herramientas adicionales
+como: línea de comandos, interfaces para el manejo y 
+creación de proyectos. Debido a esto muchos han llamado a Angular
+una plataforma, más que un framework. Google y Wix se 
+encuentran entre las empresas más populares que utilizan
+Angular.
+
+\subparagraph{React}
+Lanzado en 2013, Facebook desarrolla y mantiene React.
+A diferencia de Angular, React se enfoca en ser lo más minimalista posible,
+especializada en el desarrollo de interfaces de usuario, describiéndose
+a sí misma como una biblioteca. Cuenta con muchas menos funciones integradas
+que Angular por lo que se terminan utilizando muchos paquetes o
+dependencias de terceros al desarrollar un proyecto, ya sea para enrutamiento, manejo de estados o
+envío de solicitudes http.
+Whatsapp, Instagram, Paypal, Glassdoor y BBC son algunas de 
+las compañías populares que usan React.
+
+\subparagraph{Vue.js}
+Lanzado en 2014, su desarrollo y mantenimiento es llevado a 
+cabo por un equipo de colaboradores a nivel mundial, siendo  
+Evan Yu, su principal creador, un ex ingeniero de Google.
+Se puede decir que Vue se encuentra entre Angular y React en cuanto 
+a la cantidad de funciones integradas que ofrece, más que React, pero 
+menos que Angular. Sitios web como GitLab y Alibaba están usando Vue. \\
+
+COMPARACION CON POPULARIDAD Y DESARROLLO\\
+Graficos y datos sobre estos frameworks?\\
+
+
+En los últimos años, Vue.js se ha convertido
+en un fuerte competidor de Angular y React. El 
+crecimiento de Vue.js se relaciona con la simplicidad 
+del framework, la disponibilidad de bibliotecas
+y materiales de aprendizaje. A pesar de que Vue.js es 
+un framework que se define en su sitio oficial como ``An approachable, performant and versatile framework for building web user interfaces''
+o ``Un marco accesible, eficaz y versátil para crear interfaces de usuario web''
+no proporciona elementos o componentes de interfaz de usuarios. Es por esto que surgen  
+otros frameworks encima de Vue.js como una capa más de abstracción, que 
+brindan un conjunto de componentes reutilizables y con estilo. Entre 
+las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar.
+Este último fue el escogido para el desarrollo del front-end del sistema de gestión. 
+  
+
+
+
+\subparagraph{Quasar}
+Es un framework de código abierto desarrollado para Vue.js,
+que permite el desarrollo aplicaciones/sitios web de una sola página (SPA),
+aplicaciones/sitios web renderizados del lado del servidor (SSR),
+aplicaciones web progresivas (PWA), incluso aplicaciones móviles y de 
+escritorio, reutilizando el mismo código fuente. 
+Entre los principales beneficios que Quasar ofrece 
+se encuentran:
+
+\begin{itemize}
+    \item más de 70 componentes web personalizables y de alto rendimiento para cubrir la 
+    mayoría de las necesidades de la web.
+    \item buenas prácticas integradas tales como: compresión de código, 
+    manejo avanzado de caché, mapeo de fuentes y carga diferida. 
+    \item Quasar-CLI, una herramienta que genera de forma automática la estructura del 
+    proyecto en cuestión.
+    \item soporte para varios idiomas, incluyendo 
+    compatibilidad para idiomas RLT (right to left), tanto para los componentes de Quasar
+    como para el código del desarrollador.  
+    \item amplia comunidad y documentación.
+    \item ofrece una versión UMD (Definición de módulo unificado) para la migraración
+    de proyectos existentes sin necesidad de ningún proceso de compilación.
+    \item promueve las buenas prácticas para mantener la seguridad de las aplicaciones
+    desarrolladas con Quasar, en la documentación oficial se le dedica un capítulo
+    a este tema [REF].
+
+\end{itemize}
+
+
+% La minificación es el proceso de reducir el peso de los archivos de código
+% fuente a través de la eliminación de bytes innecesarios como los 
+% saltos de línea, espacios adicionales y comentarios. Es uno de 
+% los principales métodos utilizados para reducir los tiempos de carga y
+% el uso de ancho de banda en los sitios web  (HTML/CSS/JS minification)
+
+
+
+
+
