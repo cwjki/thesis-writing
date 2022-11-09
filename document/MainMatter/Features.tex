@@ -1,25 +1,33 @@
 \chapter{Descripción de las funcionalidades que se desean}\label{chapter:features}
+
 El objetivo principal de este trabajo es la creación de
-una herramienta que permita la informatización de los procesos
-de administración y planificación que se llevan a cabo en la Facultad de Matemática y Computación
-de La Universidad de La Habana. 
-Se desea implementar un sistema de 
-gestión para realizar los procesos de asignación de docencia y 
-confección de los tribunales de tesis, y que permita 
-la posterior integración de los procesos que se abordan en la 
+una herramienta que permita la informatización de los procesos de
+asignación de docencia, confección de los tribunales de tesis y planificación de las defensas
+de las tesis, que se llevan a cabo en la Facultad de Matemática y Computación
+de la Universidad de La Habana.
+Se desea además que la herramienta permita la 
+posterior integración de los procesos que se abordan en la 
 sección \ref{section:funcionamiento de la facultad}.
 
 
+En las siguientes secciones se describen las funcionalidades
+que se desean para cada proceso.
+
+% El objetivo principal de este trabajo es la creación de
+% una herramienta que permita la informatización de los procesos
+% de administración y planificación que se llevan a cabo en la Facultad de Matemática y Computación
+% de La Universidad de La Habana. 
+% Se desea implementar un sistema de 
+% gestión para realizar los procesos de asignación de docencia y 
+% confección de los tribunales de tesis, y que permita 
+% la posterior integración de los procesos que se abordan en la 
+% sección \ref{section:funcionamiento de la facultad}.
 
 
 
-Una de las funcionalidades principales que se desea es la informatización
-de los datos relativos a la facultad. La digitalización de datos como 
-los planes de estudios, departamentos de la facultad, profesores, asignaturas 
-y cualquier otra información que intervenga en los procesos que se modelen en el sistema 
-de gestión puede ser útil tanto para el desarrollo de herramientas informativas como
-para el análisis y procesamiento de los datos con el objetivo de computar métricas y 
-estádisticas (esto esta malito).
+
+
+
 
 
 
@@ -35,17 +43,44 @@ estádisticas (esto esta malito).
 
 
 \section{Asignación de docencia}
-Se desea implementar un mecanismo que permita realizar
-la asignación de docencia .
-Se quiere además la generación de un documento
-CSV que agrupe esta información.
+Se desea implementar una mecanismo que permita realizar la asignación de docencia 
+facilitando el acceso a toda la información que interviene en este proceso. A continuación 
+se describen las principales funcionalidades que se desean:
 
 
-\section{Confección de los tribunales de tesis}
-Se desea implementar la funcionalidad de creación
-de tribunales de tesis, dada una tesis poder asignar
-los profesores que conformarán el tribunal en los
-roles de secretario, presidente y oponente, así como
-un lugar y fecha para la defensa de la misma. De igual
-forma se desea la generación de un documento CSV con
-esta información.
+\begin{itemize}
+    \item Realizar la asignación de docencia en un departamento, mostrando solo los datos relevantes 
+     para el mismo. Por ejemplo, cuando se realice la asignación de docencia para el departamento de Matemática Aplicada, solo 
+     se mostrarán las asignaturas y profesores del mismo.
+    \item Conocer la carga docente de los profesores durante el proceso de asignación.
+    \item Conocer las asignaturas que se deben impartir en un semestre a partir de un curso escolar y un período de tiempo. 
+          Por ejemplo, se desea saber las asignaturas a impartir en el curso 2021-2022 en el período de tiempo enero-julio.
+    \item Realizar filtrados o búsquedas a partir de los datos que intervienen en la asignación 
+          de docencia. Por ejemplo, saber las asignaturas que debe impartir un profesor en un semestre dado.
+    \item Exportar la asignación de docencia a un documento.
+
+\end{itemize}
+
+
+\section{Confección de los tribunales de tesis y planificación de las defensas de tesis}
+Se desea implementar un mecanismo que permita la confección de los tribunales de tesis y 
+la planificación de las defensas de las tesis. Además se desean algunas funcionalidades 
+relacionadas con estos procesos, a continuación se describen.
+
+\begin{itemize}
+    \item Realizar la confección de los tribunales de tesis a partir de las tesis que se deban realizar como ejercicio de 
+    culminación en un curso escolar.
+    \item Conocer la cantidad de tribunales de los que forman parte los profesores durante el proceso 
+    de confección de los tribunales de tesis.
+    \item Realizar filtrados o búsquedas a partir de los datos que intervienen en la confección 
+          de tribunales de tesis. Por ejemplo, saber en cuáles tribunales participa un profesor y con qué rol (secretario, oponente, presidente).
+    \item Realizar la planificación de las defensas de tesis a partir de la confección de los tribunales de tesis.
+    \item Realizar filtrados o búsquedas a partir de los datos que intervienen en la planificación 
+    de las defensas de tesis. Por ejemplo, saber dado una fecha cuáles tesis se defienden en la misma o el local 
+    en donde se llevará a cabo el ejercicio.
+    \item Exportar la confección de los tribunales de tesis a un documento.
+    \item Exportar la planificación de las defensas de tesis a un documento.
+
+\end{itemize}
+
+
