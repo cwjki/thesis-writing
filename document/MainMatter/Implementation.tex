@@ -145,7 +145,7 @@ y planificación de las defensas de tesis.
 
 En el servidor se implementó un módulo 
 que permite salvar el estado de la base de datos 
-en documentos csv y poblar la base de datos a partir de documentos csv.
+en documentos csv y poblar la base de datos a partir de los mismos.
 Se crearon dos comandos para ejecutar en la terminal con el 
 fin de realizar las tareas mencionadas previamente:
 
@@ -173,33 +173,36 @@ de la base de datos a documentos CSV, se debe ejecutar el siguiente comando.
 
 
 \subsection{Importar datos a la base de datos}
-El comando fill database permite llenar desde 
-documentos csv tanto una tabla como la base de 
-datos completa.
-
-Análogamente al comando anterior para llenar solo una tabla se hace uso del argumento -m y luego el nombre de la tabla a llenar:
+Se implementó el comando \textit{fill\_database} que permite poblar la 
+base de datos a partir de los archivos CSV generados con el comando \textit{save\_database}.
+Con este comando se puede poblar una o todas las tablas de la base de 
+datos. 
+Para poblar la información de una única tabla
+se debe especificar su nombre precedido del argumento \textit{-m}. Por 
+ejemplo para llenar la tabla que contiene la información de las asignaturas, se debe 
+ejecutar el siguiente comando.
 
 \begin{verbatim}
     python manage.py fill_database -m Subjects
 \end{verbatim}
 
-Para llenar la base de datos completa ejecutar 
-solo el comando:
+Por otra parte, si lo que se desea es importar la información de todos los archivos CSV  
+para la base de datos, se debe ejecutar el siguiente comando.
 
 \begin{verbatim}
     python manage.py fill_database
 \end{verbatim}
 
-Los posibles nombres de entidades a utilizar con
-el parámetro -m tanto para los comandos 
-save database como fill database son:
 
+Los posibles nombres de entidades a utilizar con
+el parámetro -m tanto para el comando 
+\textit{save\_database} como \textit{fill\_database} son:
 ClassTypes, Faculties,
 ScientificDegrees, TeachingCategories,
 Semesters, TeachingGroups, TimePeriods,
 Careers, StudyPlans, CarmenTable, Departments,
 Subjects, Professors, SubjectDescriptions, TeachingAssignments,
-Places, Keywords, Thesis, ThesisCommittee
+Places, Keywords, Thesis, ThesisCommittee.
 
 
 
