@@ -1,1 +1,48 @@
 \chapter{Extensibilidad}\label{chapter:extensibility}
+Uno de los objetivos de este trabajo es la creación de una herramienta que 
+permita la posterior integración de procesos de administración y planificación 
+que se llevan a cabo en la Facultad de Matemática y Computación de la Universidad
+de La Habana. 
+En este capítulo propone una guía de cómo agregar nuevos 
+procesos al sistema de gestión que se implementó.
+
+\section{Estructura del cliente y servidor}
+El desarrollo en el lado del servidor se llevó a cabo haciendo 
+uso de la biblioteca Django, en particular Django Rest Framework. 
+Por tanto la creación del proyecto que contiene el servidor se hizo 
+con el [comando de django para crear el proyecto], como resultado 
+se obtuvo la siguiente estructura para los ficheros del proyecto.
+
+[DISTRIBUCION DE CARPETAS DEL SERVER]
+
+Para la modelación de los procesos se crearon aplicaciones para separar 
+el desarrollo de cada proceso, con el [comando de crear app de django rest framework]. 
+
+Luego se crearon las apps teachingAssignment y thesisCommittee para la 
+
+[AQUI EXPLICAR LA DISTRUBUCION DE LAS CARPETAS ECT]
+
+\section{Pasos para agregar un nuevo proceso en el sistema de gestión}
+[SUPONER QUE VAMOS A AGREGAR UN NUEVO PROCESO, EXPLCIAR DONDE SE DEBEN CREAR LAS 
+COSAS EN EL BACKEND Y EN EL FRONT]
+
+
+Supongamos que se quiere agregar al sistema de gestión el proceso de planificación de 
+las evaluaciones de un semestre. A continuación se describen los pasos principales
+que se sugieren para la integración de este proceso.
+
+\begin{itemize}
+    \item Crear una nueva app de django con el comando tal.
+    \item Dentro de la carpeta creada en el paso anterior definir los modelos, serializadores, 
+    vistas y urls necesarios en ficheros nombrados models.py, serializers.py, views.py, urls.py respectivamente. 
+    \item Crear una carpeta con el nombre del proceso que se está modelando dentro de las carpetas pages y components. 
+    En la carpeta pages se encuentrar las vistar principales y dentro de la carpeta components definir las componentes 
+    necesarias 
+    \item En la carpeta services se implemetó una api para la comunicación con el servidor. Se creo un CRUDServiceFactory 
+    que permite realizar pedidos de crear, listar, actualizar y borrar. Solo se necesita agregar la url y el tipo de dato 
+    en el fichero resources. 
+
+\end{itemize}
+
+
+
