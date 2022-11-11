@@ -90,6 +90,12 @@ El nombre del semestre se modela como un atributo.
 Pueden existir una o muchas asignaturas que se imparten en 
 el mismo semestre. 
 
+\subparagraph{CURSO ESCOLAR:}
+Representa los cursos escolares.
+El nombre del curso escolar se modela como un atributo.
+Pueden existir una o muchas asignaturas que se imparten en 
+el mismo curso escolar.
+
 
 \subparagraph{PERÍODO DE TIEMPO:}
 Representa los períodos de tiempo del año.
@@ -111,7 +117,7 @@ tales como: conferencias, clases prácticas, seminarios, laboratorios, otros.
 Se crea con el objetivo de modelar la separación de una asignatura
 según las actividades de clases a impartir, en un período de tiempo y para
 un grupo escolar específico. Está compuesta por la agregación de las entidades ASIGNATURA, ACTIVIDAD DE CLASE, GRUPO 
-ESCOLAR y PERÍODO DE TIEMPO.
+ESCOLAR, CURSO ESCOLAR Y PERÍODO DE TIEMPO.
 Se agregan los atributos cantidad de horas para el tipo de actividad a realizar y 
 la cantidad de grupos.
 Por ejemplo (poner ejemplo real de una asignatura
@@ -171,10 +177,10 @@ proceso anterior.
 \subparagraph{TESIS:}
 Agrupa los datos asociados a una tesis.
 El título de la tesis y el autor se modelan como atributos, mientras que
-el tutor, los cotutores y las palabras claves se modelan como relaciones con 
-las entidades PROFESOR (tutor y cotutores) y PALABRAS CLAVES.
-Una tesis tiene un único tutor, puede tener cero o muchos cotutores y tiene 
-una o muchas palabras claves. 
+el tutor, los cotutores, curso escolar y las palabras claves se modelan como relaciones con 
+las entidades PROFESOR (tutor y cotutores), CURSO ESCOLAR y PALABRAS CLAVES.
+Una tesis tiene un único tutor, puede tener cero o muchos cotutores, pertenece a 
+un único curso escolar y tiene una o muchas palabras claves. 
 
 \subparagraph{PALABRAS CLAVES:}
 Representa las palabras claves que describen el contenido de una tesis.
