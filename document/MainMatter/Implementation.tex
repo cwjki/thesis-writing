@@ -17,8 +17,72 @@ ALGO COMO AQUI SE DECIDE QUE PROCESOS SE QUIEREN REALIZAR
 
 
 \section{Asignación de docencia}
+En esta sección se describen los pasos que se deben seguir para realizar 
+el proceso de asignación de docencia en un departamento a través del sistema 
+de gestión que se propone en este trabajo. 
+Para la ejemplificación de este proceso se utilizará un fragmento de la docencia correspondiente al departamento
+de Matemática Aplicada en el período de tiempo 
+enero - julio del curso 2022. En la tabla \ref{tabla-planificación-cap4}
+se muestran las asignaturas que se deben impartir. 
+% Supongamos que se quiere realizar la asignación de docencia para el departamento 
+% de Matemática Aplicada   
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | c | c |}
+        \hline
+        \thead{Facultad}   & \thead{Año} & \thead{Asignatura} & \thead{Horas} & \thead{Grupos}  \\ \hline
+        MATCOM     & M3  & Optimización Matemática I  &  64   &  1/1   \\ 
+        MATCOM     & C3  & Modelos de Optimización I  &  64   &  1/2   \\ 
+        GEOGRAFÍA  & G2  & Estadística                &  80   &  1/2   \\ 
+        \hline
+    \end{tabular}
+    \caption{Fragmento de la planificación de docencia.}
+    \label{tabla-planificación-cap4}
+\end{table}
+
+Para replicar la planificación de docencia que se muestra en la tabla \ref{tabla-planificación-cap4}
+se provee la interfaz de usuario que se muestra en la figura siguiente. 
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-example.png}
+    \caption{Vista de la planificación de las asignaturas}
+    \label{img-pd-example}
+\end{figure}
 
 
+En la figura \ref{img-pd-example},
+se indican con recuadros tres regiones cuyo significado se explica a continuación.
+
+\begin{itemize}
+    \item A: botón para agregar una nueva planificación de asignatura.
+    \item B: filtros por Año, Actividad de clase, Curso escolar, Período de tiempo.
+    \item C: barra de búsqueda por texto para el nombre de las asignaturas. 
+\end{itemize}
+
+
+Para agregar una nueva planificación de asignatura se debe pulsar en el 
+botón que se indica en el recuadro A y completar los campos del formulario. 
+En la figura \ref{img-pd-form} se muestra como agregar la planificación
+correspondiente a las conferencias de la asignatura Modelos de Optimización
+para los estudiantes de tercer año de la carrera Ciencia de la Computación. 
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-form.png}
+    \caption{Vista del formulario para crear una planificación de asignaturas}
+    \label{img-pd-form}
+\end{figure}
+
+
+La figura \ref{img-pd-result} muestra el resultado de agregar las planificaciones de las asignaturas 
+correspondientes a la tabla \ref{tabla-planificación-cap4}. 
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-result.png}
+    \caption{Vista de la planificación de las asignaturas}
+    \label{img-pd-result}
+\end{figure}
 
 El proceso de asignación de docencia en un departamento se realiza en la 
 interfaz que se muestra en la figura \ref{img-ta-done}. El usuario de la 
