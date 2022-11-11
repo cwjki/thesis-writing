@@ -41,6 +41,24 @@ se muestran las asignaturas que se deben impartir.
     \label{tabla-planificación-cap4}
 \end{table}
 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{Asignatura} & \thead{Horas} & \thead{Grupos} & \thead{Profesores}\\
+      \hline
+      Optimización Matemática I &  64  & 1/1 & \makecell{C: Aymeeé Marrero (32) \\ CP: Gemayqzel Bouza(32)} \\
+      \hline
+      Modelos de Optimización I   &  64   &  1/2 & \makecell{C: Aymeeé Marrero(16) \\ C: Fernando Rodríguez (16) \\ CP: Daniela González(32) \\ CP: Camila Pérez(32)}    \\ 
+      \hline
+      Estadística                 &  80   &  1/2 &  \makecell{C: Elianys García (48) \\ CP: Ernesto Borrego(32) \\ CP: Elianys García(32)} \\  
+      \hline
+    \end{tabular}
+    \caption{Fragmento de la asignación de docencia.}
+    \label{tabla-asignación-cap4}
+\end{table}
+
 Para replicar la planificación de docencia que se muestra en la tabla \ref{tabla-planificación-cap4}
 se provee la interfaz de usuario que se muestra en la figura siguiente. 
 
@@ -83,6 +101,84 @@ correspondientes a la tabla \ref{tabla-planificación-cap4}.
     \caption{Vista de la planificación de las asignaturas}
     \label{img-pd-result}
 \end{figure}
+
+Por cada planificación de asignatura que se agregue en el sistema se crean n asignaciones 
+de docencia sin asignar, donde n es la cantidad de grupos que tiene la planificación. En 
+la figura \ref{img-ta-unassing} se muestran las asignaciones de docencias creadas automáticamente por el sistema 
+a partir de las planificaciones agregadas en la figura \ref{img-pd-result}.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-unassing.png}
+    \caption{Vista de la asignación de docencia}
+    \label{img-ta-unassing}
+\end{figure}
+
+
+El próximo paso es realizar la asignación de los profesores para cubrir 
+la planificación de docencia del semestre. Para asignar un profesor se debe 
+pulsar sobre el botón de editar de una fila. En la figura \ref{img-ta-form-empty} se muestra el resultado 
+de pulsar sobre el botón de editar de la primera fila, correspondiente a las conferencias
+de la asignatura de Optimización Matemática I. 
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-form-empty}
+    \caption{Vista del formulario para realizar una asignación de docencia}
+    \label{img-ta-form-empty}
+\end{figure}
+
+
+Se deben completar los campos del formulario y pulsar sobre el botón editar. 
+Como se muestra en la tabla \ref{tabla-planificación-cap4}, la profesora Aymeeé Marrero es la encargada de 
+impartir las 32 horas de conferencia de la asignatura Optimización Matemática I, por 
+tanto se debe especificar que la profesora imparte el 100 porciento de la planificación
+como se muestra en la figura \ref{img-ta-form-fill}.
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-form-fill.png}
+    \caption{Vista del formulario con los datos ingresados de una asignación de docencia}
+    \label{img-ta-form-fill}
+\end{figure}
+
+
+En la figura \ref{img-ta-one-assign} se muestra el resultado 
+de realizar la asignación.
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-one-assign.png}
+    \caption{Vista del formulario con los datos ingresados de una asignación de docencia}
+    \label{img-ta-one-assign}
+\end{figure}
+
+Cada vez que se realicen cambios en la tabla, ya sean por agregar, editar o eliminar 
+asignaciones de docencia, la carga docente de los profesores se actualiza como se indica 
+en el recuadro A. 
+
+En la figura tal se muestra el resultado de cubrir la docencia de las asignaturas de Optimización
+Matemática I, Estadística y las clases prácticas de Modelos de Optimización, de acuerdo a la tabla \ref{tabla-asignación-cap4}.
+Las conferencias de la asignatura Modelos de Optimización I, se imparten por los profesores 
+Aymeeé Marrero y Fernando Rodríguez, 16 horas cada uno. Por tanto es necesario agregar otra fila 
+para poder representar esta distribución en el sistema de gestión. 
+
+
+
+
+
+
+
+
+
+Una vez se hayan creado las planificación de las asignaturas, el siguiente paso 
+es realizar la asignación de los profesores del departamento.
+
+
+
+En la figura 
+se muestra la interfaz de usuario del sistema para efectuar la asignación de docencia.
+
+
 
 El proceso de asignación de docencia en un departamento se realiza en la 
 interfaz que se muestra en la figura \ref{img-ta-done}. El usuario de la 
