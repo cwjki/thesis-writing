@@ -17,13 +17,26 @@ ALGO COMO AQUI SE DECIDE QUE PROCESOS SE QUIEREN REALIZAR
 
 
 \section{Asignación de docencia}
+
+% El proceso de asignación de docencia en un departamento se realiza en la 
+% interfaz que se muestra en la figura \ref{img-ta-done}. El usuario de la 
+% aplicación puede ver la carga docente de los profesores durante el proceso 
+% de asignación, realizar filtrados por profesor para ver las asignaturas 
+% que tiene asignada y descargar un documento CSV que contiene la información 
+% de la docencia una vez haya terminado la asignación.
+
+
+
 En esta sección se describen los pasos que se deben seguir para realizar 
 el proceso de asignación de docencia en un departamento a través del sistema 
 de gestión que se propone en este trabajo. 
 Para la ejemplificación de este proceso se utilizará un fragmento de la docencia correspondiente al departamento
 de Matemática Aplicada en el período de tiempo 
-enero - julio del curso 2022. En la tabla \ref{tabla-planificación-cap4}
-se muestran las asignaturas que se deben impartir. 
+enero - julio del curso 2022. En la tabla \ref{tabla-planificación-cap4} 
+se muestran las asignaturas que se deben impartir
+y en la \ref{tabla-asignación-cap4} 
+la distribución de los profesores
+para cubrir con la planificación. 
 % Supongamos que se quiere realizar la asignación de docencia para el departamento 
 % de Matemática Aplicada   
 
@@ -59,8 +72,10 @@ se muestran las asignaturas que se deben impartir.
     \label{tabla-asignación-cap4}
 \end{table}
 
-Para replicar la planificación de docencia que se muestra en la tabla \ref{tabla-planificación-cap4}
-se provee la interfaz de usuario que se muestra en la figura siguiente. 
+
+El primer paso que debe realizar el jefe de departamento es la planificación de la 
+docencia, la interfaz de usuario implementada en el sistema de gestión para realizar 
+este proceso se muestra en la figura \ref{img-pd-example}
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-example.png}
@@ -74,7 +89,7 @@ se indican con recuadros tres regiones cuyo significado se explica a continuaci�
 
 \begin{itemize}
     \item A: botón para agregar una nueva planificación de asignatura.
-    \item B: filtros por Año, Actividad de clase, Curso escolar, Período de tiempo.
+    \item B: filtros por: Año, Actividad de clase, Curso escolar, Período de tiempo.
     \item C: barra de búsqueda por texto para el nombre de las asignaturas. 
 \end{itemize}
 
@@ -82,8 +97,8 @@ se indican con recuadros tres regiones cuyo significado se explica a continuaci�
 Para agregar una nueva planificación de asignatura se debe pulsar en el 
 botón que se indica en el recuadro A y completar los campos del formulario. 
 En la figura \ref{img-pd-form} se muestra como agregar la planificación
-correspondiente a las conferencias de la asignatura Modelos de Optimización
-para los estudiantes de tercer año de la carrera Ciencia de la Computación. 
+correspondiente a las conferencias de la asignatura Optimización
+Matemática I para los estudiantes de tercer año de la carrera Matemática. 
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-form.png}
@@ -117,7 +132,7 @@ a partir de las planificaciones agregadas en la figura \ref{img-pd-result}.
 El próximo paso es realizar la asignación de los profesores para cubrir 
 la planificación de docencia del semestre. Para asignar un profesor se debe 
 pulsar sobre el botón de editar de una fila. En la figura \ref{img-ta-form-empty} se muestra el resultado 
-de pulsar sobre el botón de editar de la primera fila, correspondiente a las conferencias
+de pulsar sobre el botón de editar de la cuarta fila, correspondiente a las conferencias
 de la asignatura de Optimización Matemática I. 
 
 
@@ -131,7 +146,7 @@ de la asignatura de Optimización Matemática I.
 Se deben completar los campos del formulario y pulsar sobre el botón editar. 
 Como se muestra en la tabla \ref{tabla-planificación-cap4}, la profesora Aymeeé Marrero es la encargada de 
 impartir las 32 horas de conferencia de la asignatura Optimización Matemática I, por 
-tanto se debe especificar que la profesora imparte el 100 porciento de la planificación
+tanto se debe especificar que la profesora imparte el 100 porciento de las horas 
 como se muestra en la figura \ref{img-ta-form-fill}.
 
 
@@ -148,130 +163,151 @@ de realizar la asignación.
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-one-assign.png}
-    \caption{Vista del formulario con los datos ingresados de una asignación de docencia}
+    \caption{Vista resultante de realizar una asignación de docencia correctamente}
     \label{img-ta-one-assign}
 \end{figure}
 
+% Cada vez que se realicen cambios en la tabla, ya sean por agregar, editar o eliminar 
+% asignaciones de docencia, la carga docente de los profesores se actualiza como se indica 
+% en el recuadro A. El recuadro B refleja como quedó la fila tras la asignación de la profesora 
+% Vivian Sistaschs para que imparta las 48 horas de conferencia de la asignatura Inferencia Matemática
+% a los estudiantes que cursan el tercer año de la carrera Matemática.
+
+
 Cada vez que se realicen cambios en la tabla, ya sean por agregar, editar o eliminar 
 asignaciones de docencia, la carga docente de los profesores se actualiza como se indica 
-en el recuadro A. 
+en el recuadro A de la figura \ref{img-ta-one-assign}. El recuadro B refleja como quedó la fila tras la asignación de la profesora 
+Aymeeé Marrero para que imparta las 32 horas de conferencia de la asignatura Optimización Matemática I
+a los estudiantes que cursan el tercer año de la carrera Matemática.
 
-En la figura tal se muestra el resultado de cubrir la docencia de las asignaturas de Optimización
+
+En la figura \ref{img-ta-with-assign} se muestra el resultado de cubrir la docencia de las asignaturas de Optimización
 Matemática I, Estadística y las clases prácticas de Modelos de Optimización, de acuerdo a la tabla \ref{tabla-asignación-cap4}.
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-with-assigns.png}
+    \caption{Vista con varias asignaciones de docencia}
+    \label{img-ta-with-assign}
+\end{figure}
+
+
 Las conferencias de la asignatura Modelos de Optimización I, se imparten por los profesores 
-Aymeeé Marrero y Fernando Rodríguez, 16 horas cada uno. Por tanto es necesario agregar otra fila 
-para poder representar esta distribución en el sistema de gestión. 
-
-
-
-
-
-
-
-
-
-Una vez se hayan creado las planificación de las asignaturas, el siguiente paso 
-es realizar la asignación de los profesores del departamento.
-
-
-
-En la figura 
-se muestra la interfaz de usuario del sistema para efectuar la asignación de docencia.
-
-
-
-El proceso de asignación de docencia en un departamento se realiza en la 
-interfaz que se muestra en la figura \ref{img-ta-done}. El usuario de la 
-aplicación puede ver la carga docente de los profesores durante el proceso 
-de asignación, realizar filtrados por profesor para ver las asignaturas 
-que tiene asignada y descargar un documento CSV que contiene la información 
-de la docencia una vez haya terminado la asignación.
-
-
-\begin{figure}[H]
-    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-asignada.png}
-    \caption{Vista de la asignación de docencia}
-    \label{img-ta-done}
-\end{figure}
-
-En la figura \ref{img-ta-done},
-se indican con recuadros cuatro regiones cuyo significado se explica a continuación.
-
-\begin{itemize}
-    \item A: muestra la carga docente de los profesores dada la asignación actual.
-    \item B: botón para agregar una nueva planificación de docencia.
-    \item C: botón para descargar la asignación de docencia actual.
-    \item D: realizar filtrado por los profesores para ver las asignturas que tiene asignadas.
-    \item E: realizar búsquedas por las asignaturas o actividades de clase.
-    \item F: botones para editar o borrar una fila de la tabla.  
-\end{itemize}
-
-
-
-En la figura \ref{img-ta-ordering} se muestra como quedaría ordenada la tabla a partir de los profesores,
-con el objetivo de mostrar primero aquellas 
-asignaturas que no se han asignado aún.
-
-
-\begin{figure}[H]
-    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-sin-asignar.png}
-    \caption{Vista de la asignación de docencia, ordenada por profesores para que aparezcan primero las asignaturas que aún no han sido asignadas}
-    \label{img-ta-ordering}
-\end{figure}
-
-
-Para ordenar la tabla a partir de los profesores se debe pulsar sobre el elemento que se indica en 
-con el recuadro A. Para realizar una asignación se debe pulsar el botón de editar que se indica con
-con el recuadro B. La figura \ref{img-ta-edit-form1} muestra la vista después de pulsar el botón de 
-editar.  
-
-
-
-\begin{figure}[H]
-    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-edit-form.png}
-    \caption{Vista del formulario para editar una asignación de docencia}
-    \label{img-ta-edit-form1}
-\end{figure}
-
-
-Cuando se edita una asignación de docencia es necesario definir la planificación de 
-la asignatura (Inferencia Estadística---Conferencia---M3), grupo, profesor que se 
-desea asignar y el porciento total de horas que impartirá el profesor. En la figura
-\ref{img-ta-edit-form2} se muestra como asignar a la profesora Vivian Sistaschs con un 100
-porciento de las horas que se deben impartir en la planificación de la asignatura Inferencia Estadística. 
-
-\begin{figure}[H]
-    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-edit-form2.png}
-    \caption{Vista del formulario para editar una asignación de docencia, mostrando los profesores posibles para la asignación}
-    \label{img-ta-edit-form2}
-\end{figure}
-
-
-
-La figura \ref{img-ta-result} muestra el resultado de completar los pasos
-que se muestran en la figuras \ref{img-ta-ordering}, \ref{img-ta-edit-form1} y \ref{img-ta-edit-form2}.
+Aymeeé Marrero y Fernando Rodríguez, con 16 horas cada uno.
+Para modelar esta distribución en el sistema de gestión, es necesario agregar una 
+nueva asignación de docencia y especificar que cada profesor va a impartir el 50 porciento 
+de las horas totales de conferencia. Para agregar una nueva asignación se debe pulsar sobre el 
+botón de agregar y llenar los campos necesarios. En la figura
+\ref{img-ta-result} tal se muestra como queda
+la asignación docente final (arreglar esta oración). 
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-result.png}
-    \caption{Vista de la asignación tras realizar una asignación correctamente}
+    \caption{Vista resultado de la asignaciones de docencia}
     \label{img-ta-result}
 \end{figure}
-
-Cada vez que se realicen cambios en la tabla, ya sean por agregar, editar o eliminar 
-asignaciones de docencia, la carga docente de los profesores se actualiza como se indica 
-en el recuadro A. El recuadro B refleja como quedó la fila tras la asignación de la profesora 
-Vivian Sistaschs para que imparta las 48 horas de conferencia de la asignatura Inferencia Matemática
-a los estudiantes que cursan el tercer año de la carrera Matemática.
 
 
 Para poder llevar a cabo el proceso de asignación de docencia a través del sistema de 
 gestión que se propone, es necesario que en la base de datos se ingresen las informaciones 
 que intervienen en este proceso. Por ejemplo, para realizar una asignación de docencia se necesitan 
-los profesores del departamento, 
+los profesores del departamento
 y las planificaciones de las asignturas. Para poder crear las planificación de las asignaturas 
 se necesitan las asignaturas, los años escolares, las actividades de clase y los períodos de tiempo.
 Por tanto el primer paso para realizar la asignación de docencia es ingresar todos los datos que 
 se describen en la sección \ref{database:asignación-docencia}.
+
+
+
+
+
+
+
+% El proceso de asignación de docencia en un departamento se realiza en la 
+% interfaz que se muestra en la figura \ref{img-ta-done}. El usuario de la 
+% aplicación puede ver la carga docente de los profesores durante el proceso 
+% de asignación, realizar filtrados por profesor para ver las asignaturas 
+% que tiene asignada y descargar un documento CSV que contiene la información 
+% de la docencia una vez haya terminado la asignación.
+
+
+% \begin{figure}[H]
+%     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-asignada.png}
+%     \caption{Vista de la asignación de docencia}
+%     \label{img-ta-done}
+% \end{figure}
+
+% En la figura \ref{img-ta-done},
+% se indican con recuadros cuatro regiones cuyo significado se explica a continuación.
+
+% \begin{itemize}
+%     \item A: muestra la carga docente de los profesores dada la asignación actual.
+%     \item B: botón para agregar una nueva planificación de docencia.
+%     \item C: botón para descargar la asignación de docencia actual.
+%     \item D: realizar filtrado por los profesores para ver las asignturas que tiene asignadas.
+%     \item E: realizar búsquedas por las asignaturas o actividades de clase.
+%     \item F: botones para editar o borrar una fila de la tabla.  
+% \end{itemize}
+
+
+
+% En la figura \ref{img-ta-ordering} se muestra como quedaría ordenada la tabla a partir de los profesores,
+% con el objetivo de mostrar primero aquellas 
+% asignaturas que no se han asignado aún.
+
+
+% \begin{figure}[H]
+%     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-sin-asignar.png}
+%     \caption{Vista de la asignación de docencia, ordenada por profesores para que aparezcan primero las asignaturas que aún no han sido asignadas}
+%     \label{img-ta-ordering}
+% \end{figure}
+
+
+% Para ordenar la tabla a partir de los profesores se debe pulsar sobre el elemento que se indica en 
+% con el recuadro A. Para realizar una asignación se debe pulsar el botón de editar que se indica con
+% con el recuadro B. La figura \ref{img-ta-edit-form1} muestra la vista después de pulsar el botón de 
+% editar.  
+
+
+
+% \begin{figure}[H]
+%     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-edit-form.png}
+%     \caption{Vista del formulario para editar una asignación de docencia}
+%     \label{img-ta-edit-form1}
+% \end{figure}
+
+
+% Cuando se edita una asignación de docencia es necesario definir la planificación de 
+% la asignatura (Inferencia Estadística---Conferencia---M3), grupo, profesor que se 
+% desea asignar y el porciento total de horas que impartirá el profesor. En la figura
+% \ref{img-ta-edit-form2} se muestra como asignar a la profesora Vivian Sistaschs con un 100
+% porciento de las horas que se deben impartir en la planificación de la asignatura Inferencia Estadística. 
+
+% \begin{figure}[H]
+%     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-edit-form2.png}
+%     \caption{Vista del formulario para editar una asignación de docencia, mostrando los profesores posibles para la asignación}
+%     \label{img-ta-edit-form2}
+% \end{figure}
+
+
+
+% La figura \ref{img-ta-result} muestra el resultado de completar los pasos
+% que se muestran en la figuras \ref{img-ta-ordering}, \ref{img-ta-edit-form1} y \ref{img-ta-edit-form2}.
+
+% % \begin{figure}[H]
+% %     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-result.png}
+% %     \caption{Vista de la asignación tras realizar una asignación correctamente}
+% %     \label{img-ta-result}
+% % \end{figure}
+
+% Cada vez que se realicen cambios en la tabla, ya sean por agregar, editar o eliminar 
+% asignaciones de docencia, la carga docente de los profesores se actualiza como se indica 
+% en el recuadro A. El recuadro B refleja como quedó la fila tras la asignación de la profesora 
+% Vivian Sistaschs para que imparta las 48 horas de conferencia de la asignatura Inferencia Matemática
+% a los estudiantes que cursan el tercer año de la carrera Matemática.
+
+
+
 
 
 [PONER OTRAS IMG DEL SITIO COMO LA VISTA DE LOS PROFESORES O PLANIFICACIÓN DE ASIGNATURAS 
