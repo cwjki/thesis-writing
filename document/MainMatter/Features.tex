@@ -1,8 +1,9 @@
 \chapter{Descripción de las funcionalidades que se desean}\label{chapter:features}
 El objetivo principal de este trabajo es la creación de una herramienta
 que permita informatizar dos de los procesos que se realizan en la Facultad de Matemática y
-Computación de la Universidad de La Habana: asignación de docencia y planificación de las tesis. Se desea además que la herramienta sea lo sufientemente 
-extensible para que permita la integración de otros procesos como los que se mencionan en la 
+Computación de la Universidad de La Habana: asignación de docencia y planificación de las tesis. 
+Se desea además que la herramienta sea lo sufientemente 
+extensible para que permita, en un futuro, la integración de otros procesos como los que se mencionan en la 
 sección \ref{section:funcionamiento de la facultad}.
 
 % El objetivo principal de este trabajo es la creación de
@@ -56,7 +57,8 @@ se describen las principales funcionalidades que se desean:
 \begin{itemize}
     \item Conocer las asignaturas que se deben impartir en un período de tiempo dado, por ejemplo enero-julio 2021.
     \item Conocer durante el proceso de asignación la carga docente que se la ha asignado a cada profesor.
-    \item Exportar la asignación de docencia a un documento.
+    \item Exportar la asignación de docencia a un documento con un formato preestablecido, que 
+    es el que se utiliza actualmente en la facultad.
 \end{itemize}
 
 %     \item Realizar la asignación de docencia en un departamento, mostrando solo los datos relevantes 
@@ -66,14 +68,92 @@ se describen las principales funcionalidades que se desean:
 %           de docencia. Por ejemplo, saber las asignaturas que debe impartir un profesor en un semestre dado.
 
 
+A continuación se describen como se desean utilizar las funcionalidades anteriores durante el 
+proceso de asignación de docencia.
 
 Al comienzo de un período de tiempo, el jefe de departamento debe realizar la planificación de docencia
 del semestre. Se desea que la herramienta muestre las asignaturas que se deben impartir por ese departamento en el período de tiempo dado.
-A partir de esta información, el jefe de departamento comienza el proceso de asignación. Cada vez que el jefe de departamento realice una 
-asignación, se actualiza la carga docente que tendrá en el semestre el profesor asignado, de forma que se conoce la carga 
-docente de todos los profesores durante el proceso de asignación. Además se quiere que el sistema muestre las asignaturas o 
-grupos que faltan por cubrir para cumplir con la planificación de docencia. Una vez concluida la asignación, se desea poder
-exportar la información de la docencia a un documento.
+Por ejemplo en el período enero-julio del curso 2022, el departamento de Matemática Aplicada debe impartir las siguientes asignaturas.
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | c | c |}
+        \hline
+        \thead{Facultad}   & \thead{Año} & \thead{Asignatura} & \thead{Horas} & \thead{Grupos}  \\ \hline
+        MATCOM     & M3  & Optimización Matemática I  &  64   &  1/1   \\ 
+        MATCOM     & C3  & Modelos de Optimización I  &  64   &  1/2   \\ 
+        GEOGRAFÍA  & G2  & Estadística                &  80   &  1/2   \\ 
+        \hline
+    \end{tabular}
+    \caption{Fragmento de la planificación de docencia.}
+    \label{tabla-planificación-cap2}
+\end{table}
+
+La primera fila de tabla indica que la asignatura Optimización Matemática I, 
+se imparte en la facultad de MATCOM a los estudiantes de tercer año de la carrera de 
+Matemática, con un total de horas clase de 64 y que es un solo grupo de conferencias y 
+un solo grupo de clases prácticas. 
+
+A partir de esta información, el jefe de departamento comienza el proceso de asignación.
+Se desea que el sistema muestre los profesores que están disponibles para 
+cubrir las actividades de clase de las asignaturas (conferencias, clases prácticas).
+En el curso 2022, se le asignaron las 32 horas de conferencia de la asignatura Optimización Matemática I,
+a la profesora Aymeeé Marrero y las 32 horas de clases prácticas a la profesora Gemayqzel Bouza.
+
+Cada vez que el jefe de departamento realice una 
+asignación, se desea que se actualice la carga docente que tendrá en el semestre el profesor asignado, de forma que se conozca la carga 
+de todos los profesores durante el proceso de asignación. En la tabla \ref{tabla-asignación-cap2}
+se muestra la asignación de docencias correspondiente a la planificación que se muestra en la 
+tabla \ref{tabla-planificación-cap2}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{Asignatura} & \thead{Horas} & \thead{Grupos} & \thead{Profesores}\\
+      \hline
+      Optimización Matemática I &  64  & 1/1 & \makecell{C: Aymeeé Marrero (32) \\ CP: Gemayqzel Bouza(32)} \\
+      \hline
+      Modelos de Optimización I   &  64   &  1/2 & \makecell{C: Aymeeé Marrero(16) \\ C: Fernando Rodríguez (16) \\ CP: Daniela González(32) \\ CP: Camila Pérez(32)}    \\ 
+      \hline
+      Estadística                 &  80   &  1/2 &  \makecell{C: Elianys García (48) \\ CP: Ernesto Borrego(32) \\ CP: Elianys García(32)} \\  
+      \hline
+    \end{tabular}
+    \caption{Fragmento de la asignación de docencia.}
+    \label{tabla-asignación-cap2}
+\end{table}
+
+Para la asignación que se muestra en la tabla \ref{tabla-asignación-cap2}, 
+el sistema de gestión debe mostrar las siguientes cargas docentes:
+
+\begin{multicols}{2}
+    \begin{itemize}
+        \item Aymeeé Marrero: 48 horas
+        \item Gemayqzel Bouza: 32 horas 
+        \item Fernando Rodríguez: 16 horas 
+        \item Daniela González: 32 horas 
+        \item Camila Pérez: 32 horas
+        \item Elianys García: 80 horas
+        \item Ernesto Borrego: 32 horas 
+    \end{itemize}
+\end{multicols}
+
+En este caso se puede apreciar que la carga docente de la profesora 
+Elianys García es mayor que la del resto de los profesores, lo cual se 
+quisiera evitar con la implementación de esta funcionalidad. 
+
+
+Además se quiere que el sistema muestre las asignaturas o 
+grupos que faltan por cubrir para cumplir con la planificación de docencia. 
+Una vez concluida la asignación, se desea poder exportar la información de la docencia a un documento con el 
+formato que se utiliza actualmente en la facultad. 
+
+
+
+
+
+
 
 En la próxima sección se describen las funcionalidades que se desean incorporar para el 
 proceso de planificación de las tesis.
@@ -82,27 +162,123 @@ proceso de planificación de las tesis.
 \section{Planificación de las tesis}
 El proceso de planificación de las tesis se puede descomponer en dos subprocesos principales: 
 confección de los tribunales de tesis y planificación de las defensas de las mismas.
-Para ello se desea disponer de las siguientes funcionalidades.
+Para la planificación de las tesis, se desea disponer de las siguientes funcionalidades.
 
 
 
 \begin{itemize}
-    \item Cada vez que se agregue una tesis en el sistema, crear un tribunal y una planificación de la defensa para ella.
-    \item Conocer durante el proceso de confección de los tribunales de tesis, la cantidad de tribunales 
+    \item Cada vez que se agregue una tesis en el sistema, crear un tribunal para la misma.
+    \item Conocer, durante el proceso de confección de los tribunales de tesis, la cantidad de tribunales 
     en los que participa cada profesor.
-    \item Conocer los espacios de tiempo libre para cada profesor, por si es necesario realizar cambios de fechas para las defensas de tesis. 
-    \item Exportar la confección de los tribunales de tesis a un documento.
-    \item Exportar la planificación de las defensas de tesis a un documento.
+    \item Una vez se confeccione el tribunal de una tesis, crear un horario para la defensa de la misma.
+    \item Una vez estén definidos los horarios, se desea conocer en cuáles, un determinado profesor no está libre (por participaciones en defensas). 
+    Con el objetivo de facilitar cambios necesarios en la planificación de las defensas de tesis.  
+    \item Exportar la confección de los tribunales de tesis a un documento con un formato preestablecido.
+    \item Exportar la planificación de las defensas de tesis a un documento con un formato preestablecido.
 \end{itemize}
 
-El proceso de planificación de las tesis comienza con la agregación de las mismas en el sistema. 
-Para evitar que una tesis se quede sin planificación, se desea que cada vez que una tesis se agregue, el sistema genere automáticamente 
-un tribunal vacío y una planificación para la defensa de la misma, sin definir la fecha, hora y lugar.
-El encargado de realizar este proceso primeramente debe asignar los profesores que formarán parte de los tribunales de 
-cada tesis y luego definir la fecha, hora y lugar en la que se llevará a cabo la defensa. 
+% A continuación se describen como se desean utilizar las funcionalidades anteriores
+% durante el proceso de planificación de tesis.
+
+Para la ejemplificación de las funcionalidades que se desean durante el proceso de 
+planificación de las tesis se utilizará un ejemplo.
+En la tabla \ref{tabla-tesis-cap2}, se muestran dos de las tesis que se deben evaluar como 
+parte del ejercicio de culminación de estudios del curso 2022.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{ID} & \thead{Tesis} & \thead{Estudiante} & \thead{Tutores} \\
+      \hline 
+             1 & \makecell{Simulación y optimización \\ de movimientos de malabares} & Gustavo Despaigne & Fernando Rodríguez  \\
+      \hline
+             2 & \makecell{Propagación de epidemias \\ mediante modelos basados \\ en metapoblaciones} & Abel Antonio Cruz & \makecell{Angela M. León \\ José A. Mesejo \\ Camila Pérez} \\
+      \hline
+    \end{tabular}
+    \caption{Fragmento de dos de las tesis correspondientes al curso 2022}
+    \label{tabla-tesis-cap2}
+\end{table}
+
+El encargado de realizar la planificación de las tesis debe confeccionar un tribunal para 
+cada una de ellas. Se desea que el sistema de gestión muestre los profesores de la facultad para 
+la confección de los tribunales. En el curso 2022 los tribunales estarán compuestos por los tutores, 
+un oponente y un presidente, por tanto solo se deben determinar los profesores que asumirán los roles 
+de oponente y presidente. En la figura tal se muestran posibles tribunales para las tesis correspondientes 
+a la tabla \ref{tabla-tesis-cap2}.
+
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{ID Tesis} & \thead{Tutores} & \thead{Oponente} & \thead{Presidente} \\
+      \hline 
+             1 & Fernando Rodríguez & Gemayqzel Bouza & Aymeeé Marrero  \\
+      \hline
+             2 & \makecell{Angela M. León \\ José A. Mesejo \\ Camila Pérez} & Damian Valdés & Gemayqzel Bouza  \\
+      \hline
+    \end{tabular}
+    \caption{Posibles tribunales de tesis}
+    \label{tabla-tribunal-tesis-cap2}
+\end{table}
+
 Con el objetivo de realizar una distribución equitativa de los profesores en los tribunales de tesis, 
 se desea que durante el proceso de confección de los tribunales, se pueda conocer la cantidad en los que participa cada profesor.
-Además se desea poder exportar los datos de los tribunales y de las defensas de las tesis a un documento. 
+En la tabla \ref{tabla-carga-profesores-tribunales}
+se muestran las participaciones de los profesores en tribunales 
+de acuerdo a la tabla \ref{tabla-tribunal-tesis-cap2}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c |}
+      \hline
+      \thead{Profesor} & \thead{Oponente} & \thead{Presidente} \\
+      \hline 
+             Gemayqzel Bouza & 1 & 1  \\
+      \hline
+             Aymeeé Marrero & 0 & 1 \\
+      \hline
+            Damian Valdés & 1 & 0 \\
+      \hline
+    \end{tabular}
+    \caption{Cantidad de tribunales de tesis en los que participa cada profesor}
+    \label{tabla-carga-profesores-tribunales}
+\end{table}
+
+
+Una vez se definan los tribunales de tesis el próximo paso es planificar un horario
+para la defensa de la misma. Se debe definir la fecha, hora y local en donde se realizará
+este ejercicio. En la tabla tal se muestran posibles planificaciones para las defensas de las 
+tesis que se muestran en la tabla \ref{tabla-tesis-cap2}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{ID Tesis} & \thead{Fecha} & \thead{Hora} & \thead{Local} \\
+      \hline 
+             1 & 10/12/2022 & 2:00 PM & Aula Posgrado  \\
+      \hline
+             2 & 10/12/2022 & 3:30 PM & Salón del Decanato \\
+      \hline
+    \end{tabular}
+    \caption{Posible horarios para las defensas de tesis}
+    \label{tabla-defensa-tesis-cap2}
+\end{table}
+
+Una vez concluido el proceso de planificación de las tesis se desea poder exportar 
+los datos de los tribunales y las planificaciones de defensas a documentos con un formato 
+preestablecido.
+
+Con el objetivo de evitar que una tesis se quede sin planificar, se desea que cada vez que una tesis se agregue, el sistema genere automáticamente 
+un tribunal vacío y una planificación para la defensa de la misma, sin definir la fecha, hora y local.
+
+Además se desea conocer para cada profesor los horarios que tiene ocupado en participaciones en tribunales
+de tesis, por si es necesario realizar algún cambio en las planificaciones de las defensas.
+
+
 
 % \item Realizar filtrados o búsquedas a partir de los datos que intervienen en la confección 
 %           de tribunales de tesis. Por ejemplo, saber en cuáles tribunales participa un profesor y con qué rol (secretario, oponente, presidente). 

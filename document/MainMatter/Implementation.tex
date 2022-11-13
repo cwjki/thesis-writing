@@ -7,11 +7,18 @@ en la Facultad de Matemática y Computación de la Universidad de La Habana.
 Se implementó un sistema de gestión siguiendo el modelo cliente-servidor. El desarrollo del servidor se efectuó con el uso Django, en 
 particular Django Rest Framework y el cliente se desarrolló utilizando
 Quasar para la creación de las interfaces de usarios. Para la administración de la 
-base de datos se utilizó el SGBD SQLite. Como resultado se creó una 
-aplicación web, cuyo funcionamiento se describe a continuación.
+base de datos se utilizó el SGBD SQLite.
+Como resultado se creó una aplicación web, cuya vista inicial se muestra en 
+la figura \ref{img-home-page}.
 
-FOTO DE LA VISTA HOME 
-ALGO COMO AQUI SE DECIDE QUE PROCESOS SE QUIEREN REALIZAR
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Home-page.png}
+    \caption{Vista inicial del sistema de gestión}
+    \label{img-home-page}
+\end{figure}
+
+[EXPLICACION DEL FLUJO PARA REALIZAR ASIGNACION DE DOCENCIA O TESIS] \\
 
 
 
@@ -78,7 +85,7 @@ docencia, la interfaz de usuario implementada en el sistema de gestión para rea
 este proceso se muestra en la figura \ref{img-pd-example}
 
 \begin{figure}[H]
-    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-example.png}
+    \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-empty.png}
     \caption{Vista de la planificación de las asignaturas}
     \label{img-pd-example}
 \end{figure}
@@ -308,37 +315,68 @@ se describen en la sección \ref{database:asignación-docencia}.
 
 
 
+En la siguiente sección se describen los pasos para realizar la confección de los 
+tribunales y la planificación de las defensas de tesis.
+
+\section{Planificación de las tesis}
+El proceso de planificación de tesis consta de dos subprocesos principales: confección de los tribunales 
+y planificación de la defensa. 
+En esta sección se describen los pasos a seguir para completar el 
+proceso de planificación de las tesis a través del sistema de gestión que 
+se propone en este trabajo.
+
+El primer paso es ingresar las tesis en el sistema,
+en la figura tal se muestra la interfaz de usuario del sistema
+que permite realizar esta tarea. \\
+
+[VISTA DE LAS TESIS] \\
+
+Con los botones tal y tal se hace esto y se pueden agregar tesis. Se sabe 
+que se existe otra herramienta donde se guardan las tesis y se pudieran cargar a partir 
+de ahi.
 
 
-[PONER OTRAS IMG DEL SITIO COMO LA VISTA DE LOS PROFESORES O PLANIFICACIÓN DE ASIGNATURAS 
-O ESO VA PA LOS ANEXOS]\\
+Cada vez que se agregue una tesis al sistema de gestión, se crea una  
+instancia de tribunal de tesis con los campos de oponente y presidente sin asignar y  
+una instancia de defensa de tesis con los campos fecha, hora y local sin asignar. 
+En la figura tal y tal se muestra el resultado de agregar las tesis tales.\\
+
+[IMG de los tribunales y defensas tras crear las tesis de la figura tal]\\
+
+El próximo paso es asignar los profesores en los tribunales de tesis.
+El encargado de realizar este proceso debe pulsar sobre el botón de editar 
+de la fila correspondiente a al tribunal que desea definir. En la figura tal 
+se muestra el resultado de pulsar sobre la fila tal para realizar la asignación. \\
+
+[IMG DEL FORMULARIO PARA EDITAR TRIBUNAL DE TESIS]. \\
+
+Cuando se hayan confeccionado los tribunales de tesis, el siguiente paso 
+es realizar la planificación de las defensas, donde se debe definir la fecha, hora 
+y local. En la figura tal se muestra la interfaz de usuario donde se debe realizar 
+el proceso de planificación una vez se hayan confeccionado los tribunales.\\
+
+[IMG de las defensas sin definir] \\
+
+Para definir la fecha, hora y local donde se realizará la defensa de una tesis, se debe 
+pulsar sobre el botón de editar de la fila correspondiente a la defensa que 
+se desea planificar. En la figura tal se muestra ek resultado de pulsar sobre la fila 
+tal para planificar la defensa de la tesis tal. \\
+
+[IMG DEL FORMULARIO PARA EDITAR DEFENSA DE TESIS]. \\
 
 
-En la siguiente sección se explica el flujo para la confección de los 
-tribunales de tesis y la planificación de las defensas de tesis.
-
-\section{Confección de los tribunales de tesis y planificación de las defensas de tesis}
-Para la confección de los tribunales de tesis y la planificación de las defensas de tesis,
-se debe partir de las tesis que se vayan a defender en un curso dado. En la 
-figura tal se muestra la interfaz de usuario para la creación de las tesis.
-
-[INSERTAR VISTA DE LAS TESIS] \\
-
-[EXPLICAR EL FLUJO DE CREACION DE LAS TESIS]
-
-Cada vez que se agregue una tesis al sistema de gestión, se crean dos instancias, 
-una de TRIBUNAL DE TESIS con los campos de oponente y presidente sin asignar y otra 
-de DEFENSA DE TESIS con los campos fecha, hora y local sin asignar. A continuación 
-se describe el flujo para completar los procesos de confección de los tribunales de tesis
-y planificación de las defensas de tesis.
-
-[IMGS PARA EXPLICAR COMO ASIGNAR EL OPONENTE Y PRESIDENTE] \\
-
-[LUEGO IMG PARA EXPLICAR COMO DEFINIR FECHA HORA Y LUGAR]
+Para poder llevar a cabo el proceso de planificación de las tesis a través
+del sistema de gestión que se propone, es necesario que en la base de datos 
+se ingresen las informaciones que intervienen en este proceso. Por ejemplo 
+para poder confeccionar un tribunal es necesario que la tesis haya sido agregada 
+anteriormente, pero para poder agregar la tesis es necesario que los tutores o 
+cotutores de la misma hayan sido agregados previamente. Por tanto el primer paso 
+para realizar la planificación de las tesis es ingresar todos los datos que se describen 
+en la sección \ref{database:planificación-tesis}
 
 
-
-
+En la siguiente sección se describen otras funcionalidades implementadas 
+con el objetivo de agregar utilidad al sistema que se propone.
 
 \section{Exportar e importar datos de la base de datos}
 
