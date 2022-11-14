@@ -37,9 +37,10 @@ la figura \ref{img-home-page}.
 En esta sección se describen los pasos que se deben seguir para realizar 
 el proceso de asignación de docencia en un departamento a través del sistema 
 de gestión que se propone en este trabajo. 
-Para la ejemplificación de este proceso se utilizará un fragmento de la docencia correspondiente al departamento
+Para la ejemplificación de este proceso se utilizará 
+el mismo fragmento de la docencia correspondiente al departamento
 de Matemática Aplicada en el período de tiempo 
-enero - julio del curso 2022. En la tabla \ref{tabla-planificación-cap4} 
+enero - julio del curso 2022, que se describe en la sección \ref{docencia:cap2}. En la tabla \ref{tabla-planificación-cap4} 
 se muestran las asignaturas que se deben impartir
 y en la \ref{tabla-asignación-cap4} 
 la distribución de los profesores
@@ -324,45 +325,193 @@ y planificación de la defensa.
 En esta sección se describen los pasos a seguir para completar el 
 proceso de planificación de las tesis a través del sistema de gestión que 
 se propone en este trabajo.
+Para ilustrar este proceso se utilizará el mismo ejemplo que se 
+describe en la sección \ref{tesis:cap2}. 
+En la tabla \ref{tabla-tesis-cap4} se muestran dos de las 
+tesis que se deben efectuar como ejercicio de culminación de estudios correspondientes 
+al curso 2022. En la tabla \ref{tabla-tribunal-tesis-cap2}, el tribunal seleccionado y en 
+la tabla \ref{tabla-defensa-tesis-cap4} el horario escogido para la defensa de las mismas.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{ID} & \thead{Tesis} & \thead{Estudiante} & \thead{Tutores} \\
+      \hline 
+             1 & \makecell{Simulación y optimización \\ de movimientos de malabares} & Gustavo Despaigne & Fernando Rodríguez  \\
+      \hline
+             2 & \makecell{Propagación de epidemias \\ mediante modelos basados \\ en metapoblaciones} & Abel Antonio Cruz & \makecell{Angela M. León \\ José A. Mesejo \\ Camila Pérez} \\
+      \hline
+    \end{tabular}
+    \caption{Fragmento de dos de las tesis correspondientes al curso 2022}
+    \label{tabla-tesis-cap4}
+\end{table}
+
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{ID Tesis} & \thead{Tutores} & \thead{Oponente} & \thead{Presidente} \\
+      \hline 
+             1 & Fernando Rodríguez & Gemayqzel Bouza & Aymeeé Marrero  \\
+      \hline
+             2 & \makecell{Angela M. León \\ José A. Mesejo \\ Camila Pérez} & Damian Valdés & Gemayqzel Bouza  \\
+      \hline
+    \end{tabular}
+    \caption{Posibles tribunales de tesis}
+    \label{tabla-tribunal-tesis-cap4}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ | c | c | c | c |}
+      \hline
+      \thead{ID Tesis} & \thead{Fecha} & \thead{Hora} & \thead{Local} \\
+      \hline 
+             1 & 10/12/2022 & 2:00 PM & Aula Posgrado  \\
+      \hline
+             2 & 10/12/2022 & 3:30 PM & Salón del Decanato \\
+      \hline
+    \end{tabular}
+    \caption{Posible horarios para las defensas de tesis}
+    \label{tabla-defensa-tesis-cap4}
+\end{table}
+
 
 El primer paso es ingresar las tesis en el sistema,
-en la figura tal se muestra la interfaz de usuario del sistema
-que permite realizar esta tarea. \\
+en la figura \ref{img-tc-thesis} se muestra la interfaz de usuario del sistema
+que permite realizar esta tarea.
 
-[VISTA DE LAS TESIS] \\
 
-Con los botones tal y tal se hace esto y se pueden agregar tesis. Se sabe 
-que se existe otra herramienta donde se guardan las tesis y se pudieran cargar a partir 
-de ahi.
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-empty.png}
+    \caption{Vista de la tesis.}
+    \label{img-tc-thesis}
+\end{figure}
 
+
+Para agregar una nueva tesis en el sistema, se debe pulsar sobre el botón 
+de agregar que se indica en el recuadro A de la figura \ref{img-tc-thesis}.
+Luego se deben llenar los campos necesarios relacionados con las tesis. En la figura
+\ref{img-tc-thesis-form} se muestra el resultado de pulsar sobre el botón de agregar y llenar los campos 
+correspondientes a la primera tesis que se muestra en la tabla \ref{tabla-tesis-cap4}.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-form.png}
+    \caption{Vista del formulario para agregar una tesis.}
+    \label{img-tc-thesis-form}
+\end{figure}
+
+
+Repitiendo el procedimiento anterior se puede agregar la segunda tesis que se 
+muestra en la tabla \ref{tabla-tesis-cap4}. En la figura tal
+se muestra el resultado de agregar las dos tesis en el sistema de gestión.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-result.png}
+    \caption{Vista de la interfaz de usuario tras agregar las dos tesis del ejemplo.}
+    \label{img-tc-thesis-result}
+\end{figure}
 
 Cada vez que se agregue una tesis al sistema de gestión, se crea una  
-instancia de tribunal de tesis con los campos de oponente y presidente sin asignar y  
-una instancia de defensa de tesis con los campos fecha, hora y local sin asignar. 
-En la figura tal y tal se muestra el resultado de agregar las tesis tales.\\
+instancia de un tribunal de tesis con los campos de oponente y presidente sin asignar.
+En la figuras \ref{img-tc-thesis-committee-empty}  se muestran los tribunales creados 
+automáticamente a partir de las tesis que se ingresaron en el sistema.
 
-[IMG de los tribunales y defensas tras crear las tesis de la figura tal]\\
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-committee-empty.png}
+    \caption{Vista de la interfaz de usuario para la confección de los tribunales.}
+    \label{img-tc-thesis-committee-empty}
+\end{figure}
 
-El próximo paso es asignar los profesores en los tribunales de tesis.
+
+El próximo paso es asignar los profesores que conformarán  los tribunales de tesis.
 El encargado de realizar este proceso debe pulsar sobre el botón de editar 
-de la fila correspondiente a al tribunal que desea definir. En la figura tal 
-se muestra el resultado de pulsar sobre la fila tal para realizar la asignación. \\
+de la fila correspondiente al tribunal que desea definir. En la figura \ref{img-tc-thesis-committee-form}
+se muestra el resultado de pulsar sobre el botón de la primera fila y completar el tribunal
+con los profesores que se muestran en la tabla \ref{tabla-tribunal-tesis-cap4}.
 
-[IMG DEL FORMULARIO PARA EDITAR TRIBUNAL DE TESIS]. \\
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-committee-form.png}
+    \caption{Vista del formulario para la confección de los tribunales.}
+    \label{img-tc-thesis-committee-form}
+\end{figure}
+
+
+Cada vez que un tribunal de tesis se modifique se actualiza la participación de los 
+profesores en tribunales, para cada profesor se muestra la cantidad de tribunales en los que 
+participa como oponente y como presidente. En la figura \ref{img-tc-thesis-committee-assign1}
+se muestra el resultado de confeccionar el tribunal para la tesis del estudiante Gustavo Despaigne 
+Dita.
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-committee-assign1.png}
+    \caption{Vista resultante de confeccionar el tribunal de la primera tesis de la tabla.}
+    \label{img-tc-thesis-committee-assign1}
+\end{figure}
+
+En el recuadro A que se indica en la figura \ref{img-tc-thesis-committee-assign1},
+se muestran las participaciones de los profesores en los tribunales que se hayan asignado. 
+La figura \ref{img-tc-thesis-committee-assign2} muestra el resultado de confeccionar el tribunal para la tesis del estudiante Abel
+Antonio Cruz Suárez.
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-committee-assign2.png}
+    \caption{Vista del formulario para la confección de los tribunales.}
+    \label{img-tc-thesis-committee-assign2}
+\end{figure}
+
+En el recuadro A de la figura \ref{img-tc-thesis-committee-assign2},
+se muestra la actualización de las participaciones de la profesora Gemayqzel Bouza en 
+tribunales de tesis, una como oponente y otra como presidente.
+
 
 Cuando se hayan confeccionado los tribunales de tesis, el siguiente paso 
-es realizar la planificación de las defensas, donde se debe definir la fecha, hora 
-y local. En la figura tal se muestra la interfaz de usuario donde se debe realizar 
-el proceso de planificación una vez se hayan confeccionado los tribunales.\\
+es realizar la planificación de las defensas. 
+Cuando una tesis es agregada al sistema, se crea una instancia 
+de una defensa de tesis sin definir los campos fecha, hora y local.
+En la figura \ref{img-tc-thesis-defense-empty} se muestra la interfaz de usuario donde se realiza 
+el proceso de planificación de las tesis.
 
-[IMG de las defensas sin definir] \\
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-defense-empty.png}
+    \caption{Interfaz de usario para planificar las defensas de tesis.}
+    \label{img-tc-thesis-defense-empty}
+\end{figure}
 
-Para definir la fecha, hora y local donde se realizará la defensa de una tesis, se debe 
-pulsar sobre el botón de editar de la fila correspondiente a la defensa que 
-se desea planificar. En la figura tal se muestra ek resultado de pulsar sobre la fila 
-tal para planificar la defensa de la tesis tal. \\
+Similar al proceso de confección de los tribunales, para definir la fecha, hora y lugar 
+donde se realizará la defensa de una tesis, se debe pulsar sobre el botón de editar correspondiente 
+a la fila de la defensa que se desea planificar. En la figura \ref{img-tc-thesis-defense-form}
+se muestra el resultado de pulsar sobre el botón de editar de la primera fila
+y completar los datos de la planificación correspondiente a la tabla \ref{tabla-defensa-tesis-cap4}. 
 
-[IMG DEL FORMULARIO PARA EDITAR DEFENSA DE TESIS]. \\
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-defense-form.png}
+    \caption{Vista del formulario para la planificación de las tesis.}
+    \label{img-tc-thesis-defense-form}
+\end{figure}
+
+
+Una vez se hayan realizado las planificaciones de las defensas de las tesis, se puede 
+exportar la información de estas a un archivo CSV pulsando sobre el recuadro A que se 
+muestra en la figura \ref{img-tc-thesis-defense-result}.
+
+
+\begin{figure}[H]
+    \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-defense-result.png}
+    \caption{Vista resultado de las planificaciones de tesis.}
+    \label{img-tc-thesis-defense-result}
+\end{figure}
+
+% Para definir la fecha, hora y local donde se realizará la defensa de una tesis, se debe 
+% pulsar sobre el botón de editar de la fila correspondiente a la defensa que 
+% se desea planificar. En la figura tal se muestra ek resultado de pulsar sobre la fila 
+% tal para planificar la defensa de la tesis tal. \\
+
 
 
 Para poder llevar a cabo el proceso de planificación de las tesis a través
@@ -371,7 +520,7 @@ se ingresen las informaciones que intervienen en este proceso. Por ejemplo
 para poder confeccionar un tribunal es necesario que la tesis haya sido agregada 
 anteriormente, pero para poder agregar la tesis es necesario que los tutores o 
 cotutores de la misma hayan sido agregados previamente. Por tanto el primer paso 
-para realizar la planificación de las tesis es ingresar todos los datos que se describen 
+para realizar la planificación de las tesis, es ingresar todos los datos que se describen 
 en la sección \ref{database:planificación-tesis}
 
 
