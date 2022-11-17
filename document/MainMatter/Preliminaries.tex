@@ -614,6 +614,8 @@ utilizando un modelo cliente-servidor.
 Para el desarrollo en el lado del servidor se hace uso de Django [REF], en particular Django Rest Framework, aprovechando la
 versatilidad, seguridad, escalabilidad y mantenibilidad
 que ofrece.
+El SGBD escogido fue SQLite, que viene integrado de forma 
+predeterminada en Django.
 El cliente se desarrolló usando Quasar [REF], creando una
 \textit{single-page application} (SPA).
 A continuación se profundiza en el modelo 
@@ -697,15 +699,16 @@ de Plantillas, se decidió utilizar Quasar, los motivos se describen en la próx
 
 \subsection{Desarrollo del cliente}
 Dentro de las tecnologías de desarrollo web más utilizadas, 
-JavaScript es una de las más populares en la actualidad \cite{java_script_stadistics}. JavaScript es 
+JavaScript es una de las más populares en la actualidad [\cite{java_script_stadistics}]. JavaScript es 
 un lenguaje de programación basado en prototipos y multiparadigma.
 Como JavaScript está implementado (voz pasiva) en la mayoría de los 
 navegadores web, se utiliza para el desarrollo del cliente permitiendo el 
 mejorar las interfaces de usarios y la creación de
-páginas web dinámicas.
+páginas web dinámicas [\cite{java_script}].
+
 La popularidad de JavaScript para el desarrollo web ha impulsado
 la creación de distintas bibliotecas y herramientas, entre las más 
-utilizadas se encuentran: Angular, React y Vue \cite{front_end_frameworks}. Angular es desarrollada 
+utilizadas se encuentran: Angular, React y Vuejs [\cite{front_end_frameworks}]. Angular es desarrollada 
 y mantenida por Google, React por META (Facebook) y Vuejs por un 
 equipo de colaboradores a nivel mundial, con Evan Yu, su principal
 creador, un ex ingeniero de Google. 
@@ -748,26 +751,27 @@ En los últimos años, Vue.js se ha convertido
 en un fuerte competidor de Angular y React. El 
 crecimiento de Vue.js se relaciona con su simplicidad 
 y disponibilidad de bibliotecas y materiales de aprendizaje. A pesar de que Vue.js se define en su sitio oficial como ``An approachable, performant and versatile framework for building web user interfaces''
-o ``Un marco accesible, eficaz y versátil para crear interfaces de usuario web'' \cite{vuejs}
+o ``Un marco accesible, eficaz y versátil para crear interfaces de usuario web'' [\cite{vuejs}],
 no proporciona elementos o componentes de interfaz de usuarios. Es por esto que surgen  
 otras bibliotecas encima de Vue.js, como una capa más de abstracción, que 
 brindan un conjunto de componentes reutilizables y con estilos personalizables. Entre 
-las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar [REF].
+las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar [\cite{vuejs-frameworks}].
 Este último fue el escogido para el desarrollo del cliente de la aplicación web. 
   
 
 
 
 \subsubsection{Quasar}
-Es una biblioteca de código abierto desarrollado para Vue.js,
-que permite el desarrollo aplicaciones/sitios web de una sola página (SPA),
+Es una biblioteca de código abierto basada en Vue.js,
+que permite crear aplicaciones con una sola base de código.
+Se pueden desarrollar aplicaciones/sitios web de una sola página (SPA),
 aplicaciones/sitios web renderizados del lado del servidor (SSR),
 aplicaciones web progresivas (PWA), incluso aplicaciones móviles y de 
-escritorio, reutilizando el mismo código fuente. 
-Entre los principales beneficios que Quasar ofrece 
-se encuentran:
+escritorio.
+Entre las principales características que influyeron en que 
 
-[ENFOCAR ESTO COMO X Q ES UTIL LO DE ABAJO PARA MI.]
+Entre las principales características que influyeron en la selección de esta biblioteca 
+para el desarrollo en el lado del cliente se encuntran: 
 
 \begin{itemize}
     \item más de 70 componentes web personalizables y de alto rendimiento para cubrir la 
@@ -775,7 +779,7 @@ se encuentran:
     \item buenas prácticas integradas tales como: compresión de código, 
     manejo avanzado de caché, mapeo de fuentes y carga diferida. 
     \item Quasar-CLI, una herramienta que genera de forma automática la estructura del 
-    proyecto en cuestión.
+    proyecto, con los paquetes y configuraciones para empezar a desarrollar una aplicación web.
     % \item soporte para varios idiomas, incluyendo 
     % compatibilidad para idiomas RLT (right to left), tanto para los componentes de Quasar
     % como para el código del desarrollador.  
@@ -788,8 +792,6 @@ se encuentran:
 
 \end{itemize}
 
-
-[HABLAR DE SQLite]
 
 % La minificación es el proceso de reducir el peso de los archivos de código
 % fuente a través de la eliminación de bytes innecesarios como los 
