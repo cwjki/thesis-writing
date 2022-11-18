@@ -1,19 +1,34 @@
 \chapter{Descripción del diseño de la base de datos}\label{chapter:database}
+Para la informatización de la asignación de docencia y la planificación de 
+las tesis, fue necesario almacenar los datos que intervien en estos procesos, en una base de datos.
+En este capítulo se describe el diseño que se obtuvo para la modelación de 
+cada proceso.
+
 
 \section{Modelación de la asignación de docencia}\label{database:asignación-docencia}
-En la fase de diseño conceptual se modelaron las entidades fundamentales
+% Para la modelación del proceso de asignación de docencia, 
+% se definieron las entidades fundamentales, así como las interrelaciones que se establecen entre ellas, 
+% a partir del modelo entidad-relación extendido. 
+% En la figura \ref{} se muestra un
+% Como resultado se obtuvo 
+% el siguiente esquema
+
+Se modelaron las entidades fundamentales
 que intervienen en el proceso de la asignación de docencia, 
-así como las interrelaciones que se establecen entre ellas
-y se obtuvo el siguiente
-esquema a partir del modelo entidad-relación extendido.
+así como las interrelaciones que se establecen entre ellas.
+En la figura \ref{merxx-docencia} se muestra el esquema que se obtuvo a partir 
+del modelo entidad-relación extendido.
 
 \begin{figure}[H]
-    \includegraphics[scale=0.2]{Graphics/Database/MERXX-TA-FINAL.png}
+    \includegraphics[scale=0.31]{Graphics/Database/MERXX-TA-FINAL.png}
+    \caption{MERXX para la asignación de docencia}
+    \label{merxx-docencia}
+    
 \end{figure}
 
 
 Con el objetivo de simplificar la representación del modelo entidad-relación
-no se agregaron a la imagen los atributos correspondientes a cada entidad, por lo 
+no se agregaron en la imagen \ref{merxx-docencia}, los atributos correspondientes a cada entidad, por lo 
 que a continuación se describen las entidades en mayor profundidad.
 
 
@@ -168,8 +183,8 @@ proceso anterior.
 
 
 \begin{figure}[H]
-    \includegraphics[scale=0.22]{Graphics/Database/MERXX-TC-FINAL.png}
-    \caption{}
+    \includegraphics[scale=0.31]{Graphics/Database/MERXX-TC-FINAL.png}
+    \caption{MERXX para la planificación de las tesis}
     \label{mern-ta}
 \end{figure}
 

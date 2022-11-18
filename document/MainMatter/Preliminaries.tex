@@ -451,7 +451,7 @@ diseño lógico y diseño físico.
 \subsubsection{Diseño conceptual}
 En esta fase se obtiene como resultado una representación 
 abstracta y de alto nivel de la realidad a partir de las 
-especificaciones de requisitos de usuario [REF libro]. El diseño
+especificaciones de requisitos de usuario [REF]. El diseño
 conceptual comienza con la identificación de las necesidades de los 
 usuarios, que a menudo se pueden obtener a través de: examinar
 la documentación existente como formularios, observando y
@@ -603,6 +603,9 @@ admisibles de redundancia en los datos[\cite{ws_3FN}].
 % descripción de cómo se modelaron estos procesos.
 
 
+En la siguiente sección se describen las herramientas y tecnologías 
+que se utilizaron para la informatización de los procesos de asignación de 
+docencia y planificación de las tesis.
 
 
 
@@ -701,17 +704,20 @@ de Plantillas, se decidió utilizar Quasar, los motivos se describen en la próx
 Dentro de las tecnologías de desarrollo web más utilizadas, 
 JavaScript es una de las más populares en la actualidad [\cite{java_script_stadistics}]. JavaScript es 
 un lenguaje de programación basado en prototipos y multiparadigma.
-Como JavaScript está implementado (voz pasiva) en la mayoría de los 
-navegadores web, se utiliza para el desarrollo del cliente permitiendo el 
-mejorar las interfaces de usarios y la creación de
-páginas web dinámicas [\cite{java_script}].
+Se utiliza principalmente para el desarrollo en el lado del cliente, para la
+creación de páginas web dinámicas [\cite{java_script}]. 
+
+% Como JavaScript está implementado en la mayoría de los 
+% navegadores web, se utiliza para el desarrollo del cliente permitiendo el 
+% mejorar las interfaces de usarios y la creación de
+% páginas web dinámicas .
 
 La popularidad de JavaScript para el desarrollo web ha impulsado
 la creación de distintas bibliotecas y herramientas, entre las más 
 utilizadas se encuentran: Angular, React y Vuejs [\cite{front_end_frameworks}]. Angular es desarrollada 
 y mantenida por Google, React por META (Facebook) y Vuejs por un 
-equipo de colaboradores a nivel mundial, con Evan Yu, su principal
-creador, un ex ingeniero de Google. 
+equipo de colaboradores a nivel mundial, su principal creador fue Evan Yu, un ex ingeniero
+de Google. 
 
 
 % \subparagraph{Angular}
@@ -746,6 +752,7 @@ creador, un ex ingeniero de Google.
 % a la cantidad de funciones integradas que ofrece, más que React, pero 
 % menos que Angular. Sitios web como GitLab y Alibaba están usando Vue. \\
 
+% En este trabajo se escogió Vuejs para el desarrollo en el lado del cliente.
 
 En los últimos años, Vue.js se ha convertido
 en un fuerte competidor de Angular y React. El 
@@ -768,8 +775,6 @@ Se pueden desarrollar aplicaciones/sitios web de una sola página (SPA),
 aplicaciones/sitios web renderizados del lado del servidor (SSR),
 aplicaciones web progresivas (PWA), incluso aplicaciones móviles y de 
 escritorio.
-Entre las principales características que influyeron en que 
-
 Entre las principales características que influyeron en la selección de esta biblioteca 
 para el desarrollo en el lado del cliente se encuntran: 
 
@@ -779,7 +784,8 @@ para el desarrollo en el lado del cliente se encuntran:
     \item buenas prácticas integradas tales como: compresión de código, 
     manejo avanzado de caché, mapeo de fuentes y carga diferida. 
     \item Quasar-CLI, una herramienta que genera de forma automática la estructura del 
-    proyecto, con los paquetes y configuraciones para empezar a desarrollar una aplicación web.
+    proyecto, con los paquetes y configuraciones necesarias para el 
+    funcionamiento inicial de la aplicación web.
     % \item soporte para varios idiomas, incluyendo 
     % compatibilidad para idiomas RLT (right to left), tanto para los componentes de Quasar
     % como para el código del desarrollador.  
@@ -791,6 +797,13 @@ para el desarrollo en el lado del cliente se encuntran:
     % a este tema [REF].
 
 \end{itemize}
+
+
+En el próximo capítulo se describen las principales funcionalidades
+que se desean incorporar en el sistema de gestión que se propone en este trabajo, 
+para la informatización de los procesos de asignación de docencia y planificación de 
+las tesis.
+ 
 
 
 % La minificación es el proceso de reducir el peso de los archivos de código
