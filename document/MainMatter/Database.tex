@@ -105,12 +105,6 @@ El nombre del semestre se modela como un atributo.
 Pueden existir una o muchas asignaturas que se imparten en 
 el mismo semestre. 
 
-\subparagraph{CURSO ESCOLAR:}
-Representa los cursos escolares.
-El nombre del curso escolar se modela como un atributo.
-Pueden existir una o muchas asignaturas que se imparten en 
-el mismo curso escolar.
-
 
 \subparagraph{PERÍODO DE TIEMPO:}
 Representa los períodos de tiempo del año.
@@ -118,6 +112,10 @@ El nombre del período de tiempo se modela como un atributo.
 Pueden existir una o muchas asignaturas que se imparten en 
 el mismo período de tiempo.
 
+\subparagraph{CURSO ESCOLAR:}
+Representa los curso escolares, por ejemplo: 2020-2021.
+El nombre del curso de escolar se modela como un atributo. Además 
+cuenta con un campo booleano que indica si el curso es el vigente.
 
 \subparagraph{GRUPO ESCOLAR:}
 Representa los años académicos asociados a una carrera, como por ejemplo:
@@ -130,13 +128,17 @@ tales como: conferencias, clases prácticas, seminarios, laboratorios, otros.
 
 \subparagraph{PLANIFICACIÓN DE ASIGNATURA:}
 Se crea con el objetivo de modelar la separación de una asignatura
-según las actividades de clases a impartir, en un período de tiempo y para
-un grupo escolar específico. Está compuesta por la agregación de las entidades ASIGNATURA, ACTIVIDAD DE CLASE, GRUPO 
-ESCOLAR, CURSO ESCOLAR Y PERÍODO DE TIEMPO.
+según las actividades de clases a impartir, en un curso escolar, en un período de tiempo y para
+un grupo escolar específico. Está compuesta por la agregación de las entidades ASIGNATURA, CURSO ESCOLAR, ACTIVIDAD DE CLASE, GRUPO 
+ESCOLAR Y PERÍODO DE TIEMPO.
 Se agregan los atributos cantidad de horas para el tipo de actividad a realizar y 
 la cantidad de grupos.
-Por ejemplo (poner ejemplo real de una asignatura
-con distintas act de clase y como queda la separación)
+Por ejemplo, para la asignatura Optimización Matemática I, que se imparte 
+en el tercer año de la carrera de Matemática, con un total de 64 horas clase, 
+se deben crear dos instancia de PLANIFICACIÓN DE ASIGNATURA, una con 32 horas 
+de conferencias y otra con 32 horas de clases prácticas, para que posteriormente
+se puedan asignar los profesores que se ocuparán de estas planificaciones. 
+
 
 
 
@@ -156,9 +158,9 @@ con distintas act de clase y como queda la separación)
 
 
 \subparagraph{ASIGNACIÓN DE DOCENCIA:}
-Representa las asignaciones de planificaciones de asignaturas a profesores.
+Representa las asignaciones de profesores a planificaciones de asignaturas.
 Además se agrega un atributo porciento que indica el porcentaje del total de horas 
-a impartir que asume el profesor asignado. Un profesor puede 
+a impartir, que asume el profesor asignado. Un profesor puede 
 tener asignada cero o muchas planificaciones de asignaturas y una planificación de 
 asignatura puede estar asignada a uno o muchos profesores.
 
@@ -177,15 +179,17 @@ estudio E, se encuentra en el semestre 8,  en el período de tiempo septiembre-d
 
 
 \section{Modelación de los tribunales de tesis}\label{database:planificación-tesis}
-Para la modelación del proceso de confección de los tribunales de tesis,
-se crea un esquema basado en el modelo entidad-relacional extendido como en el 
-proceso anterior. 
+Se modelaron las entidades fundamentales 
+que intervienen en el proceso de planificación de las tesis, así como 
+las interrelaciones que se establecen entre ellas. En la figura 
+\ref{merxx-thesis} se muestra el esquema que se obtuvo a partir del 
+modelo entidad-relación extendido.
 
 
 \begin{figure}[H]
     \includegraphics[scale=0.31]{Graphics/Database/MERXX-TC-FINAL.png}
     \caption{MERXX para la planificación de las tesis}
-    \label{mern-ta}
+    \label{merxx-thesis}
 \end{figure}
 
 

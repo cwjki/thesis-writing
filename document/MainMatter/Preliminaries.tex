@@ -1,26 +1,47 @@
 \chapter{Preliminares}\label{chapter:preliminaries}
-En este capítulo se presenta una introducción a los procesos que se llevan a cabo en la Facultad
-de Matemática y Computación de la Universidad de La Habana, así
-como una descripción de las herramientas que se utilizaron 
-en este trabajo. \\
+El objetivo de este trabajo es diseñar e implementar un sistema que 
+permita informatizar dos de los procesos que se llevan a cabo en la Facultad
+de Matemática y Computación de la Universidad de La Habana (MATCOM): 
+la asignación de docencia y las planificaciones de las tesis.
 
-[ESTRUCTURA DEL CAP] \\
+En este capítulo se describe cómo se realizan estos procesos actualmente 
+en MATCOM y se presentan los elementos fundamentales de las herramientas que se utilizaron 
+en este trabajo.
+
+En la sección \ref{section:funcionamiento de la facultad} se describe 
+el funcionamiento de la facultad, en particular, cómo se llevan a cabo la 
+asignación de docencia y la planificación de las tesis. En la sección 
+\ref{herramientas:cap1} se presentan las características principales de las 
+herramientas que se utilizaron para la implementación del sistema.
 
 
-% En la sección \ref{section:funcionamiento de la facultad} se describe el funcionamiento 
-% de la facultad y se  y en la mas cual.
+% En este capítulo se presenta una introducción a los procesos que se llevan a cabo en la Facultad
+% de Matemática y Computación de la Universidad de La Habana, así
+% como una descripción de las herramientas que se utilizaron 
+% en este trabajo. \\
+
+
 
 \section{Funcionamiento de la facultad}\label{section:funcionamiento de la facultad}
+En MATCOM, todos los semestres se realizan 
+un conjunto de procesos administrativos y de planificación relacionadas con
+los curso escolares, tales como: planificación 
+de los evaluaciones de las asignaturas, planificación de los exámenes finales y 
+revalorizaciones, asignación de los alumnos ayudantes, planificación de los cursos 
+optativos, asignación de la docencia, planificación de las tesis, entre otros. 
+En las siguientes secciones se describe cómo se efectuan
+los procesos de asignación de docencia y planificación de las tesis
+actualmente en la facultad.
 
 
-Cada año en la Facultad de Matemática y Computación de La 
-Universidad de La Habana se realizan procesos administrativos y de 
-planificación relacionados con los cursos escolares.
-Cada semestre es necesario realizar la planificación de docencia,
-las evaluaciones de cada asignatura, la planificación de los 
-exámenes finales y revalorizaciones, en el semestre final de un 
-curso, es necesario realizar las planificaciones de las tesis, entre otros.
-[ARREGLAR ESTO, NO SE MUY BIEN QUE DECIR Y QUE NO]
+% Cada año en la Facultad de Matemática y Computación de la 
+% Universidad de La Habana se realizan procesos administrativos y de 
+% planificación relacionados con los cursos escolares.
+% Cada semestre es necesario realizar la planificación de docencia,
+% las evaluaciones de cada asignatura, la planificación de los 
+% exámenes finales y revalorizaciones, en el semestre final de un 
+% curso, es necesario realizar las planificaciones de las tesis, entre otros.
+% [ARREGLAR ESTO, NO SE MUY BIEN QUE DECIR Y QUE NO]
 
 
 % A continuación se describen 
@@ -61,11 +82,10 @@ curso, es necesario realizar las planificaciones de las tesis, entre otros.
 % deben tener conocimientos sobre los temas que se aborden en las tesis en que participen. \\
 
 
-Este trabajo tiene como objetivo el desarrollo de una herramienta informática
-que permita realizar dos de los procesos mencionados anteriormente:
-asignación de docencia y planificación de las tesis.
-En las siguientes secciones se describen cómo se realizan actualmente
-estos procesos en la facultad de MATCOM.
+% Este trabajo tiene como objetivo el desarrollo de una herramienta informática
+% que permita realizar dos de los procesos mencionados anteriormente:
+% asignación de docencia y planificación de las tesis.
+
 
 % los procesos mencionados anteriormente
 % que permita
@@ -79,83 +99,97 @@ estos procesos en la facultad de MATCOM.
 
 
 \subsection{Asignación de docencia}
+La asignación de docencia, consiste en determinar qué profesor debe 
+impartir cada asignatura. Para conocer cuáles asignaturas se deben impartir en 
+cada semestre, se debe tener en cuenta el plan de estudio por el que se rige cada año.
 
-En la facultad de Matemática y Computación de La Universidad de la 
-Habana, se estudian las carreras de Matemática y Ciencia de la Computación. 
-Cada carrera se rige por un plan de estudio, que es un programa estructurado
-donde se definen los contenidos que forman parte del currículo de los 
-graduados. En el plan de estudio de una carrera 
-se debe caracterizar la profesión, describir las principales funciones de un profesional y 
-los valores a desarrollar durante la carrera. 
-Además determina la cantidad de horas clase de cada asignatura,
-así como el año y semestre en el que se deben impartir.
-Cada cierto tiempo el plan de estudio de una carrera universitaria cambia, principalmente
-para mantener la formación de los profesionales actualizada con el desarrollo de la 
+El plan de estudio es un programa estructurado donde se definen los contenidos que forman parte del currículo de los 
+graduados. En el plan de estudio se determina la cantidad de horas clase de cada asignatura, 
+así como el año y semestre en el que se deben impartir. Cada cierto tiempo el plan de estudio de una carrera universitaria cambia,
+con el objetivo de mantener la formación de los profesionales actualizada con el desarrollo de la 
 sociedad.
 
-Actualmente en la carrera de Ciencia de la 
-Computación de la Facultad de Matemática 
-y Computación de La Universidad de La Habana, exiten tres planes de estudios 
-vigentes. En el año 2018 se actualizó el plan de estudio para los profesionales de la 
-carrera de Ciencia de la Computación, se creó el plan de estudio E,
-donde se redujo la cantidad de años escolares de 5 a 4. Además, como consecuencia de la situación epidemiológica que provocó la COVID-19, 
-fue necesaria la modificación del plan E para la reducción de asignaturas del currículo, creándose 
-el plan de estudio E (COVID). Por tanto los estudiantes que ingresaron en la facultad en 
+En el curso 2022, en la carrera de Ciencia de la Computación, existen tres planes de 
+estudio vigentes. En el año 2018 entró en vigor el plan de estudio E, donde 
+se redujo la cantidad de años escolares de 5 a 4. Además, como consecuencia de la 
+situación epidemiológica que provocó la COVID-19, fue necesario modificar el 
+plan E, creándose un plan de estudio E modificado, que en este documento se le refencia como 
+E (COVID). De forma que, los estudiantes que ingresaron en la facultad en 
 el curso 2017-2018, que se encuentran en el quinto año de la carrera, se rigen por el plan D, 
-los estudiantes que se encuentran en el primer, tercer y cuarto año se rigen por el plan E y los 
-estudiantes que cursan el segundo año se rigen por el E(COVID).   
+los estudiantes que se encuentran en primero, tercero y cuarto año, se rigen por el plan E 
+y los estudiantes que cursan el segundo año, se rigen por el E (COVID).
 
+Por tanto, para realizar la asignación de docencia correspondiente al período enero-julio del 
+curso 2022, hay que tener en cuenta las asignaturas que se imparten en quinto año 
+según el plan D; en primero, tercero y cuarto según el plan E; y en segundo según el plan E (COVID).
 
-% Se realiza una planificación de las distintas 
-% disciplinas que se deben estudiar. Las disciplinas están compuestas por una o varias 
-% asignaturas y en el plan de estudio se debe especificar la cantidad de horas clase de 
-% cada asignatura, 
-
-En MATCOM existen 4 departamentos: Matemática, Matemática Aplicada,
+Cada asignatura la imparte un departamento, 
+en MATCOM existen 4 departamentos: Matemática, Matemática Aplicada,
 Programación y Sistemas de Información e Inteligencia 
 Artificial y Sistemas Computacionales.
 En un departamento se realizan actividades de coordinación de docencia, investigación y 
-tutoría de estudiantes. Los departamentos están formados (voz pasiva) por profesores
+tutoría de estudiantes. Los departamentos están formados por profesores
 y cuentan con un jefe de departamento. Los profesores que integran un departamento tienen 
-un grado científico (Licenciado, Máster, Doctor) y una categoría docente (Titular, Auxiliar, Instructor, Asistente) .
+un grado científico (Licenciado, Máster, Doctor) y una categoría docente (Titular, Auxiliar, Instructor, Asistente).
 Los departamentos de una 
-facultad pueden brindan servicios a otras facultades, por ejemplo el departamento de 
+facultad pueden impartir asignaturas en otras facultades, que se le suele llamar docencia 
+externa. Por ejemplo, el departamento de 
 Matemática Aplicada imparte en el segundo año de la carrera de Geografía la asignatura 
-Estadística.
+Estadística. Las asignaturas que se imparten en otras facultades, a los efectos del proceso de asignación de docencia,
+tienen la misma relevancia que las que se imparten en la facultad. 
 
+En la tabla \ref{tabla-planificación-cap1} se muestran las asignaturas que debe impartir 
+el departamento de Matemática Aplicada en el período enero julio del curso 2022.
 
-La dirección de la facultad realiza la planificación de la docencia, que consiste 
-en determinar las asignaturas que se deben impartir en el semestre,
-así como la cantidad de grupos de conferencias, clases prácticas u otras 
-actividades de clase. Cada departamento recibe la planificación 
-correspondiente a las asignaturas de las cuáles se ocupa.
-En la tabla \ref{tabla-planificación-cap1} se muestra un fragmento 
-de la planificación de docencia para el departamento de Matemática 
-Aplicada. La notación en la columna de los grupos n/m indica que exiten n 
-cantidad de grupos de conferencia y m cantidad de grupos de clases 
-prácticas.
-
-\begin{table}[h!]
+\begin{table}[H]
     \centering
     \begin{tabular}{| c | c | c | c | c |}
         \hline
-        \thead{Facultad}   & \thead{Año} & \thead{Asignatura} & \thead{Horas} & \thead{Grupos}  \\ \hline
-        MATCOM     & M3  & Optimización Matemática I  &  64   &  1/1   \\ 
-        MATCOM     & C3  & Modelos de Optimización I  &  64   &  1/2   \\ 
-        GEOGRAFÍA  & G2  & Estadística                &  80   &  1/2   \\ 
+        \thead{Asignatura}   & \thead{Año} & \thead{Facultad} & \thead{Horas} & \thead{Grupos}  \\ \hline
+        Programación y Algoritmos & M1 & MATCOM     & 64 & 1/3  \\
+        \hline
+        Seminarios de Problemas   & M1 & MATCOM     & 48 & 1/3  \\
+        \hline
+        Programación y Algoritmos & M2 & MATCOM     & 32 & 1/1  \\
+        \hline
+        Inferencia Estadística    & M3 & MATCOM     & 80 & 1/1  \\
+        \hline
+        Matemática Numérica       & M3 & MATCOM     & 48 & 1/1  \\
+        \hline
+        Optimización Matemática I & M3 & MATCOM     & 64 & 1/1  \\
+        \hline
+        Estadística               & C3 & MATCOM     & 64 & 1/2  \\
+        \hline
+        Modelos de Optimización I & C3 & MATCOM     & 64 & 1/2  \\
+        \hline
+        Estadística               & G2 & GEOGRAFÍA  & 80 & 1/2  \\
+        \hline
+        Estadística               & S2 & SOCIOLOGÍA & 80 & 1    \\
         \hline
     \end{tabular}
-    \caption{Fragmento de la planificación de docencia para el departamento de Matemática Aplicada.}
+    \caption{Asignaturas que debe impartir el departamento de Matemática Aplicada en el período enero-julio 2022.}
     \label{tabla-planificación-cap1}
 \end{table}
 
+En la tabla \ref{tabla-planificación-cap1} se muestran las asignaturas, el año escolar en el cual se imparten,
+la facultad a la que pertenece el año escolar, el total de horas clase y la 
+cantidad de grupos de conferencias y clases prácticas.
+Por ejemplo, la primera fila indica que la asignatura Programación y Algoritmos que se 
+imparte en el primer año de la carrera de Matemática, de la facultad MATCOM, tiene 
+un total de 64 horas clase y cuenta con un grupo de conferencias y tres de clases prácticas. 
 
 
+Cada asignatura tiene un total de horas que se deben impartir de acuerdo 
+al plan de estudio al que pertenezcan. La distribución del total de horas 
+en las distintos tipos de clases como conferencias, clases prácticas, se decide 
+por el colectivo de profesores de la asignatura e incluso puede cambiar de un año a otro.
 
-La asignación de docencia en un departamento consiste en distribuir a los profesores
-para cumplir con la planificación de docencia. En la tabla \ref{tabla-asignación-cap1} se muestra 
-un fragmento de una posible asignación de docencia para la planificación de la 
-tabla \ref{tabla-planificación-cap1}.
+
+Para realizar la asignación de la docencia en un departamento, se deben 
+distribuir los profesores, de forma que cubran la cantidad de horas de conferencias 
+y clases prácticas de cada asignatura. En la tabla \ref{tabla-asignación-cap1} se muestra 
+un fragmento de una posible asignación de docencia.
+
 
 \begin{table}[H]
     \centering
@@ -170,15 +204,79 @@ tabla \ref{tabla-planificación-cap1}.
       Estadística                 &  80   &  1/2 &  \makecell{C: Elianys García (48) \\ CP: Ernesto Borrego(32) \\ CP: Elianys García(32)} \\  
       \hline
     \end{tabular}
-    \caption{Fragmento de la asignación de docencia para el departamento de Matemática Aplicada.}
+    \caption{Fragmento de una posible asignación de docencia en el departamento de Matemática Aplicada.}
     \label{tabla-asignación-cap1}
 \end{table}
+
+En la primera fila de la tabla \ref{tabla-asignación-cap1} se indica 
+el nombre de la asignatura; en la segunda, el total de horas a impartir; en la tercera, 
+la cantidad de grupos de conferencias (C) y clases prácticas (CP), y en la última, los 
+profesores que se asignaron para cubrir cada actividad de clase, especificando el total de horas que imparte cada uno. 
+Por ejemplo, en la primera fila se muestra que la asignatura Optimización Matemática I tiene un total de 
+64 horas clase, con un grupo de conferencia y uno de clases prácticas, y que la profesora Aymeeé Marrero imparte 
+las 32 horas de conferencia y la profesora Gemayqzel Bouza imparte las 32 horas de clases prácticas.
+
+% En la facultad de Matemática y Computación de La Universidad de la 
+% Habana, se estudian las carreras de Matemática y Ciencia de la Computación. 
+% Cada carrera se rige por un plan de estudio, que es un programa estructurado
+% donde se definen los contenidos que forman parte del currículo de los 
+% graduados. En el plan de estudio de una carrera 
+% se debe caracterizar la profesión, describir las principales funciones de un profesional y 
+% los valores a desarrollar durante la carrera. 
+% Además determina la cantidad de horas clase de cada asignatura,
+% así como el año y semestre en el que se deben impartir.
+% Cada cierto tiempo el plan de estudio de una carrera universitaria cambia, principalmente
+% para mantener la formación de los profesionales actualizada con el desarrollo de la 
+% sociedad.
+
+% Actualmente en la carrera de Ciencia de la 
+% Computación de la Facultad de Matemática 
+% y Computación de La Universidad de La Habana, exiten tres planes de estudios 
+% vigentes. En el año 2018 se actualizó el plan de estudio para los profesionales de la 
+% carrera de Ciencia de la Computación, se creó el plan de estudio E,
+% donde se redujo la cantidad de años escolares de 5 a 4. Además, como consecuencia de la situación epidemiológica que provocó la COVID-19, 
+% fue necesaria la modificación del plan E para la reducción de asignaturas del currículo, creándose 
+% el plan de estudio E (COVID). Por tanto los estudiantes que ingresaron en la facultad en 
+% el curso 2017-2018, que se encuentran en el quinto año de la carrera, se rigen por el plan D, 
+% los estudiantes que se encuentran en el primer, tercer y cuarto año se rigen por el plan E y los 
+% estudiantes que cursan el segundo año se rigen por el E(COVID).   
+
+
+% Se realiza una planificación de las distintas 
+% disciplinas que se deben estudiar. Las disciplinas están compuestas por una o varias 
+% asignaturas y en el plan de estudio se debe especificar la cantidad de horas clase de 
+% cada asignatura, 
+
+
+
+
+% La dirección de la facultad realiza la planificación de la docencia, que consiste 
+% en determinar las asignaturas que se deben impartir en el semestre,
+% así como la cantidad de grupos de conferencias, clases prácticas u otras 
+% actividades de clase. Cada departamento recibe la planificación 
+% correspondiente a las asignaturas de las cuáles se ocupa.
+% En la tabla \ref{tabla-planificación-cap1} se muestra un fragmento 
+% de la planificación de docencia para el departamento de Matemática 
+% Aplicada. La notación en la columna de los grupos n/m indica que exiten n 
+% cantidad de grupos de conferencia y m cantidad de grupos de clases 
+% prácticas.
+
+
+
+
+
+
+% La asignación de docencia en un departamento consiste en distribuir a los profesores
+% para cumplir con la planificación de docencia. En la tabla \ref{tabla-asignación-cap1} se muestra 
+% un fragmento de una posible asignación de docencia para la planificación de la 
+% tabla \ref{tabla-planificación-cap1}.
+
+
 
 
 Cada asignatura tiene un total de horas que se deben impartir de acuerdo 
 al plan de estudio al que pertenezcan. La distribución del total de horas 
-en las distintos tipos de clases como conferencias, clases prácticas, seminarios, 
-laboratorios u otros, se maneja por el colectivo de profesores de la asignatura e incluso
+en las distintos tipos de clases como conferencias, clases prácticas, se maneja por el colectivo de profesores de la asignatura e incluso
 puede cambiar de un año a otro. 
 En la tabla \ref{tabla-asignación-cap1}, se puede apreciar que la asignatura 
 Optimización Matemática I tiene un total de horas a impartir de 64, que se distribuyen 
@@ -609,7 +707,7 @@ docencia y planificación de las tesis.
 
 
 
-\section{Herramientas utilizadas para el desarrollo del software}
+\section{Herramientas utilizadas para el desarrollo del software}\label{herramientas:cap1}
 Para la informatización de los procesos
 de asignación de docencia y planificación de las tesis
 se implementó una aplicación web,
