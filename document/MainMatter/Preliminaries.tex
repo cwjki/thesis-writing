@@ -413,7 +413,7 @@ El proceso de planificación de las tesis se puede separar en dos subprocesos pr
 la confección de los tribunales y la planificación de las defensas.
 La organización de los tribunales consiste en determinar qué profesor formará parte 
 de cada tribunal. La planificación de las defensas consiste en definir, en qué día, hora 
-y lugar se realizará cada defensa.
+y lugar se realizará cada acto de defensa.
 
 [AQUI ESSTA BIEN ESTE PARRAFO ?]
 El ejercicio de culminación de estudios de pregrado consiste en la 
@@ -574,10 +574,6 @@ trabajo.
 
 
 
-Tanto la planificación de las tesis como la asignación de la docencia, requieren de un 
-conjunto de datos e informaciones que es necesario almacenar. Para ello, se 
-utiliza una base de datos. En la siguiente sección se presentan las características 
-principales del sistema de gestión de bases de datos (SGBD) que se utilizó en este trabajo.
 
 
 % Para almacenar la información relevante a los procesos de 
@@ -587,171 +583,170 @@ principales del sistema de gestión de bases de datos (SGBD) que se utilizó en 
 % base de datos.
 
 
-\section{Diseño de bases de datos}
-El desarrollo de la informática y la computación ha permitido
-el almacenamiento de grandes cantidades de datos en espacios 
-físicos limitados. Actualmente los sistemas de bases de datos juegan
-un papel fundamental en el desarrollo de todo tipo de sistemas computacionales.
+% El desarrollo de la informática y la computación ha permitido
+% el almacenamiento de grandes cantidades de datos en espacios 
+% físicos limitados. Actualmente los sistemas de bases de datos juegan
+% un papel fundamental en el desarrollo de todo tipo de sistemas computacionales.
 
-El diseño de base de datos es un proceso fundamental a la hora 
-de modelar el conjunto de datos y las operaciones que se deseen
-realizar sobre ellos. Un correcto diseño de la base de datos
-es esencial para garantizar la consistencia de la información,
-eliminar datos redundantes, ejecutar consultas de manera 
-eficiente y mejorar el rendimiento de la base de datos [\cite{db_book_cap2}]. 
+% El diseño de base de datos es un proceso fundamental a la hora 
+% de modelar el conjunto de datos y las operaciones que se deseen
+% realizar sobre ellos. Un correcto diseño de la base de datos
+% es esencial para garantizar la consistencia de la información,
+% eliminar datos redundantes, ejecutar consultas de manera 
+% eficiente y mejorar el rendimiento de la base de datos [\cite{db_book_cap2}]. 
 
-\subsection{Metodología de diseño de bases de datos}
-La complejidad de la información y la cantidad de requisitos que se 
-deseen modelar en un sistema computacional hacen que el diseño de una 
-base de datos no sea una tarea sencilla. Por tanto es común 
-descomponer el proceso de diseño en tres etapas fundamentales: diseño conceptual,
-diseño lógico y diseño físico. 
-
-
-\subsubsection{Diseño conceptual}
-En esta fase se obtiene como resultado una representación 
-abstracta y de alto nivel de la realidad a partir de las 
-especificaciones de requisitos de usuario [REF]. El diseño
-conceptual comienza con la identificación de las necesidades de los 
-usuarios, que a menudo se pueden obtener a través de: examinar
-la documentación existente como formularios, observando y
-analizando el procesamiento de la información en el proceso que 
-se desea modelar o mediante entrevistas a los usuarios finales [\cite{db_requirement_analysis}].
-
-El objetivo del diseño conceptual es describir el contenido de 
-información de la base de datos, mediante un esquema conceptual de
-la base de datos [\cite{db_book_cap3}], que es independiente del SGBD
-que se utilice para manipular la base de datos.
-Los programadores o diseñadores utilizan modelos conceptuales de datos 
-para la construcción de esquemas. El modelo entidad-relación es uno 
-de los más utilizados para el diseño conceptual de bases de datos. Fue 
-introducido por Peter Chen en 1976 [REF], y está formado por 
-un conjunto de conceptos que permiten describir la realidad mediante 
-representaciones gráficas y lingüísticas.
-
-La metodología utilizada 
-para el desarrollo del modelo conceptual de datos para la modelación 
-de los procesos de asignación de docencia y confección de tribunales de 
-tesis fue la metodología genérica MER/XX, que se basa en un enfoque
-híbrido entre el modelo entidad/relacional extendido y los conceptos de la 
-modelación orientada a objetos [\cite{db_book_cap2}]. 
-
-El modelo entidad-relación extendido describe con un alto nivel de abstracción
-el significado de los datos, las relaciones entre ellos y las reglas de negocio 
-de un sistema de información. Sus dos elementos principales son las entidades y 
-las relaciones, además existen extensiones al modelo básico 
-como atributos de las entidades o cardinalidades de las relaciones, 
-que aportan al modelo una mayor expresividad.
+% \subsection{Metodología de diseño de bases de datos}
+% La complejidad de la información y la cantidad de requisitos que se 
+% deseen modelar en un sistema computacional hacen que el diseño de una 
+% base de datos no sea una tarea sencilla. Por tanto es común 
+% descomponer el proceso de diseño en tres etapas fundamentales: diseño conceptual,
+% diseño lógico y diseño físico. 
 
 
+% \subsubsection{Diseño conceptual}
+% En esta fase se obtiene como resultado una representación 
+% abstracta y de alto nivel de la realidad a partir de las 
+% especificaciones de requisitos de usuario [REF]. El diseño
+% conceptual comienza con la identificación de las necesidades de los 
+% usuarios, que a menudo se pueden obtener a través de: examinar
+% la documentación existente como formularios, observando y
+% analizando el procesamiento de la información en el proceso que 
+% se desea modelar o mediante entrevistas a los usuarios finales [\cite{db_requirement_analysis}].
 
-\subsubsection{Diseño lógico}
-Es el proceso de transformar el esquema conceptual del dominio de la aplicación
-que se obtiene en la fase anterior,
-en un esquema para el modelo de datos subyacente a un SGBD particular.
-Existen diferentes modelos matemáticos utilizados para el diseño lógico
-de las bases de datos, tales como: el modelo de listas invertidas[REF], el modelo 
-jerárquico[REF], el modelo de redes[REF] y el modelo relacional[REF]. 
+% El objetivo del diseño conceptual es describir el contenido de 
+% información de la base de datos, mediante un esquema conceptual de
+% la base de datos [\cite{db_book_cap3}], que es independiente del SGBD
+% que se utilice para manipular la base de datos.
+% Los programadores o diseñadores utilizan modelos conceptuales de datos 
+% para la construcción de esquemas. El modelo entidad-relación es uno 
+% de los más utilizados para el diseño conceptual de bases de datos. Fue 
+% introducido por Peter Chen en 1976 [REF], y está formado por 
+% un conjunto de conceptos que permiten describir la realidad mediante 
+% representaciones gráficas y lingüísticas.
 
-El modelo relacional fue propuesto por Edgar Frank Codd en 1970. Es un 
-modelo que se basa en la lógica de predicados y en la teoría 
-de conjuntos, donde todos los datos se representan en términos de tuplas, 
-agrupados en relaciones.
+% La metodología utilizada 
+% para el desarrollo del modelo conceptual de datos para la modelación 
+% de los procesos de asignación de docencia y confección de tribunales de 
+% tesis fue la metodología genérica MER/XX, que se basa en un enfoque
+% híbrido entre el modelo entidad/relacional extendido y los conceptos de la 
+% modelación orientada a objetos [\cite{db_book_cap2}]. 
 
-El modelo relacional fue el primer modelo de base de datos que se describió en términos 
-matemáticos formales. A pesar de que existen  
-implementaciones del modelo de base de datos relacional como lo definió originalmente 
-Codd, no han tenido éxito popular hasta el momento. No obstante al modelo relacional se le 
-atribuye un gran valor por su desarrollo teórico, que ha sido fundamento de muchos de los 
-sistemas de gestión de bases de datos relacionales que se utilizan hoy en la actualidad, como:
-MySQL, Oracle, SQL Server, PostgreSQL y Microsoft Access. 
-
-El resultado de esta fase consiste en una descripción de las estructuras 
-de datos utilizadas para almacenar la base de datos[\cite{db_book_cap3}], que se 
-ajuste al modelo que utilice el SGBD. Esto quiere decir que,
-si el modelo conceptual es expresado como un modelo 
-entidad-relación y el modelo lógico utilizado en el SGBD es el modelo 
-relacional, entonces las entidades, relaciones y los atributos del modelo entidad-relación
-deben representarse como relaciones. 
-
-NOTA: ACLARAR el concepto de relación en el modelo relacional
-
-
-% El objetivo del diseño de bases de datos lógicas es crear 
-% tablas bien estructuradas que reflejen adecuadamente el 
-% entorno empresarial de la empresa.
-
-\subsubsection{Diseño físico}
-En esta etapa se transforma la estructura obtenida en la etapa del diseño
-lógico, con el objetivo de conseguir mayor eficiencia. Es necesario
-evaluar los aspectos de implementación física relacionados al SGBD que se utilice.
-Por ejemplo: si se trabaja con una base de datos relacional, la 
-transformación de la estructura puede consistir en crear una nueva relación que 
-sea la combinación de varias relaciones o separar una relación en varias relaciones o 
-añadir algún atributo calculable a una relación. \\
+% El modelo entidad-relación extendido describe con un alto nivel de abstracción
+% el significado de los datos, las relaciones entre ellos y las reglas de negocio 
+% de un sistema de información. Sus dos elementos principales son las entidades y 
+% las relaciones, además existen extensiones al modelo básico 
+% como atributos de las entidades o cardinalidades de las relaciones, 
+% que aportan al modelo una mayor expresividad.
 
 
 
+% \subsubsection{Diseño lógico}
+% Es el proceso de transformar el esquema conceptual del dominio de la aplicación
+% que se obtiene en la fase anterior,
+% en un esquema para el modelo de datos subyacente a un SGBD particular.
+% Existen diferentes modelos matemáticos utilizados para el diseño lógico
+% de las bases de datos, tales como: el modelo de listas invertidas[REF], el modelo 
+% jerárquico[REF], el modelo de redes[REF] y el modelo relacional[REF]. 
 
-% Para el almacenamiento de los datos hizo uso de SQLite 3
-% como sistema de gestión de bases de datos relacionales,
-% el cual viene integrada en Django por defecto.
+% El modelo relacional fue propuesto por Edgar Frank Codd en 1970. Es un 
+% modelo que se basa en la lógica de predicados y en la teoría 
+% de conjuntos, donde todos los datos se representan en términos de tuplas, 
+% agrupados en relaciones.
 
-\subsection{Correcto diseño de bases de datos relacionales}
+% El modelo relacional fue el primer modelo de base de datos que se describió en términos 
+% matemáticos formales. A pesar de que existen  
+% implementaciones del modelo de base de datos relacional como lo definió originalmente 
+% Codd, no han tenido éxito popular hasta el momento. No obstante al modelo relacional se le 
+% atribuye un gran valor por su desarrollo teórico, que ha sido fundamento de muchos de los 
+% sistemas de gestión de bases de datos relacionales que se utilizan hoy en la actualidad, como:
+% MySQL, Oracle, SQL Server, PostgreSQL y Microsoft Access. 
 
-El diseño de una base de datos mediante el enfoque relacional, es una 
-tarea no determinista, es posible obtener distintos esquemas relacionales 
-como propuestas de la base de datos.
-Un diseño incorrecto de una base de datos puede no responder apropiadamente a las exigencias
-del proceso que se modela, y puede conllevar a la generación de dificultades o 
-errores en el acceso a los datos. Entre los principales errores o dificultades que se pueden generar
-se encuentran:
+% El resultado de esta fase consiste en una descripción de las estructuras 
+% de datos utilizadas para almacenar la base de datos[\cite{db_book_cap3}], que se 
+% ajuste al modelo que utilice el SGBD. Esto quiere decir que,
+% si el modelo conceptual es expresado como un modelo 
+% entidad-relación y el modelo lógico utilizado en el SGBD es el modelo 
+% relacional, entonces las entidades, relaciones y los atributos del modelo entidad-relación
+% deben representarse como relaciones. 
 
-\begin{itemize}
-    \item \textbf{Redundancia en los datos}, provoca un aumento innecesario 
-    del tamaño de la base de datos, disminuyendo la eficiencia, además puede provocar 
-    inconsistencia de los datos que puede conducir a la corrupción de los mismos. 
-    \item \textbf{Violación de la integridad de los datos}, el término ``integridad de los datos'' se 
-    refiere a la correctitud y completitud de la información en una base de datos. Cuando los datos son 
-    modificados con sentencias INSERT, DELETE o UPDATE la integridad de los datos puede comprometerse.
-\end{itemize}
-
-
-
-Para lograr un correcto diseño de la base de datos se recomienda aplicar un método formal de 
-análisis a cada uno de los esquemas obtenidos intuitivamente durante la fase de diseño conceptual, 
-que se conoce como proceso de normalización.
-
-\subsubsection{Normalización}
-La normalización de una base de datos es un proceso que consiste 
-en aplicar una serie de reglas a las relaciones obtenidas 
-tras el paso del modelo entidad-relación (diseño conceptual) al modelo 
-relacional (diseño lógico), con el objetivo de minimizar la redundancia de datos.
-Cada regla se denomina una ``forma normal'', si se cumple la primera regla, se dice que 
-la base de datos está en ``primera forma normal'', si se cumplen las tres 
-primeras reglas se dice que la base de datos está en ``tercera forma normal''. El proceso de 
-normalización se puede caracterizar como la transformación sucesiva de una colección de 
-relaciones hacia una forma más restrictiva, de modo que mientrás mas profundo sea el nivel 
-de normalización menor será la redundancia que albergue la base de datos [\cite{db_book_cap4}].
-A continuación se introducen las definiciones de las reglas formales:
-
-\begin{itemize}
-    \item \textbf{Primera Forma Normal (1FN)}: una relación está en 1FN si y solo si, para 
-    cada ocurrencia de la relación, toda tupla contiene exactamente un valor del dominio subyacente en
-    cada atributo.
-    \item \textbf{Segunda Forma Normal (2FN)}: una relación está en 2FN si, además de estar en 
-    1FN, todos los atributos que no forman parte de alguna llave candidata constituyen información 
-    acerca de la(s) llave(s) completa(s) y no de algún subconjunto de ella(s).
-    \item \textbf{Tercera Forma Normal (3FN)}: una relación está en 3FN si, además de estar en 2FN,
-    los atributos que no forman parte de alguna llave candidata constituyen información solo acerca
-    de la(s) llave(s) y no acerca de otros atributos.
-\end{itemize}
+% NOTA: ACLARAR el concepto de relación en el modelo relacional
 
 
-Aunque existen otros niveles de normalización como la ``Forma Normal de Boyce-Codd (BCFN)'',
-la ``Cuarta Forma Normal(4FN)'' y la ``Quinta Forma Normal (5FN)'',
-se considera que una base de datos en 3FN presenta niveles nulos o 
-admisibles de redundancia en los datos[\cite{ws_3FN}].
+% % El objetivo del diseño de bases de datos lógicas es crear 
+% % tablas bien estructuradas que reflejen adecuadamente el 
+% % entorno empresarial de la empresa.
+
+% \subsubsection{Diseño físico}
+% En esta etapa se transforma la estructura obtenida en la etapa del diseño
+% lógico, con el objetivo de conseguir mayor eficiencia. Es necesario
+% evaluar los aspectos de implementación física relacionados al SGBD que se utilice.
+% Por ejemplo: si se trabaja con una base de datos relacional, la 
+% transformación de la estructura puede consistir en crear una nueva relación que 
+% sea la combinación de varias relaciones o separar una relación en varias relaciones o 
+% añadir algún atributo calculable a una relación. \\
+
+
+
+
+% % Para el almacenamiento de los datos hizo uso de SQLite 3
+% % como sistema de gestión de bases de datos relacionales,
+% % el cual viene integrada en Django por defecto.
+
+% \subsection{Correcto diseño de bases de datos relacionales}
+
+% El diseño de una base de datos mediante el enfoque relacional, es una 
+% tarea no determinista, es posible obtener distintos esquemas relacionales 
+% como propuestas de la base de datos.
+% Un diseño incorrecto de una base de datos puede no responder apropiadamente a las exigencias
+% del proceso que se modela, y puede conllevar a la generación de dificultades o 
+% errores en el acceso a los datos. Entre los principales errores o dificultades que se pueden generar
+% se encuentran:
+
+% \begin{itemize}
+%     \item \textbf{Redundancia en los datos}, provoca un aumento innecesario 
+%     del tamaño de la base de datos, disminuyendo la eficiencia, además puede provocar 
+%     inconsistencia de los datos que puede conducir a la corrupción de los mismos. 
+%     \item \textbf{Violación de la integridad de los datos}, el término ``integridad de los datos'' se 
+%     refiere a la correctitud y completitud de la información en una base de datos. Cuando los datos son 
+%     modificados con sentencias INSERT, DELETE o UPDATE la integridad de los datos puede comprometerse.
+% \end{itemize}
+
+
+
+% Para lograr un correcto diseño de la base de datos se recomienda aplicar un método formal de 
+% análisis a cada uno de los esquemas obtenidos intuitivamente durante la fase de diseño conceptual, 
+% que se conoce como proceso de normalización.
+
+% \subsubsection{Normalización}
+% La normalización de una base de datos es un proceso que consiste 
+% en aplicar una serie de reglas a las relaciones obtenidas 
+% tras el paso del modelo entidad-relación (diseño conceptual) al modelo 
+% relacional (diseño lógico), con el objetivo de minimizar la redundancia de datos.
+% Cada regla se denomina una ``forma normal'', si se cumple la primera regla, se dice que 
+% la base de datos está en ``primera forma normal'', si se cumplen las tres 
+% primeras reglas se dice que la base de datos está en ``tercera forma normal''. El proceso de 
+% normalización se puede caracterizar como la transformación sucesiva de una colección de 
+% relaciones hacia una forma más restrictiva, de modo que mientrás mas profundo sea el nivel 
+% de normalización menor será la redundancia que albergue la base de datos [\cite{db_book_cap4}].
+% A continuación se introducen las definiciones de las reglas formales:
+
+% \begin{itemize}
+%     \item \textbf{Primera Forma Normal (1FN)}: una relación está en 1FN si y solo si, para 
+%     cada ocurrencia de la relación, toda tupla contiene exactamente un valor del dominio subyacente en
+%     cada atributo.
+%     \item \textbf{Segunda Forma Normal (2FN)}: una relación está en 2FN si, además de estar en 
+%     1FN, todos los atributos que no forman parte de alguna llave candidata constituyen información 
+%     acerca de la(s) llave(s) completa(s) y no de algún subconjunto de ella(s).
+%     \item \textbf{Tercera Forma Normal (3FN)}: una relación está en 3FN si, además de estar en 2FN,
+%     los atributos que no forman parte de alguna llave candidata constituyen información solo acerca
+%     de la(s) llave(s) y no acerca de otros atributos.
+% \end{itemize}
+
+
+% Aunque existen otros niveles de normalización como la ``Forma Normal de Boyce-Codd (BCFN)'',
+% la ``Cuarta Forma Normal(4FN)'' y la ``Quinta Forma Normal (5FN)'',
+% se considera que una base de datos en 3FN presenta niveles nulos o 
+% admisibles de redundancia en los datos[\cite{ws_3FN}].
 
 
 
@@ -774,15 +769,16 @@ Para la informatización de los procesos
 de asignación de docencia y planificación de las tesis
 se implementó una aplicación web,
 utilizando un modelo cliente-servidor.
-Para el desarrollo en el lado del servidor se hace uso de Django [REF], en particular Django Rest Framework, aprovechando la
+Para el desarrollo en el lado del servidor se hizo uso de Django, aprovechando la
 versatilidad, seguridad, escalabilidad y mantenibilidad
 que ofrece.
-El SGBD escogido fue SQLite, que viene integrado de forma 
-predeterminada en Django.
-El cliente se desarrolló usando Quasar [REF], creando una
+El cliente se desarrolló usando Quasar, creando una
 \textit{single-page application} (SPA).
+El sistema gestor de base de datos (SGBD) escogido fue SQLite.
 A continuación se profundiza en el modelo 
 y herramientas utilizadas.
+
+
 
 \subsection{Modelo cliente-servidor}
 % [VOLVER A REDACTAR ESTE PARRAFO]
@@ -801,7 +797,6 @@ que implica el intercambio de datos tanto por parte del cliente
 como del servidor, realizando cada uno funciones diferentes. La comunicación
 se realiza frecuentemente a través de una red informática, pero 
 tanto el cliente como el servidor pueden residir en un mismo sistema.
-
 Entre las principales ventajas que ofrece este modelo se encuentran:
 
 \begin{itemize}
@@ -812,15 +807,68 @@ Entre las principales ventajas que ofrece este modelo se encuentran:
 \end{itemize}
  
 
+Tanto la planificación de las tesis como la asignación de la docencia, requieren de un 
+conjunto de datos e informaciones que es necesario almacenar. Para ello, se 
+utiliza una base de datos. En la siguiente sección se presentan las características 
+principales del SGBD que se utilizó en este trabajo.
+
+\subsection{SQLite}
+
+SQLite es una biblioteca escrita en C, que implemeta un motor de base de datos SQL.
+Es el SGBD más utilizado en el mundo [\cite{sqlite_most_used}].
+Se caracteriza por su portabilidad, confiabilidad[\cite{sqlite_high_reliability}] y rendimiento [\cite{sqlite_fast}]. Sus transacciones 
+satisfacen las propiedades: atomicidad, consistencia, aislamiento y durabilidad (ACID) [\cite{acid}]. A continuación se describen las principales ventajas 
+y desventajas de SQLite.
+
+\subsubsection{Ventajas:}
+
+\begin{itemize}
+    \item La biblioteca SQLite es muy liviana [\cite{sqlite_small}].
+    \item Totalmente autónomo [\cite{sqlite_self_contained}], no es necesario instalar ninguna dependencia externa para que 
+    SQLite funcione.
+    \item SQLite se describe como una base de datos de ``configuración cero'', que está lista para 
+    usar de inmediato. No se ejecuta como un proceso servidor, por lo que no es necesario detenerlo,
+    iniciarlo o reiniciarlo.
+    \item A diferencia de la mayoría de los SGDB, una base de datos SQLite almacena todos los datos
+    en un solo archivo, permitiendo la portabilidad de la base de datos. 
+\end{itemize}
+
+
+\subsubsection{Desventajas:}
+\begin{itemize}
+    \item Aunque varios procesos pueden acceder y consultar una base de datos SQLite simultáneamente, solo 
+    uno puede realizar cambios en la base de datos en un momento dado. Los SGDB que implementa un modelo cliente-servidor como MySQL o
+    PostgreSQL permiten una mayor concurrencia.
+    \item Los SGBD que implementan un servidor pueden proporcionar una mejor protección contra errores en la aplicación 
+    cliente que una base de datos sin servidor como SQLite.
+    \item El sitio web de SQLite recomienda que las bases de datos que se acerquen a 1 TB se alojen en una base de datos 
+    cliente-servidor centralizada [\cite{sqlite_appropriate_use}].
+\end{itemize}
+
+Tras analizar las principales ventajas y desventajas de SQLite, y realizar una comparación con otros 
+de los SGBD más utilizados como MySQL y PostgreSQL, se decidió utilizar SQLite para el almacenamiento de los 
+datos del sistema que se propone en este trabajo. Los procesos de asignación de docencia y planificación de las tesis, no 
+necesitan de un SGBD que soporte concurrencia en la modificación de la base de datos, la cantidad de datos que se deben almacenar 
+para el funcionamiento de estos procesos, no debe exceder de 1 GB. Por otra parte, la fácil integración de 
+SQLite a un proyecto, el poco espacio que ocupa y la portabilidad que ofrece hicieron que esta herramienta se escogiera por 
+encima de otras.   
+
+
+
 En la siguiente sección se describen las características 
 principales de la tecnología 
 que se utilizó en el lado del servidor para el desarrollo de la aplicación web.
 
+
 \subsection{Desarrollo del servidor}
-Para la implementación de los servicios que consumen los clientes del 
-sistema de gestión se hace uso de la biblioteca Django [REF]. Django permite el desarrollo de 
-sitios web seguros y mantenibles [REF]. Entre sus principales características
+% Para la implementación de los servicios que consumen los clientes del 
+% sistema de gestión se hace uso de la biblioteca Django [REF]. Django permite el desarrollo de 
+% sitios web seguros y mantenibles [REF]. 
+
+Para el desarrollo en el lado del servidor se hizo uso de la biblioteca Django, que permite 
+la creación de sitios web seguros y mantenibles [\cite{django}]. Entre sus principales características
 se encuentran:
+
 
 \begin{itemize}
     \item Sigue la filosofía
@@ -829,16 +877,17 @@ se encuentran:
     comunes en el desarrollo web.
     \item Implementa el patrón de diseño Model-View-Template (MVT), que
     consta de tres componentes esenciales Modelo, Vista,
-    Plantilla. Estas componentes son responsables de diferentes
-    partes del código e incluso pueden utililizarse de forma independiente.
+    Plantilla. La separación del código siguiendo este patrón
+    de diseño permite desarrollar aplicaciones modulares, escalables y mantenibles [\cite{mvc}].
     \item Está implementado en Python, por lo que cuenta con un 
     extenso conjunto de bibliotecas para resolver distintas tareas. Entre
     las bibliotecas más utilizadas resalta Django REST framework, desarrollada 
-    para la creación de interfaces de programación de aplicaciones (APIs).
-    [X q es relevante en este trabajo?]
+    para la creación de interfaces de programación de aplicaciones (API).
+    En este trabajo se implementó una API REST o API RESTful, siguiendo la arquitectura REST.
+
     \item Provee un Object Relational Mapper (ORM), 
     que permite la interacción con la base de datos
-    de forma orientada a objetos. Brinda la posibilidad de crear tablas, insertar,
+    de forma orientada a objetos [\cite{django_orm}]. Brinda la posibilidad de crear tablas, insertar,
     editar, borrar y extraer datos sin escribir consultas SQL, acelerando el proceso
     de desarrollo web. 
     \item Sigue también la filosofía de ``Batteries Included'' o ``Baterías Incluidas''
@@ -848,36 +897,43 @@ se encuentran:
     ``HTTP''.
     \item Cuenta con extensa documentación, desde la documentación oficial hasta 
     contenido en forma de artículos, tutoriales y cursos en línea.
-    \item Es escalable, utiliza una arquitectura de ``shared-nothing'' o ``nada compartido'',
-    que permite agregar hardware en cualquier nivel: servidores de bases de datos,
-    servidores de almacenamiento en caché o servidores web (REFERENCIA).
+    % \item Es escalable, utiliza una arquitectura de ``shared-nothing'' o ``nada compartido'',
+    % que permite agregar hardware en cualquier nivel: servidores de bases de datos,
+    % servidores de almacenamiento en caché o servidores web (REFERENCIA).
 
 \end{itemize}
 
- 
-Aunque Django propone sus herramientas para el desarrollo del cliente con el uso 
-de Plantillas, se decidió utilizar Quasar, los motivos se describen en la próxima sección.
-
+Aunque Django incluye herramientas para el desarrollo en el lado del cliente con el uso 
+de Plantillas, en este trabajo se decidió utilizar Quasar, los motivos se describen en la próxima sección.
 
 
 \subsection{Desarrollo del cliente}
-Dentro de las tecnologías de desarrollo web más utilizadas, 
-JavaScript es una de las más populares en la actualidad [\cite{java_script_stadistics}]. JavaScript es 
-un lenguaje de programación basado en prototipos y multiparadigma.
-Se utiliza principalmente para el desarrollo en el lado del cliente, para la
-creación de páginas web dinámicas [\cite{java_script}]. 
+Para el desarrollo de la aplicación web en el lado del cliente se utilizó Quasar. 
+Quasar es una biblioteca de código abierto que se basa en Vue.js.
+A pesar de que Vue.js se define en su sitio oficial como ``An approachable, performant and versatile framework for building web user interfaces''
+o ``Un marco accesible, eficaz y versátil para crear interfaces de usuario web'' [\cite{vuejs}],
+no proporciona elementos o componentes de interfaz de usuarios. Es por esto que surgen  
+otras bibliotecas encima de Vue.js, como una capa más de abstracción, que 
+brindan un conjunto de componentes reutilizables y con estilos personalizables. Entre 
+las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar [\cite{vuejs-frameworks}].
+
+
+% En la actualidad JavaScript es una de las tecnologías para el desarrollo web
+% más utilizadas [\cite{java_script_stadistics}].
+% Es un lenguaje de programación basado en prototipos y multiparadigma.
+% Se utiliza principalmente para el desarrollo en el lado del cliente, para la
+% creación de páginas web dinámicas [\cite{java_script}]. 
 
 % Como JavaScript está implementado en la mayoría de los 
 % navegadores web, se utiliza para el desarrollo del cliente permitiendo el 
 % mejorar las interfaces de usarios y la creación de
 % páginas web dinámicas .
 
-La popularidad de JavaScript para el desarrollo web ha impulsado
-la creación de distintas bibliotecas y herramientas, entre las más 
-utilizadas se encuentran: Angular, React y Vuejs [\cite{front_end_frameworks}]. Angular es desarrollada 
-y mantenida por Google, React por META (Facebook) y Vuejs por un 
-equipo de colaboradores a nivel mundial, su principal creador fue Evan Yu, un ex ingeniero
-de Google. 
+% La popularidad de JavaScript para el desarrollo web ha impulsado
+% la creación de distintas bibliotecas y herramientas, como: Angular, React y Vue.js [\cite{front_end_frameworks}]. Angular es desarrollada 
+% y mantenida por Google, React por META (Facebook) y Vuejs por un 
+% equipo de colaboradores a nivel mundial, su principal creador fue Evan Yu, un ex ingeniero
+% de Google. 
 
 
 % \subparagraph{Angular}
@@ -914,38 +970,35 @@ de Google.
 
 % En este trabajo se escogió Vuejs para el desarrollo en el lado del cliente.
 
-En los últimos años, Vue.js se ha convertido
-en un fuerte competidor de Angular y React. El 
-crecimiento de Vue.js se relaciona con su simplicidad 
-y disponibilidad de bibliotecas y materiales de aprendizaje. A pesar de que Vue.js se define en su sitio oficial como ``An approachable, performant and versatile framework for building web user interfaces''
-o ``Un marco accesible, eficaz y versátil para crear interfaces de usuario web'' [\cite{vuejs}],
-no proporciona elementos o componentes de interfaz de usuarios. Es por esto que surgen  
-otras bibliotecas encima de Vue.js, como una capa más de abstracción, que 
-brindan un conjunto de componentes reutilizables y con estilos personalizables. Entre 
-las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar [\cite{vuejs-frameworks}].
-Este último fue el escogido para el desarrollo del cliente de la aplicación web. 
+% En los últimos años, Vue.js se ha convertido
+% en un fuerte competidor de Angular y React. El 
+% crecimiento de Vue.js se relaciona con su simplicidad 
+% y disponibilidad de bibliotecas y materiales de aprendizaje. A pesar de que Vue.js se define en su sitio oficial como ``An approachable, performant and versatile framework for building web user interfaces''
+% o ``Un marco accesible, eficaz y versátil para crear interfaces de usuario web'' [\cite{vuejs}],
+% no proporciona elementos o componentes de interfaz de usuarios. Es por esto que surgen  
+% otras bibliotecas encima de Vue.js, como una capa más de abstracción, que 
+% brindan un conjunto de componentes reutilizables y con estilos personalizables. Entre 
+% las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar [\cite{vuejs-frameworks}].
+% Este último fue el escogido para el desarrollo del cliente de la aplicación web. 
   
 
-
-
-\subsubsection{Quasar}
-Es una biblioteca de código abierto basada en Vue.js,
-que permite crear aplicaciones con una sola base de código.
-Se pueden desarrollar aplicaciones/sitios web de una sola página (SPA),
+Con Quasar se pueden desarrollar aplicaciones/sitios web de una sola página (SPA),
 aplicaciones/sitios web renderizados del lado del servidor (SSR),
 aplicaciones web progresivas (PWA), incluso aplicaciones móviles y de 
-escritorio.
+escritorio, con la misma base de código [\cite{quasar}].
 Entre las principales características que influyeron en la selección de esta biblioteca 
-para el desarrollo en el lado del cliente se encuntran: 
+para el desarrollo en el lado del cliente se encuentran: 
 
 \begin{itemize}
-    \item más de 70 componentes web personalizables y de alto rendimiento para cubrir la 
-    mayoría de las necesidades de la web.
+    \item más de 70 componentes web personalizables y de alto rendimiento. En la aplicación web que se implementó en este trabajo 
+    se utilizaron varias de estas componentes, que permitieron que el desarrollo de las interfaces de usuarios fuera más rápido y sencillo.
     \item buenas prácticas integradas tales como: compresión de código, 
-    manejo avanzado de caché, mapeo de fuentes y carga diferida. 
+    manejo avanzado de caché, mapeo de fuentes y carga diferida.
     \item Quasar-CLI, una herramienta que genera de forma automática la estructura del 
     proyecto, con los paquetes y configuraciones necesarias para el 
-    funcionamiento inicial de la aplicación web.
+    funcionamiento inicial de la aplicación web.    
+    \item Quasar se diseñó teniendo en cuenta el rendimiento y el \textit{responsive design} [\cite{quasar}].
+    Dos cualidades muy importantes en el desarrollo de aplicaciones web. 
     % \item soporte para varios idiomas, incluyendo 
     % compatibilidad para idiomas RLT (right to left), tanto para los componentes de Quasar
     % como para el código del desarrollador.  
@@ -955,15 +1008,22 @@ para el desarrollo en el lado del cliente se encuntran:
     % \item promueve las buenas prácticas para mantener la seguridad de las aplicaciones
     % desarrolladas con Quasar, en la documentación oficial se le dedica un capítulo
     % a este tema [REF].
-
 \end{itemize}
 
 
-En el próximo capítulo se describen las principales funcionalidades
-que se desean incorporar en el sistema de gestión que se propone en este trabajo, 
-para la informatización de los procesos de asignación de docencia y planificación de 
-las tesis.
- 
+En este trabajo se implementó una aplicación web para la informatización de los procesos de 
+asignación de docencia y planificación de las tesis. En el lado del servidor se implementó una 
+API RESTful, en el cliente una SPA haciendo uso de Quasar y para almacenar los datos se 
+utilizó SQLite.
+% Los datos que intervienen en estos procesos se almacenaron en una base de datos relacional SQLite. 
+% En el lado del cliente se implementó una SPA, haciendo uso de Quasar.
+
+En el próximo capítulo se describen el flujo que se debe seguir para 
+la realizar los procesos de asignación de docencia y planificación de las tesis,
+así como las principales funcionalidades
+que se desean incorporar en el sistema durante la ejecución de 
+estos procesos.
+
 
 
 % La minificación es el proceso de reducir el peso de los archivos de código
