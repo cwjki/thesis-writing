@@ -5,8 +5,8 @@ de Matemática y Computación de la Universidad de La Habana (MATCOM):
 la asignación de docencia y las planificaciones de las tesis.
 
 En este capítulo se describe cómo se realizan estos procesos actualmente 
-en MATCOM y se presentan los elementos fundamentales de las herramientas que se utilizaron 
-en este trabajo.
+y se presentan los elementos fundamentales de las herramientas que se utilizaron 
+en el trabajo.
 
 En la sección \ref{section:funcionamiento de la facultad} se describe 
 el funcionamiento de la facultad, en particular, cómo se llevan a cabo la 
@@ -24,12 +24,14 @@ herramientas que se utilizaron para la implementación del sistema.
 
 \section{Funcionamiento de la facultad}\label{section:funcionamiento de la facultad}
 En MATCOM, todos los semestres se realizan 
-un conjunto de procesos administrativos y de planificación relacionadas con
-los curso escolares, tales como: planificación 
-de los evaluaciones de las asignaturas, planificación de los exámenes finales y 
-revalorizaciones, asignación de los alumnos ayudantes, planificación de los cursos 
-optativos, asignación de la docencia, planificación de las tesis, entre otros. 
-En las siguientes secciones se describe cómo se efectuan
+un conjunto de procesos administrativos y de planificación relacionados con
+los curso escolares, tales como:
+la asignación de docencia, la planificación de las tesis de pregrado,
+la planificación de los exámenes finales y 
+revalorizaciones, la gestión de los alumnos ayudantes, la planificación de los cursos 
+optativos, entre otros. En este trabajo nos interesa informatizar los dos primeros.
+
+En las siguientes secciones se describe cómo se efectuán
 los procesos de asignación de docencia y planificación de las tesis
 actualmente en la facultad.
 
@@ -105,9 +107,9 @@ cada semestre, se debe tener en cuenta el plan de estudio por el que se rige cad
 
 El plan de estudio es un programa estructurado donde se definen los contenidos que forman parte del currículo de los 
 graduados. En el plan de estudio se determina la cantidad de horas clase de cada asignatura, 
-así como el año y semestre en el que se deben impartir. Cada cierto tiempo el plan de estudio de una carrera universitaria cambia,
-con el objetivo de mantener la formación de los profesionales actualizada con el desarrollo de la 
-sociedad.
+así como el año y semestre en el que se deben impartir.
+Con el objetivo de mantener la formación de los profesionales actualizada con el desarrollo de la 
+sociedad, cada cierto tiempo el plan de estudio de una carrera universitaria se modifica.
 
 En el curso 2022, en la carrera de Ciencia de la Computación, existen tres planes de 
 estudio vigentes. En el año 2018 entró en vigor el plan de estudio E, donde 
@@ -115,31 +117,39 @@ se redujo la cantidad de años escolares de 5 a 4. Además, como consecuencia de
 situación epidemiológica que provocó la COVID-19, fue necesario modificar el 
 plan E, creándose un plan de estudio E modificado, que en este documento se le refencia como 
 E (COVID). De forma que, los estudiantes que ingresaron en la facultad en 
-el curso 2017-2018, que se encuentran en el quinto año de la carrera, se rigen por el plan D, 
+el curso 2017-2018 y que se encuentran en el quinto año de la carrera, se rigen por el plan D, 
 los estudiantes que se encuentran en primero, tercero y cuarto año, se rigen por el plan E 
-y los estudiantes que cursan el segundo año, se rigen por el E (COVID).
+y los estudiantes que cursan el segundo año, se rigen por el plan E (COVID).
 
-Por tanto, para realizar la asignación de docencia correspondiente al período enero-julio del 
-curso 2022, hay que tener en cuenta las asignaturas que se imparten en quinto año 
-según el plan D; en primero, tercero y cuarto según el plan E; y en segundo según el plan E (COVID).
+Esta variedad de planes de estudios vigentes, provoca que para realizar 
+la asignación de docencia correspondiente al primer semestre del curso 2022, se deban 
+contemplar las asignaturas que se imparten en quinto año según el plan D;
+en primero, tercero y cuarto según el plan E; y en segundo según el plan 
+E (COVID). En caso de que solo haya un plan de estudio vigente, el proceso se 
+reduce y solo se deben impartir las asignaturas establecidas en ese plan.
 
-Cada asignatura la imparte un departamento, 
+
+% Por tanto, para realizar la asignación de docencia correspondiente al período enero-julio del 
+% curso 2022, hay que tener en cuenta las asignaturas que se imparten en quinto año 
+% según el plan D; en primero, tercero y cuarto según el plan E; y en segundo según el plan E (COVID).
+
+Cada asignatura se imparte por un departamento,
 en MATCOM existen 4 departamentos: Matemática, Matemática Aplicada,
 Programación y Sistemas de Información e Inteligencia 
 Artificial y Sistemas Computacionales.
 En un departamento se realizan actividades de coordinación de docencia, investigación y 
 tutoría de estudiantes. Los departamentos están formados por profesores
-y cuentan con un jefe de departamento. Los profesores que integran un departamento tienen 
+y cuentan con un jefe de departamento. Los profesores tienen 
 un grado científico (Licenciado, Máster, Doctor) y una categoría docente (Titular, Auxiliar, Instructor, Asistente).
 Los departamentos de una 
-facultad pueden impartir asignaturas en otras facultades, que se le suele llamar docencia 
+facultad pueden impartir asignaturas en otras facultades, a estas asignaturas se le llama docencia 
 externa. Por ejemplo, el departamento de 
 Matemática Aplicada imparte en el segundo año de la carrera de Geografía la asignatura 
 Estadística. Las asignaturas que se imparten en otras facultades, a los efectos del proceso de asignación de docencia,
 tienen la misma relevancia que las que se imparten en la facultad. 
 
 En la tabla \ref{tabla-planificación-cap1} se muestran las asignaturas que debe impartir 
-el departamento de Matemática Aplicada en el período enero julio del curso 2022.
+el departamento de Matemática Aplicada en el período enero--julio del curso 2022.
 
 \begin{table}[H]
     \centering
@@ -167,11 +177,12 @@ el departamento de Matemática Aplicada en el período enero julio del curso 202
         Estadística               & S2 & SOCIOLOGÍA & 80 & 1    \\
         \hline
     \end{tabular}
-    \caption{Asignaturas que debe impartir el departamento de Matemática Aplicada en el período enero-julio 2022.}
+    \caption{Asignaturas que debe impartir el departamento de Matemática Aplicada en el período enero--julio del curso 2022.}
     \label{tabla-planificación-cap1}
 \end{table}
 
-En la tabla \ref{tabla-planificación-cap1} se muestran las asignaturas, el año escolar en el cual se imparten,
+En las columnas de la tabla \ref{tabla-planificación-cap1} se muestran: el nombre de la asignatura,
+el año escolar en el cual se imparten,
 la facultad a la que pertenece el año escolar, el total de horas clase y la 
 cantidad de grupos de conferencias y clases prácticas.
 Por ejemplo, la primera fila indica que la asignatura Programación y Algoritmos que se 
@@ -181,8 +192,9 @@ un total de 64 horas clase y cuenta con un grupo de conferencias y tres de clase
 
 Cada asignatura tiene un total de horas que se deben impartir de acuerdo 
 al plan de estudio al que pertenezcan. La distribución del total de horas 
-en las distintos tipos de clases como conferencias y clases prácticas, se decide 
-por el colectivo de profesores de la asignatura e incluso puede cambiar de un año a otro.
+clase en conferencias, clases prácticas u otras actividades 
+de clase, se decide 
+por el colectivo de profesores de la asignatura y puede cambiar de un año a otro.
 
 
 Para realizar la asignación de la docencia en un departamento, se deben 
@@ -208,32 +220,29 @@ un fragmento de una posible asignación de docencia.
     \label{tabla-asignación-cap1}
 \end{table}
 
-En la primera fila de la tabla \ref{tabla-asignación-cap1} se indica 
-el nombre de la asignatura; en la segunda, el total de horas a impartir; en la tercera, 
-la cantidad de grupos de conferencias (C) y clases prácticas (CP), y en la última, los 
-profesores que se asignaron para cubrir cada actividad de clase, especificando el total de horas que imparte cada uno. 
-Por ejemplo, en la primera fila se muestra que la asignatura Optimización Matemática I tiene un total de 
+En las columnas de la tabla \ref{tabla-asignación-cap1} se muestran: 
+el nombre de la asignatura, el total de horas clase, la cantidad de grupos 
+de conferencia (C) y clases prácticas (CP), y los profesores que se asignaron para cubrir cada actividad de clase,
+especificando el total de horas que imparte cada uno.  
+Por ejemplo, en la primera fila se indica que la asignatura Optimización Matemática I tiene un total de 
 64 horas clase, con un grupo de conferencia y uno de clases prácticas, y que la profesora Aymeeé Marrero imparte 
 las 32 horas de conferencia y la profesora Gemayqzel Bouza imparte las 32 horas de clases prácticas.
 
 
 
 Existen asignaturas donde la cantidad de horas de las actividades de clase se comparten entre varios profesores,
-por ejemplo, en la asignatura de Modelos de Optimización I, se deben impartir 32 horas de conferencia,
+por ejemplo, en la asignatura de Modelos de Optimización I,
+que se muestra en la segunda fila de la tabla \ref{tabla-asignación-cap1},
+se deben impartir 32 horas de conferencia,
 de las cuáles 16, fueron asignadas a la profesora Aymeeé Marrero y las restantes 16, al profesor 
 Fernando Rodríguez.
 
-
-
-En conclusión, el proceso de asignación docente se realiza en cada departamento, en un período de 
-tiempo. A partir de los planes de estudios vigentes, se puede conocer las asignaturas que se deben impartir 
-en el semestre.
+En conclusión, el proceso de asignación docente se realiza en cada departamento, al comienzo de cada semestre. 
+A partir de los planes de estudios vigentes, 
+se puede conocer las asignaturas que se deben impartir 
+en cada período de tiempo.
 El jefe del departamento debe determinar qué profesor imparte cada actividad de clase de cada asignatura, 
 de forma que se cubran todos los grupos y horas clase.
-
-
-
-
 
 En la siguiente sección se describe cómo se realiza el proceso de planificación 
 de tesis en la facultad de MATCOM.
@@ -409,38 +418,62 @@ de tesis en la facultad de MATCOM.
 
 
 \subsection{Planificación de las tesis}
+El ejercicio de culminación de estudios de pregrado consiste en la 
+realización de un trabajo de diploma o tesis. Las tesis se deben discutir 
+frente a un tribunal en una fecha especificada.
+
 El proceso de planificación de las tesis se puede separar en dos subprocesos principales:
-la confección de los tribunales y la planificación de las defensas.
-La organización de los tribunales consiste en determinar qué profesor formará parte 
-de cada tribunal. La planificación de las defensas consiste en definir, en qué día, hora 
+la confección de los tribunales y la programación de las defensas.
+La confección de los tribunales consiste en determinar qué profesor formará parte 
+de cada tribunal y la programación de las defensas consiste en definir, en qué día, hora 
 y lugar se realizará cada acto de defensa.
 
-[AQUI ESSTA BIEN ESTE PARRAFO ?]
-El ejercicio de culminación de estudios de pregrado consiste en la 
-realización de un trabajo de diploma o tesis.
+% Cada tesis tiene uno o varios tutores y está relacionada con alguna rama 
+% de la carrera. 
+
 La tesis es un trabajo de investigación que realizan
 los estudiantes bajo la tutela de uno o varios profesores (tutores y cotutores)
 sobre un tema que tribute a alguna de las áreas que abarca la carrera.
-El ejercicio se compone de dos partes, la escritura de un documento que recoja
-todo el proceso investigativo y, posteriormente, la exposición o defensa del mismo ante 
-un tribunal.
+Para la confección de los tribunales se debe tener en cuenta que los miembros 
+estén relacionados con los temas que se aborden en la investigación.
+La composición de los tribunales puede variar de un año a otro de acuerdo a las 
+condiciones del curso escolar. Es usual que los tribunales estén formados 
+por tres profesores, y que además participe un oponente y el tutor. Sin embargo, 
+en el curso 2021 los tribunales estuvieron compuestos por un presidente, un 
+oponente y un vocal.
+
+% En el curso 2022, los estudiantes de cuarto (plan E) y quinto año (plan D) de la carrera de Ciencia de la Computación,
+% deben realizar su ejercicio de culminación de estudios. Como consecuencia, los tribunales de este curso 
+% estarán conformados por un oponente, un presidente y un tutor.
 
 
-Para la confección de los tribunales de tesis se debe tener en cuenta que los miembros 
-tengan conocimiento acerca de los temas que se aborden en la investigación.
-La composición de los tribunales puede variar de un año a otro, de acuerdo a las 
-condiciones del curso escolar. Por ejemplo, es usual que los tribunales estén formados 
-por tres profesores, y que además participe un oponente y un tutor.
-En el curso 2022, los estudiantes de cuarto (plan E) y quinto año (plan D) de la carrera de Ciencia de la Computación,
-deben realizar su ejercicio de culminación de estudios. Como consecuencia, los tribunales de este curso 
-estarán conformados por un oponente, un presidente y un tutor.
+
+% El proceso de planificación de tesis consiste en determinar 
+% qué profesor formará parte de cada tribunal y en qué fecha se 
+% realizará el acto de defensa de cada tesis.
+
+% El proceso de planificación de las tesis se puede separar en dos subprocesos principales:
+% la confección de los tribunales y la planificación de las defensas.
+% La organización de los tribunales consiste en determinar qué profesor formará parte 
+% de cada tribunal y la  de las defensas consiste en definir, en qué día, hora 
+% y lugar se realizará cada acto de defensa.
+
+% [AQUI ESSTA BIEN ESTE PARRAFO ?]
+% El ejercicio de culminación de estudios de pregrado consiste en la 
+% realización de un trabajo de diploma o tesis.
+% La tesis es un trabajo de investigación que realizan
+% los estudiantes bajo la tutela de uno o varios profesores (tutores y cotutores)
+% sobre un tema que tribute a alguna de las áreas que abarca la carrera.
+% El ejercicio se compone de dos partes, la escritura de un documento que recoja
+% todo el proceso investigativo y, posteriormente, la exposición o defensa del mismo ante 
+% un tribunal.
+
+
  
-
-
-Una vez que se definan los tribunales, es necesario planificar cuándo 
+Una vez que se definan los tribunales, es necesario determinar cuándo 
 y dónde se llevarán a cabo las defensas de la tesis. Para ello, se debe definir
 la hora, fecha y local.
-Para realizar la planificación de las defensas se debe contemplar
+Para realizar la programación de las defensas se debe contemplar
 la disponibilidad de los locales de la facultad y que cada profesor solo tenga 
 una defensa a la que asistir en cada instante de tiempo.
 
@@ -488,7 +521,7 @@ para referenciar una tesis durante la explicación del proceso.
 El primer paso es realizar la confección de los tribunales de tesis, donde se debe 
 definir el oponente y el presidente. Para ello, se deben tener en cuenta todos 
 los posibles profesores que por su actividad investigativa,
-tengan interés en el contenido de la tesis, y de ellos escoger los que formarán el tribunal.
+estén relacionados con el contenido de la tesis, y de ellos escoger los que formarán el tribunal.
 En la tabla \ref{tabla-tribunal-tesis-cap1} 
 se ilustran posibles tribunales para las dos tesis anteriores. 
 
@@ -507,7 +540,7 @@ se ilustran posibles tribunales para las dos tesis anteriores.
     \label{tabla-tribunal-tesis-cap1}
 \end{table}
 
-Una vez que se definan los tribunales, se debe planificar la fecha, hora y lugar donde 
+Una vez que se definan los tribunales, se debe determinar la fecha, hora y lugar donde 
 se realizarán los actos de defensas, 
 un ejemplo hipotético se muestra en la tabla \ref{tabla-defensa-tesis-cap1}.
 
@@ -522,7 +555,7 @@ un ejemplo hipotético se muestra en la tabla \ref{tabla-defensa-tesis-cap1}.
              2 & 10/12/2022 & 3:30 PM & Salón del Decanato \\
       \hline
     \end{tabular}
-    \caption{Posible horarios para las defensas de las tesis}
+    \caption{Posible horario para las defensas de las tesis}
     \label{tabla-defensa-tesis-cap1}
 \end{table}
 
@@ -792,7 +825,7 @@ y herramientas utilizadas.
 El modelo cliente-servidor se define como una arquitectura
 de software compuesta por los proveedores de un recurso o servicio, 
 denominados servidores, y los solicitantes del servicio, denominados
-clientes. En este modelo se realiza una comunicación de procesos
+clientes \cite{client_server_model}. En este modelo se realiza una comunicación de procesos
 que implica el intercambio de datos tanto por parte del cliente 
 como del servidor, realizando cada uno funciones diferentes. La comunicación
 se realiza frecuentemente a través de una red informática, pero 
@@ -809,51 +842,49 @@ Entre las principales ventajas que ofrece este modelo se encuentran:
 
 Tanto la planificación de las tesis como la asignación de la docencia, requieren de un 
 conjunto de datos e informaciones que es necesario almacenar. Para ello, se 
-utiliza una base de datos. En la siguiente sección se presentan las características 
-principales del SGBD que se utilizó en este trabajo.
+utiliza una base de datos. En la siguiente sección se presentan las características principales 
+de SQLite, que fue el SGBD que se utilizó en el trabajo.
 
 \subsection{SQLite}
 
 SQLite es una biblioteca escrita en C, que implemeta un motor de base de datos SQL.
-Es el SGBD más utilizado en el mundo \cite{sqlite_most_used}.
-Se caracteriza por su portabilidad, confiabilidad[\cite{sqlite_high_reliability}] y rendimiento [\cite{sqlite_fast}]. Sus transacciones 
-satisfacen las propiedades: atomicidad, consistencia, aislamiento y durabilidad (ACID) [\cite{acid}]. A continuación se describen las principales ventajas 
+Se caracteriza por su portabilidad, confiabilidad \cite{sqlite_high_reliability} y rendimiento \cite{sqlite_fast}. Sus transacciones 
+satisfacen las propiedades: atomicidad, consistencia, aislamiento y durabilidad (ACID) \cite{acid}. A continuación se describen las principales ventajas 
 y desventajas de SQLite.
 
 \subsubsection{Ventajas:}
 
 \begin{itemize}
-    \item La biblioteca SQLite es muy liviana [\cite{sqlite_small}].
-    \item Totalmente autónomo [\cite{sqlite_self_contained}], no es necesario instalar ninguna dependencia externa para que 
-    SQLite funcione.
-    \item SQLite se describe como una base de datos de ``configuración cero'', que está lista para 
+    \item No es necesario instalar ninguna dependencia externa para utilizar SQLite \cite{sqlite_self_contained}.    
+    \item SQLite se describe como una base de datos de ``configuración cero'' \cite{sqlite_about}, que está lista para 
     usar de inmediato. No se ejecuta como un proceso servidor, por lo que no es necesario detenerlo,
     iniciarlo o reiniciarlo.
-    \item A diferencia de la mayoría de los SGDB, una base de datos SQLite almacena todos los datos
-    en un solo archivo, permitiendo la portabilidad de la base de datos. 
+    \item Almacena todos los datos en un solo archivo, permitiendo la portabilidad de la base de datos. 
 \end{itemize}
 
 
 \subsubsection{Desventajas:}
 \begin{itemize}
     \item Aunque varios procesos pueden acceder y consultar una base de datos SQLite simultáneamente, solo 
-    uno puede realizar cambios en la base de datos en un momento dado. Los SGDB que implementa un modelo cliente-servidor como MySQL o
+    uno puede realizar cambios en la base de datos en un momento dado. Los SGDB que implementan un modelo cliente-servidor como MySQL o
     PostgreSQL permiten una mayor concurrencia.
     \item Los SGBD que implementan un servidor pueden proporcionar una mejor protección contra errores en la aplicación 
     cliente que una base de datos sin servidor como SQLite.
     \item El sitio web de SQLite recomienda que las bases de datos que se acerquen a 1 TB se alojen en una base de datos 
-    cliente-servidor centralizada [\cite{sqlite_appropriate_use}].
+    cliente-servidor centralizada \cite{sqlite_appropriate_use}.
 \end{itemize}
 
 Tras analizar las principales ventajas y desventajas de SQLite, y realizar una comparación con otros 
-de los SGBD más utilizados como MySQL y PostgreSQL, se decidió utilizar SQLite para el almacenamiento de los 
-datos del sistema que se propone en este trabajo. Los procesos de asignación de docencia y planificación de las tesis, no 
-necesitan de un SGBD que soporte concurrencia en la modificación de la base de datos, la cantidad de datos que se deben almacenar 
-para el funcionamiento de estos procesos, no debe exceder de 1 GB. Por otra parte, la fácil integración de 
-SQLite a un proyecto, el poco espacio que ocupa y la portabilidad que ofrece hicieron que esta herramienta se escogiera por 
-encima de otras.   
+de los SGBD como MySQL \cite{mysql} y PostgreSQL \cite{postgresql}, se decidió utilizar SQLite
+por las siguienes razones:
 
-
+\begin{itemize}
+    \item No se necesitan realizar cambios en la base de datos de forma concurrente durante los 
+    procesos de asignación docente y planificación de las tesis. 
+    \item El tamaño de la base de datos, con la información necesaria 
+    para el funcionamiento de estos procesos no debe exceder de 50 MB.
+    \item La fácil integración de SQLite en un proyecto y la portabilidad que ofrece.
+\end{itemize}
 
 En la siguiente sección se describen las características 
 principales de la tecnología 
@@ -866,7 +897,7 @@ que se utilizó en el lado del servidor para el desarrollo de la aplicación web
 % sitios web seguros y mantenibles [REF]. 
 
 Para el desarrollo en el lado del servidor se hizo uso de la biblioteca Django, que permite 
-la creación de sitios web seguros y mantenibles [\cite{django}]. Entre sus principales características
+la creación de sitios web seguros y mantenibles \cite{django}. Entre sus principales características
 se encuentran:
 
 
@@ -878,16 +909,14 @@ se encuentran:
     \item Implementa el patrón de diseño Model-View-Template (MVT), que
     consta de tres componentes esenciales Modelo, Vista,
     Plantilla. La separación del código siguiendo este patrón
-    de diseño permite desarrollar aplicaciones modulares, escalables y mantenibles [\cite{mvc}].
+    de diseño permite desarrollar aplicaciones modulares, escalables y mantenibles \cite{mvc}.
     \item Está implementado en Python, por lo que cuenta con un 
     extenso conjunto de bibliotecas para resolver distintas tareas. Entre
     las bibliotecas más utilizadas resalta Django REST framework, desarrollada 
     para la creación de interfaces de programación de aplicaciones (API).
-    En este trabajo se implementó una API REST o API RESTful, siguiendo la arquitectura REST.
-
     \item Provee un Object Relational Mapper (ORM), 
     que permite la interacción con la base de datos
-    de forma orientada a objetos [\cite{django_orm}]. Brinda la posibilidad de crear tablas, insertar,
+    de forma orientada a objetos \cite{django_orm}. Brinda la posibilidad de crear tablas, insertar,
     editar, borrar y extraer datos sin escribir consultas SQL, acelerando el proceso
     de desarrollo web. 
     \item Sigue también la filosofía de ``Batteries Included'' o ``Baterías Incluidas''
@@ -900,22 +929,39 @@ se encuentran:
     % \item Es escalable, utiliza una arquitectura de ``shared-nothing'' o ``nada compartido'',
     % que permite agregar hardware en cualquier nivel: servidores de bases de datos,
     % servidores de almacenamiento en caché o servidores web (REFERENCIA).
-
 \end{itemize}
+
+
+Las principales razones que hicieron que Django fuera la herramienta escogida 
+se presentan a continuación:
+
+\begin{itemize}
+    \item La biblioteca Django REST Framework brinda un conjunto de funcionalidades 
+    que permiten que la creación de la API sea una tarea simple en comparación con empezar desde cero. En este trabajo se desea implementar una API RESTful que brinde toda la 
+    información que interviene en los procesos de asignación de docencia y planificación de las 
+    tesis. 
+    \item El ORM de Django que permite la creación de tablas y consultar los datos sin la necesidad 
+    de escribir consultas SQL. 
+    \item El panel de administración que viene instalado por defecto en Django. En el cual se 
+    pueden realizar operaciones CRUD a la base de datos durante la fase de desarrollo, sin la 
+    necesidad de implementar interfaces de usuarios.
+\end{itemize}
+
 
 Aunque Django incluye herramientas para el desarrollo en el lado del cliente con el uso 
 de Plantillas, en este trabajo se decidió utilizar Quasar, los motivos se describen en la próxima sección.
 
 
 \subsection{Desarrollo del cliente}
-Para el desarrollo de la aplicación web en el lado del cliente se utilizó Quasar. 
-Quasar es una biblioteca de código abierto que se basa en Vue.js.
-A pesar de que Vue.js se define en su sitio oficial como ``An approachable, performant and versatile framework for building web user interfaces''
-o ``Un marco accesible, eficaz y versátil para crear interfaces de usuario web'' [\cite{vuejs}],
+Para el desarrollo de la aplicación web en el lado del cliente se utilizó Quasar \cite{quasar}. 
+Quasar es una biblioteca de código abierto que se basa en Vue.js \cite{vuejs}.
+
+A pesar de que Vue.js se define en su sitio oficial como 
+``Un marco accesible, eficaz y versátil para crear interfaces de usuario web'' \cite{vuejs},
 no proporciona elementos o componentes de interfaz de usuarios. Es por esto que surgen  
 otras bibliotecas encima de Vue.js, como una capa más de abstracción, que 
 brindan un conjunto de componentes reutilizables y con estilos personalizables. Entre 
-las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar [\cite{vuejs-frameworks}].
+las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar \cite{vuejs-frameworks}.
 
 
 % En la actualidad JavaScript es una de las tecnologías para el desarrollo web
@@ -985,7 +1031,7 @@ las más populares se encuentran: Vuetify, Bootstrap Vue y Quasar [\cite{vuejs-f
 Con Quasar se pueden desarrollar aplicaciones/sitios web de una sola página (SPA),
 aplicaciones/sitios web renderizados del lado del servidor (SSR),
 aplicaciones web progresivas (PWA), incluso aplicaciones móviles y de 
-escritorio, con la misma base de código [\cite{quasar}].
+escritorio, con la misma base de código \cite{quasar}.
 Entre las principales características que influyeron en la selección de esta biblioteca 
 para el desarrollo en el lado del cliente se encuentran: 
 
@@ -993,12 +1039,17 @@ para el desarrollo en el lado del cliente se encuentran:
     \item más de 70 componentes web personalizables y de alto rendimiento. En la aplicación web que se implementó en este trabajo 
     se utilizaron varias de estas componentes, que permitieron que el desarrollo de las interfaces de usuarios fuera más rápido y sencillo.
     \item buenas prácticas integradas tales como: compresión de código, 
-    manejo avanzado de caché, mapeo de fuentes y carga diferida.
+    manejo avanzado de caché, mapeo de fuentes y carga diferida. Estas 
+    buenas prácticas permiten que la aplicación web se actualice más rápido,
+    disminuyendo el tiempo de espera para los usuarios finales.
+    
     \item Quasar-CLI, una herramienta que genera de forma automática la estructura del 
     proyecto, con los paquetes y configuraciones necesarias para el 
-    funcionamiento inicial de la aplicación web.    
-    \item Quasar se diseñó teniendo en cuenta el rendimiento y el \textit{responsive design} [\cite{quasar}].
-    Dos cualidades muy importantes en el desarrollo de aplicaciones web. 
+    funcionamiento inicial de la aplicación web. Al crear el proyecto con esta herramienta,
+    se ahorra tiempo de desarrollo destinado a realizar las configuraciones iniciales.
+
+    % \item Quasar se diseñó teniendo en cuenta el rendimiento y el \textit{responsive design} [\cite{quasar}].
+    % Dos cualidades muy importantes en el desarrollo de aplicaciones web. 
     % \item soporte para varios idiomas, incluyendo 
     % compatibilidad para idiomas RLT (right to left), tanto para los componentes de Quasar
     % como para el código del desarrollador.  
@@ -1012,9 +1063,9 @@ para el desarrollo en el lado del cliente se encuentran:
 
 
 En este trabajo se implementó una aplicación web para la informatización de los procesos de 
-asignación de docencia y planificación de las tesis. En el lado del servidor se implementó una 
-API RESTful, en el cliente una SPA haciendo uso de Quasar y para almacenar los datos se 
-utilizó SQLite.
+asignación de docencia y planificación de las tesis. Para el desarrollo en el lado del servidor
+se utilizó Django y en el lado del cliente Quasar. Los datos se 
+almacenaron en una base de datos SQLite.
 % Los datos que intervienen en estos procesos se almacenaron en una base de datos relacional SQLite. 
 % En el lado del cliente se implementó una SPA, haciendo uso de Quasar.
 
