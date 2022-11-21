@@ -22,7 +22,8 @@
 \RequirePackage{footmisc}
 \RequirePackage{csquotes}
 \RequirePackage[
-	style=chem-acs,
+%	style=chem-acs,
+  style=ieee,
 	citestyle=numeric,
   hyperref=true,
 	backref=true
@@ -74,28 +75,28 @@
 \renewcommand{\textfraction}{0.07}
 
 % Whole biblatex hyperref to bibliography
-\DeclareCiteCommand{\cite}
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}%
-   \printtext[bibhyperref]{\usebibmacro{cite}}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+% \DeclareCiteCommand{\cite}
+%   {\usebibmacro{prenote}}
+%   {\usebibmacro{citeindex}%
+%    \printtext[bibhyperref]{\usebibmacro{cite}}}
+%   {\multicitedelim}
+%   {\usebibmacro{postnote}}
 
-\DeclareCiteCommand*{\cite}
-  {\usebibmacro{prenote}}
-  {\usebibmacro{citeindex}%
-   \printtext[bibhyperref]{\usebibmacro{citeyear}}}
-  {\multicitedelim}
-  {\usebibmacro{postnote}}
+% \DeclareCiteCommand*{\cite}
+%   {\usebibmacro{prenote}}
+%   {\usebibmacro{citeindex}%
+%    \printtext[bibhyperref]{\usebibmacro{citeyear}}}
+%   {\multicitedelim}
+%   {\usebibmacro{postnote}}
 
-\DeclareCiteCommand{\parencite}[\mkbibparens]
+\DeclareCiteCommand{\parencite}[\mkbibbrackects]
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
     \printtext[bibhyperref]{\usebibmacro{cite}}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
-\DeclareCiteCommand*{\parencite}[\mkbibparens]
+\DeclareCiteCommand*{\parencite}[\mkbibbrackects]
   {\usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
     \printtext[bibhyperref]{\usebibmacro{citeyear}}}

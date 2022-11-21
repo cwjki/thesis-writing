@@ -1,10 +1,23 @@
 \chapter{Descripción de las funcionalidades que se desean}\label{chapter:features}
-El objetivo principal de este trabajo es la creación de una herramienta
+El objetivo de este trabajo es la creación de una herramienta
 que permita informatizar dos de los procesos que se realizan en la Facultad de Matemática y
-Computación de la Universidad de La Habana: asignación de docencia y planificación de las tesis. 
-Se desea además que la herramienta sea lo sufientemente 
-extensible para que permita, en un futuro, la integración de otros procesos como los que se mencionan en la 
-sección \ref{section:funcionamiento de la facultad}.
+Computación de la Universidad de La Habana (MATCOM): la asignación de docencia y la planificación de las tesis. 
+
+En este capítulo se describen las funcionalidades que se desean incorporar
+en el sistema para cada proceso. En la sección \ref{docencia:cap2} 
+se ilustra el flujo de la asignación de docencia y cómo se desean utilizar 
+las funcionalidades.
+
+
+En las siguientes secciones se describen las funcionalidades
+que se desean incorporar para cada proceso. En la sección \ref{docencia:cap2}
+las relacionadas (voz pasiva) con la asignación de docencia y en la sección \ref{tesis:cap2}
+las relacionadas(voz pasiva) con la planificación de las tesis.
+
+% Se desea además que la herramienta sea lo sufientemente 
+% extensible para que permita, en un futuro, la integración de otros procesos como: 
+% planificación de los exámenes finales y revalorizaciones, planificación de los alumnos ayudantes,
+% planificación de los cursos optativos, entre otros.
 
 % El objetivo principal de este trabajo es la creación de
 % una herramienta que permita la informatización de los procesos de
@@ -16,8 +29,6 @@ sección \ref{section:funcionamiento de la facultad}.
 % sección \ref{section:funcionamiento de la facultad}.
 
 
-En las siguientes secciones se describen las funcionalidades
-que se desean incorporar para cada proceso.
 
 % El objetivo principal de este trabajo es la creación de
 % una herramienta que permita la informatización de los procesos
@@ -49,14 +60,19 @@ que se desean incorporar para cada proceso.
 
 
 \section{Asignación de docencia}\label{docencia:cap2}
-Se desea implementar una mecanismo que permita realizar la asignación de docencia 
-facilitando el acceso a toda la información que interviene en este proceso. A continuación 
-se describen las principales funcionalidades que se desean:
+% Se desea implementar un mecanismo que permita realizar la asignación de docencia 
+% facilitando el acceso a toda la información que interviene en este proceso. 
+% Las principales funcionalidades que se desean:
 
+Como parte del proceso de informatización de la asignación docente, se 
+desea incorporar las siguientes funcionalidades al sistema,:
+
+% Existen un conjunto de funcionalidades que se desean incorporar para realizar la asignación de 
+% docencia, en el sistema que se propone en este trabajo, como:
 
 \begin{itemize}
     \item Conocer las asignaturas que se deben impartir en un período de tiempo dado, por ejemplo enero-julio 2021.
-    \item Conocer durante el proceso de asignación la carga docente que se la ha asignado a cada profesor.
+    \item Conocer durante el proceso de asignación, la carga docente que se le ha asignado a cada profesor.
     \item Exportar la asignación de docencia a un documento con un formato preestablecido, que 
     es el que se utiliza actualmente en la facultad.
 \end{itemize}
@@ -68,8 +84,64 @@ se describen las principales funcionalidades que se desean:
 %           de docencia. Por ejemplo, saber las asignaturas que debe impartir un profesor en un semestre dado.
 
 
-A continuación se describen como se desean utilizar las funcionalidades anteriores durante el 
-proceso de asignación de docencia.
+% A continuación se describen como se desean utilizar las funcionalidades anteriores durante el 
+% proceso de asignación de docencia.
+
+
+Para ilustrar el flujo del proceso de asignación de docencia y cómo se 
+desean utilizar las funcionalidades anteriores, se utilizará un ejemplo, 
+supongamos que se desea realizar la asignación docente del departamento de 
+Matemática Aplicada en el período enero-julio del curso 2022. A continuación 
+se muestran las asignaturas que se deben impartir.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | c | c |}
+        \hline
+        \thead{Asignatura}   & \thead{Año} & \thead{Facultad} & \thead{Horas} \\ \hline
+        Programación y Algoritmos & M1 & MATCOM     & 64 \\
+        \hline
+        Seminarios de Problemas   & M1 & MATCOM     & 48 \\
+        \hline
+        Programación y Algoritmos & M2 & MATCOM     & 32 \\
+        \hline
+        Inferencia Estadística    & M3 & MATCOM     & 80 \\
+        \hline
+        Matemática Numérica       & M3 & MATCOM     & 48 \\
+        \hline
+        Optimización Matemática I & M3 & MATCOM     & 64 \\
+        \hline
+        Estadística               & C3 & MATCOM     & 64 \\
+        \hline
+        Modelos de Optimización I & C3 & MATCOM     & 64 \\
+        \hline
+        Estadística               & G2 & GEOGRAFÍA  & 80 \\
+        \hline
+        Estadística               & S2 & SOCIOLOGÍA & 80 \\
+        \hline
+    \end{tabular}
+    \caption{Asignaturas que debe impartir el departamento de Matemática Aplicada en el período enero-julio 2022.}
+    \label{tabla-asignaturas-cap2}
+\end{table}
+
+En la tabla \ref{tabla-asignaturas-cap2} se muestra los datos asociados 
+a las asignaturas, como el nombre, el año escolar en el que se imparte, la 
+facultad a la que pertenece el año escolar y la cantidad de horas totales. 
+Por ejemplo, en la primera fila se indica que para la asignatura Programación y 
+Algoritmos se deben impartir 64 horas clase a los estudiantes del primer año de Matemática de la facultad
+MATCOM. 
+
+
+El primer requerimiento es que la herramienta muestre las asignaturas que se deben impartir por un 
+departamento en un tiempo dado, por tanto tendría que mostrar todas las asignaturas que aparencen 
+en la tabla \ref{tabla-asignaturas-cap2}. 
+
+A partir de las asignaturas que se deben impartir en un semestre, se debe determinar la cantidad
+de grupos de conferencias, clases prácticas o cualquier otra actividad de clase,
+así como la distribución del total de horas a impartir en cada una de estas actividades.
+En la tabla \ref{} se muestra un fragmento de 
+
+
 
 Al comienzo de un período de tiempo, el jefe de departamento debe realizar la planificación de docencia
 del semestre. Se desea que la herramienta muestre las asignaturas que se deben impartir por ese departamento en el período de tiempo dado.
