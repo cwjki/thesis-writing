@@ -1,8 +1,21 @@
 \chapter{Descripción del diseño de la base de datos}\label{chapter:database}
-Para la informatización de la asignación de docencia y la planificación de 
-las tesis, fue necesario almacenar los datos que intervien en estos procesos, en una base de datos.
-En este capítulo se describe el diseño que se obtuvo para la modelación de 
-cada proceso.
+
+El diseño de base de datos es un proceso fundamental a la hora 
+de modelar el conjunto de datos y las operaciones que se deseen
+realizar sobre ellos. Un correcto diseño de la base de datos
+es esencial para garantizar la consistencia de la información,
+eliminar datos redundantes, ejecutar consultas de manera 
+eficiente y mejorar el rendimiento de la base de datos \cite{db_book_cap2}. 
+
+En este capítulo se presenta el diseño de la base de datos que se 
+obtuvo siguiendo el enfoque relacional.
+En las secciones \ref{database:asignación-docencia} y
+\ref{database:planificación-tesis} se describen las modelaciones que se obtuvieron 
+para los procesos de asignación de la docencia y planificación de las tesis, respectivamente.
+
+
+
+
 
 
 \section{Modelación de la asignación de docencia}\label{database:asignación-docencia}
@@ -12,12 +25,17 @@ cada proceso.
 % En la figura \ref{} se muestra un
 % Como resultado se obtuvo 
 % el siguiente esquema
+Para la informatización del proceso de asignación de docencia, fue 
+necesario almacenar toda la información que interviene en este proceso.
+Para ello, se modelaron las entidades fundamentales, así como las interrelaciones
+que se establecen entre ellas. En la figura \ref{merxx-docencia} se muestra el esquema que se obtuvo a partir 
+del modelo entidad-relación.
 
-Se modelaron las entidades fundamentales
-que intervienen en el proceso de la asignación de docencia, 
-así como las interrelaciones que se establecen entre ellas.
-En la figura \ref{merxx-docencia} se muestra el esquema que se obtuvo a partir 
-del modelo entidad-relación extendido.
+% Se modelaron las entidades fundamentales
+% que intervienen en el proceso de la asignación de docencia, 
+% así como las interrelaciones que se establecen entre ellas.
+% En la figura \ref{merxx-docencia} se muestra el esquema que se obtuvo a partir 
+% del modelo entidad-relación extendido.
 
 \begin{figure}[H]
     \includegraphics[scale=0.31]{Graphics/Database/MERXX-TA-FINAL.png}
@@ -28,8 +46,8 @@ del modelo entidad-relación extendido.
 
 
 Con el objetivo de simplificar la representación del modelo entidad-relación
-no se agregaron en la imagen \ref{merxx-docencia}, los atributos correspondientes a cada entidad, por lo 
-que a continuación se describen las entidades en mayor profundidad.
+no se agregaron en la imagen \ref{merxx-docencia} los atributos correspondientes a cada entidad,
+a continuación se describen los datalles de cada entidad.
 
 
 \subparagraph{FACULTAD:}
@@ -50,16 +68,16 @@ Una carrera pertenece a una única facultad y en una carrera se imparten una o m
 \subparagraph{DEPARTAMENTO:}
 Representa los departamentos de una facultad de la Universidad de La Habana.
 El nombre del departamento se modela como un atributo, mientras que los profesores que 
-pertenecen a un departamento, las asignatura que son atendidas por el departamento y la 
+pertenecen a un departamento, las asignaturas que son atendidas por el departamento y la 
 facultad a la que pertenece el departamento, se modelan como relaciones con las entidades 
 PROFESOR, FACULTAD y ASIGNATURA, respectivamente. Un departamento pertenece a una única facultad,
-un departamento atiende una o muchas asignaturas y a un departamento pertenecen uno o muchos 
+atiende una o muchas asignaturas y a un departamento pertenecen uno o muchos 
 profesores.
 
 \subparagraph{PROFESOR:}
 Agrupa los datos asociados a los profesores.
 Los campos nombre y apellidos se modelan como atributos,  
-mientras que, la categoría docente, el grado 
+mientras que la categoría docente, el grado 
 científico de un profesor y el departamento al que pertenece, se modelan como 
 relaciones con las entidades CATEGORÍA DOCENTE, GRADO CIENTÍFICO y 
 DEPARTAMENTO, respectivamente. Un profesor pertenece a un único departamento y puede tener solo 
@@ -88,9 +106,9 @@ el plan de estudio asociado a la asignatura, el semestre en el que se
 imparte, el departamento responsable de la asignatura y la carrera a la 
 que pertenece, se modelan como relaciones con las entidades
 PLAN DE ESTUDIO, SEMESTRE, DEPARTAMENTO y CARRERA respectivamente. Una asignatura 
-es atendida por un único departamento, pertenece a una única carrera, se imparte en un 
+se atiende por un único departamento, pertenece a una única carrera, se imparte en un 
 único semestre y tiene un único plan de estudio. Las asignaturas que se imparten de forma 
-anual son representadas como dos asignaturas independientes.
+anual se deben representar como dos asignaturas independientes.
 
 \subparagraph{PLAN DE ESTUDIO:}
 Representa el plan de estudio por el que se rige una asignatura.
@@ -102,14 +120,14 @@ Pueden existir una o muchas asignaturas con el mismo plan de estudio.
 \subparagraph{SEMESTRE:}
 Representa los semestres asociados a una carrera. 
 El nombre del semestre se modela como un atributo.
-Pueden existir una o muchas asignaturas que se imparten en 
+Pueden existir una o muchas asignaturas que se impartan en 
 el mismo semestre. 
 
-
+[NO NECESITO ESTO CREO]
 \subparagraph{PERÍODO DE TIEMPO:}
-Representa los períodos de tiempo del año.
+Representa los períodos de tiempo del año, por ejemplo, enero--julio.
 El nombre del período de tiempo se modela como un atributo.
-Pueden existir una o muchas asignaturas que se imparten en 
+Pueden existir una o muchas asignaturas que se impartan en 
 el mismo período de tiempo.
 
 \subparagraph{CURSO ESCOLAR:}
@@ -117,19 +135,20 @@ Representa los curso escolares, por ejemplo: 2020-2021.
 El nombre del curso de escolar se modela como un atributo. Además 
 cuenta con un campo booleano que indica si el curso es el vigente.
 
-\subparagraph{GRUPO ESCOLAR:}
+\subparagraph{AÑO ESCOLAR:}
 Representa los años académicos asociados a una carrera, como por ejemplo:
 Matemática primer año (M1) o Computación tercer año (C3).
-El nombre del grupo escolar se modela como un atributo.
+El nombre del año escolar se modela como un atributo.
 
 \subparagraph{ACTIVIDAD DE CLASE:}
 Representa los tipos de actividades que se imparten en una asignatura, 
 tales como: conferencias, clases prácticas, seminarios, laboratorios, otros. 
 
+
 \subparagraph{PLANIFICACIÓN DE ASIGNATURA:}
 Se crea con el objetivo de modelar la separación de una asignatura
 según las actividades de clases a impartir, en un curso escolar, en un período de tiempo y para
-un grupo escolar específico. Está compuesta por la agregación de las entidades ASIGNATURA, CURSO ESCOLAR, ACTIVIDAD DE CLASE, GRUPO 
+un grupo escolar específico. Está compuesta por la agregación de las entidades ASIGNATURA, AÑO ESCOLAR, ACTIVIDAD DE CLASE, GRUPO 
 ESCOLAR Y PERÍODO DE TIEMPO.
 Se agregan los atributos cantidad de horas para el tipo de actividad a realizar y 
 la cantidad de grupos.
@@ -138,7 +157,7 @@ en el tercer año de la carrera de Matemática, con un total de 64 horas clase,
 se deben crear dos instancia de PLANIFICACIÓN DE ASIGNATURA, una con 32 horas 
 de conferencias y otra con 32 horas de clases prácticas, para que posteriormente
 se puedan asignar los profesores que se ocuparán de estas planificaciones. 
-
+[REVISAR LA CANT DE GRUPOS Y EL AÑO ESCOLAR]
 
 
 
@@ -163,7 +182,7 @@ Además se agrega un atributo porciento que indica el porcentaje del total de ho
 a impartir, que asume el profesor asignado. Un profesor puede 
 tener asignada cero o muchas planificaciones de asignaturas y una planificación de 
 asignatura puede estar asignada a uno o muchos profesores.
-
+[Hay que añadir el año escolar o la tabla de carmen]
 
 \subparagraph{DESCRIPCIÓN DE CURSO:}
 Representa el grupo escolar vigente en el curso actual. Está 

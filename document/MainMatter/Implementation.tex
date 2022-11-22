@@ -1,15 +1,35 @@
 \chapter{Descripción las herramientas implementadas}\label{chapter:implementation}
-En este capítulo se presenta la propuesta de solución para 
-la informatización de los procesos de asignación de docencia y 
+El objetivo de este trabajo es la informatización de los 
+procesos de asignación de docencia y 
 planificación de las tesis que se llevan a cabo 
 en la Facultad de Matemática y Computación de la Universidad de La Habana. 
 
-Se implementó un sistema de gestión siguiendo el modelo cliente-servidor. El desarrollo del servidor se efectuó con el uso Django, en 
-particular Django Rest Framework y el cliente se desarrolló utilizando
-Quasar para la creación de las interfaces de usarios. Para la administración de la 
-base de datos se utilizó el SGBD SQLite.
-Como resultado se creó una aplicación web, cuya vista inicial se muestra en 
-la figura \ref{img-home-page}.
+En este capítulo se presenta la aplicación web que se implementó 
+como propuesta de solución para la informatización de estos procesos. 
+En las secciones \ref{cap4:docencia} y \ref{cap4:tesis} se describen los pasos que se deben 
+seguir para realizar a través del sistema, la asignación de docencia y la planificación de las tesis, respectivamente.
+En la sección \ref{cap4:csv} se describe una funcionalidad que se implementó en el lado del servidor 
+para salvar el estado de la base datos en documentos CSV y poblar la base de datos a través de los mismos.
+
+% P
+
+% En este capítulo se presenta 
+
+% la propuesta de solución para 
+% la informatización de los procesos de asignación de docencia y 
+% planificación de las tesis que se llevan a cabo 
+% en la Facultad de Matemática y Computación de la Universidad de La Habana. 
+
+
+
+
+% Se implementó un sistema de gestión siguiendo el modelo cliente-servidor. El desarrollo del servidor se efectuó con el uso Django, en 
+% particular Django Rest Framework y el cliente se desarrolló utilizando
+% Quasar para la creación de las interfaces de usarios. Para almacenar los datos que 
+% se utilizó una base de datos SQLite.
+
+En la figura \ref{img-home-page} se ilustra la vista inicial del sistema de 
+gestión implementado.
 
 
 \begin{figure}[H]
@@ -18,12 +38,12 @@ la figura \ref{img-home-page}.
     \label{img-home-page}
 \end{figure}
 
-[EXPLICACION DEL FLUJO PARA REALIZAR ASIGNACION DE DOCENCIA O TESIS] \\
 
 
 
 
-\section{Asignación de docencia}
+
+\section{Asignación de docencia}\label{cap4:docencia}
 
 % El proceso de asignación de docencia en un departamento se realiza en la 
 % interfaz que se muestra en la figura \ref{img-ta-done}. El usuario de la 
@@ -37,29 +57,44 @@ la figura \ref{img-home-page}.
 En esta sección se describen los pasos que se deben seguir para realizar 
 el proceso de asignación de docencia en un departamento a través del sistema 
 de gestión que se propone en este trabajo. 
-Para la ejemplificación de este proceso se utilizará 
+Para la ilustrar este proceso se utilizará 
 el mismo fragmento de la docencia correspondiente al departamento
 de Matemática Aplicada en el período de tiempo 
-enero - julio del curso 2022, que se describe en la sección \ref{docencia:cap2}. En la tabla \ref{tabla-planificación-cap4} 
-se muestran las asignaturas que se deben impartir
-y en la \ref{tabla-asignación-cap4} 
+enero--julio del curso 2022, que se describe en la sección \ref{docencia:cap2}. 
+En la tabla \ref{tabla-carga-asignaturas-cap4} 
+se muestra la carga de las asignaturas que se deben impartir
+y en la \ref{tabla-carga-asignaturas-cap4} 
 la distribución de los profesores
-para cubrir con la planificación. 
+para cubrir con la docencia. 
 % Supongamos que se quiere realizar la asignación de docencia para el departamento 
 % de Matemática Aplicada   
 
+% \begin{table}[H]
+%     \centering
+%     \begin{tabular}{| c | c | c | c | c |}
+%         \hline
+%         \thead{Facultad}   & \thead{Año} & \thead{Asignatura} & \thead{Horas} & \thead{Grupos}  \\ \hline
+%         MATCOM     & M3  & Optimización Matemática I  &  64   &  1/1   \\ 
+%         MATCOM     & C3  & Modelos de Optimización I  &  64   &  1/2   \\ 
+%         GEOGRAFÍA  & G2  & Estadística                &  80   &  1/2   \\ 
+%         \hline
+%     \end{tabular}
+%     \caption{Fragmento de la planificación de docencia.}
+%     \label{tabla-planificación-cap4}
+% \end{table}
+
 \begin{table}[H]
     \centering
-    \begin{tabular}{| c | c | c | c | c |}
+    \begin{tabular}{| c | c | c | c | c | c |}
         \hline
-        \thead{Facultad}   & \thead{Año} & \thead{Asignatura} & \thead{Horas} & \thead{Grupos}  \\ \hline
-        MATCOM     & M3  & Optimización Matemática I  &  64   &  1/1   \\ 
-        MATCOM     & C3  & Modelos de Optimización I  &  64   &  1/2   \\ 
-        GEOGRAFÍA  & G2  & Estadística                &  80   &  1/2   \\ 
+        \thead{Asignatura}  & \thead{Año} & \thead{Facultad} & \thead{Horas} & \thead{Grupos} & \thead{\makecell{Distribución \\ de horas}  } \\ \hline
+        Optimización Matemática I  & M3  & MATCOM  &  64   &  1/1  & 32/32  \\ 
+        Modelos de Optimización I  & C3  & MATCOM  &  64   &  1/2  & 32/32  \\ 
+        Estadística                & G2  & GEOGRAFÍA  &  80   &  1/2  & 48/32  \\ 
         \hline
     \end{tabular}
-    \caption{Fragmento de la planificación de docencia.}
-    \label{tabla-planificación-cap4}
+    \caption{Carga de las asignaturas}
+    \label{tabla-carga-asignaturas-cap4}
 \end{table}
 
 
@@ -81,13 +116,13 @@ para cubrir con la planificación.
 \end{table}
 
 
-El primer paso que debe realizar el jefe de departamento es la planificación de la 
-docencia, la interfaz de usuario implementada en el sistema de gestión para realizar 
-este proceso se muestra en la figura \ref{img-pd-example}
+El primer paso que se debe realizar es planificar la carga de las asignaturas 
+que se deben impartir, la interfaz de usuario que se implementó en el sistema para realizar 
+este proceso se muestra en la figura \ref{img-pd-example}.
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-empty.png}
-    \caption{Vista de la planificación de las asignaturas}
+    \caption{Vista de la planificación de las cargas de las asignaturas}
     \label{img-pd-example}
 \end{figure}
 
@@ -96,13 +131,13 @@ En la figura \ref{img-pd-example},
 se indican con recuadros tres regiones cuyo significado se explica a continuación.
 
 \begin{itemize}
-    \item A: botón para agregar una nueva planificación de asignatura.
+    \item A: botón para agregar una nueva carga de asignatura.
     \item B: filtros por: Año, Actividad de clase, Curso escolar, Período de tiempo.
     \item C: barra de búsqueda por texto para el nombre de las asignaturas. 
 \end{itemize}
 
 
-Para agregar una nueva planificación de asignatura se debe pulsar en el 
+Para agregar una nueva carga de asignatura se debe pulsar en el 
 botón que se indica en el recuadro A y completar los campos del formulario. 
 En la figura \ref{img-pd-form} se muestra como agregar la planificación
 correspondiente a las conferencias de la asignatura Optimización
@@ -110,25 +145,25 @@ Matemática I para los estudiantes de tercer año de la carrera Matemática.
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-form.png}
-    \caption{Vista del formulario para crear una planificación de asignaturas}
+    \caption{Vista del formulario para crear una carga de asignaturas}
     \label{img-pd-form}
 \end{figure}
 
 
 La figura \ref{img-pd-result} muestra el resultado de agregar las planificaciones de las asignaturas 
-correspondientes a la tabla \ref{tabla-planificación-cap4}. 
+correspondientes a la tabla \ref{tabla-carga-asignaturas-cap4}. 
 
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/PD-result.png}
-    \caption{Vista de la planificación de las asignaturas}
+    \caption{Vista de la carga de las asignaturas}
     \label{img-pd-result}
 \end{figure}
 
-Por cada planificación de asignatura que se agregue en el sistema se crean n asignaciones 
-de docencia sin asignar, donde n es la cantidad de grupos que tiene la planificación. En 
+Por cada carga de asignatura que se agregue en el sistema se crean $n$ asignaciones 
+de docencia sin asignar, donde $n$ es la cantidad de grupos que tiene la carga de la asignatura. En 
 la figura \ref{img-ta-unassing} se muestran las asignaciones de docencias creadas automáticamente por el sistema 
-a partir de las planificaciones agregadas en la figura \ref{img-pd-result}.
+a partir de las cargas agregadas en la figura \ref{img-pd-result}.
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Docencia/AD-unassing.png}
@@ -138,7 +173,7 @@ a partir de las planificaciones agregadas en la figura \ref{img-pd-result}.
 
 
 El próximo paso es realizar la asignación de los profesores para cubrir 
-la planificación de docencia del semestre. Para asignar un profesor se debe 
+la docencia del semestre. Para asignar un profesor se debe 
 pulsar sobre el botón de editar de una fila. En la figura \ref{img-ta-form-empty} se muestra el resultado 
 de pulsar sobre el botón de editar de la cuarta fila, correspondiente a las conferencias
 de la asignatura de Optimización Matemática I. 
@@ -152,7 +187,7 @@ de la asignatura de Optimización Matemática I.
 
 
 Se deben completar los campos del formulario y pulsar sobre el botón editar. 
-Como se muestra en la tabla \ref{tabla-planificación-cap4}, la profesora Aymeeé Marrero es la encargada de 
+Como se muestra en la tabla \ref{tabla-asignación-cap4}, la profesora Aymeeé Marrero es la encargada de 
 impartir las 32 horas de conferencia de la asignatura Optimización Matemática I, por 
 tanto se debe especificar que la profesora imparte el 100 porciento de las horas 
 como se muestra en la figura \ref{img-ta-form-fill}.
@@ -202,7 +237,7 @@ Matemática I, Estadística y las clases prácticas de Modelos de Optimización,
 
 Las conferencias de la asignatura Modelos de Optimización I, se imparten por los profesores 
 Aymeeé Marrero y Fernando Rodríguez, con 16 horas cada uno.
-Para modelar esta distribución en el sistema de gestión, es necesario agregar una 
+Para modelar esta distribución en el sistema, es necesario agregar una 
 nueva asignación de docencia y especificar que cada profesor va a impartir el 50 porciento 
 de las horas totales de conferencia. Para agregar una nueva asignación se debe pulsar sobre el 
 botón de agregar y llenar los campos necesarios. En la figura
@@ -216,11 +251,11 @@ la asignación final de la docencia.
 \end{figure}
 
 
-Para poder llevar a cabo el proceso de asignación de docencia a través del sistema de 
-gestión que se propone, es necesario que en la base de datos se ingresen las informaciones 
+Para poder llevar a cabo el proceso de asignación de docencia a través del sistema 
+que se propone, es necesario que en la base de datos se ingresen las informaciones 
 que intervienen en este proceso. Por ejemplo, para realizar una asignación de docencia se necesitan 
 los profesores del departamento
-y las planificaciones de las asignturas. Para poder crear las planificación de las asignaturas 
+y las planificaciones de las cargas de las asignaturas. Para poder crear las cargas  
 se necesitan las asignaturas, los años escolares, las actividades de clase y los períodos de tiempo.
 Por tanto el primer paso para realizar la asignación de docencia es ingresar todos los datos que 
 se describen en la sección \ref{database:asignación-docencia}.
@@ -319,17 +354,15 @@ se describen en la sección \ref{database:asignación-docencia}.
 En la siguiente sección se describen los pasos para realizar la confección de los 
 tribunales y la planificación de las defensas de tesis.
 
-\section{Planificación de las tesis}
-El proceso de planificación de tesis consta de dos subprocesos principales: confección de los tribunales 
-y planificación de la defensa. 
-En esta sección se describen los pasos a seguir para completar el 
-proceso de planificación de las tesis a través del sistema de gestión que 
-se propone en este trabajo.
+\section{Planificación de las tesis} \label{cap4:tesis}
+La planificación de las tesis consta de dos subprocesos principales: la confección de los tribunales 
+y la programación de las defensas. 
+En esta sección se describen los pasos a seguir para completar 
+la planificación de las tesis a través del sistema.
 Para ilustrar este proceso se utilizará el mismo ejemplo que se 
 describe en la sección \ref{tesis:cap2}. 
-En la tabla \ref{tabla-tesis-cap4} se muestran dos de las 
-tesis que se deben efectuar como ejercicio de culminación de estudios correspondientes 
-al curso 2022. En la tabla \ref{tabla-tribunal-tesis-cap2}, el tribunal seleccionado y en 
+En la tabla \ref{tabla-tesis-cap4} se muestran los datos de dos 
+tesis, en la tabla \ref{tabla-tribunal-tesis-cap2} el tribunal seleccionado y en 
 la tabla \ref{tabla-defensa-tesis-cap4} el horario escogido para la defensa de las mismas.
 
 \begin{table}[H]
@@ -340,10 +373,10 @@ la tabla \ref{tabla-defensa-tesis-cap4} el horario escogido para la defensa de l
       \hline 
              1 & \makecell{Simulación y optimización \\ de movimientos de malabares} & Gustavo Despaigne & Fernando Rodríguez  \\
       \hline
-             2 & \makecell{Propagación de epidemias \\ mediante modelos basados \\ en metapoblaciones} & Abel Antonio Cruz & \makecell{Angela M. León \\ José A. Mesejo \\ Camila Pérez} \\
+             2 & \makecell{Propagación de epidemias \\ mediante modelos basados \\ en metapoblaciones} & Abel Antonio Cruz & \makecell{Angela M. León \\ José A. Mesejo} \\
       \hline
     \end{tabular}
-    \caption{Fragmento de dos de las tesis correspondientes al curso 2022}
+    \caption{Datos de las tesis}
     \label{tabla-tesis-cap4}
 \end{table}
 
@@ -356,10 +389,10 @@ la tabla \ref{tabla-defensa-tesis-cap4} el horario escogido para la defensa de l
       \hline 
              1 & Fernando Rodríguez & Gemayqzel Bouza & Aymeeé Marrero  \\
       \hline
-             2 & \makecell{Angela M. León \\ José A. Mesejo \\ Camila Pérez} & Damian Valdés & Gemayqzel Bouza  \\
+             2 & \makecell{Angela M. León \\ José A. Mesejo } & Damian Valdés & Gemayqzel Bouza  \\
       \hline
     \end{tabular}
-    \caption{Posibles tribunales de tesis}
+    \caption{Posibles tribunales para las tesis tesis}
     \label{tabla-tribunal-tesis-cap4}
 \end{table}
 
@@ -374,13 +407,13 @@ la tabla \ref{tabla-defensa-tesis-cap4} el horario escogido para la defensa de l
              2 & 10/12/2022 & 3:30 PM & Salón del Decanato \\
       \hline
     \end{tabular}
-    \caption{Posible horarios para las defensas de tesis}
+    \caption{Posible horarios para los actos de defensa}
     \label{tabla-defensa-tesis-cap4}
 \end{table}
 
 
 El primer paso es ingresar las tesis en el sistema,
-en la figura \ref{img-tc-thesis} se muestra la interfaz de usuario del sistema
+en la figura \ref{img-tc-thesis} se muestra la interfaz de usuario
 que permite realizar esta tarea.
 
 
@@ -405,8 +438,8 @@ correspondientes a la primera tesis que se muestra en la tabla \ref{tabla-tesis-
 
 
 Repitiendo el procedimiento anterior se puede agregar la segunda tesis que se 
-muestra en la tabla \ref{tabla-tesis-cap4}. En la figura tal
-se muestra el resultado de agregar las dos tesis en el sistema de gestión.
+muestra en la tabla \ref{tabla-tesis-cap4}. En la figura \ref{img-tc-thesis-result} tal
+se muestra el resultado de agregar las dos tesis en el sistema.
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-result.png}
@@ -414,9 +447,9 @@ se muestra el resultado de agregar las dos tesis en el sistema de gestión.
     \label{img-tc-thesis-result}
 \end{figure}
 
-Cada vez que se agregue una tesis al sistema de gestión, se crea una  
+Cada vez que se agregue una tesis al sistema, se crea una  
 instancia de un tribunal de tesis con los campos de oponente y presidente sin asignar.
-En la figuras \ref{img-tc-thesis-committee-empty}  se muestran los tribunales creados 
+En la figura \ref{img-tc-thesis-committee-empty}  se muestran los tribunales incompletos creados 
 automáticamente a partir de las tesis que se ingresaron en el sistema.
 
 \begin{figure}[H]
@@ -469,22 +502,22 @@ Antonio Cruz Suárez.
     \label{img-tc-thesis-committee-assign2}
 \end{figure}
 
-En la figura \ref{img-tc-thesis-committee-assign2},
-se puede apreciar que se han actualizado las participaciones de los profesores en tribunales.
+En la figura \ref{img-tc-thesis-committee-assign2}
+se puede apreciar que se actualizaron las participaciones de los profesores en los tribunales.
 Se agregó la participación del profesor Damian Valdés y se actualizó la de la profesora Gemayqzel Bouza, 
 aumentando en 1 la cantidad de participaciones en tribunales como presidente.
 
 
 Cuando se hayan confeccionado los tribunales de tesis, el siguiente paso 
-es realizar la planificación de las defensas. 
-Cuando una tesis es agregada al sistema, se crea una instancia 
+es realizar la programación de las defensas. 
+Cuando una tesis se agrega al sistema, se crea una instancia 
 de una defensa de tesis sin definir los campos fecha, hora y local.
 En la figura \ref{img-tc-thesis-defense-empty} se muestra la interfaz de usuario donde se realiza 
-el proceso de planificación de las tesis.
+el proceso de programación de las defensas.
 
 \begin{figure}[H]
     \includegraphics[scale=0.3]{Graphics/Implementation/Tesis/thesis-defense-empty.png}
-    \caption{Interfaz de usario para planificar las defensas de tesis.}
+    \caption{Interfaz de usario para programar las defensas de tesis}
     \label{img-tc-thesis-defense-empty}
 \end{figure}
 
@@ -502,7 +535,7 @@ y completar los datos de la planificación correspondiente a la tabla \ref{tabla
 \end{figure}
 
 
-Una vez se hayan realizado las planificaciones de las defensas de las tesis, se puede 
+Una vez que se hayan programado las defensas de las tesis, se puede 
 exportar la información de estas a un archivo CSV pulsando sobre el recuadro A que se 
 muestra en la figura \ref{img-tc-thesis-defense-result}.
 
@@ -520,12 +553,12 @@ muestra en la figura \ref{img-tc-thesis-defense-result}.
 
 
 
-Para poder llevar a cabo el proceso de planificación de las tesis a través
-del sistema de gestión que se propone, es necesario que en la base de datos 
+Para poder llevar a cabo la planificación de las tesis a través
+del sistema que se propone, es necesario que en la base de datos 
 se ingresen las informaciones que intervienen en este proceso. Por ejemplo 
 para poder confeccionar un tribunal es necesario que la tesis haya sido agregada 
-anteriormente, pero para poder agregar la tesis es necesario que los tutores o 
-cotutores de la misma hayan sido agregados previamente. Por tanto el primer paso 
+anteriormente, pero para poder agregar la tesis es necesario que los tutores y 
+cotutores se encuentren en el sistema. Por tanto el primer paso 
 para realizar la planificación de las tesis, es ingresar todos los datos que se describen 
 en la sección \ref{database:planificación-tesis}
 
@@ -533,7 +566,7 @@ en la sección \ref{database:planificación-tesis}
 En la siguiente sección se describen otras funcionalidades implementadas 
 con el objetivo de agregar utilidad al sistema que se propone.
 
-\section{Exportar e importar datos de la base de datos}
+\section{Exportar e importar datos de la base de datos}\label{cap4:csv}
 
 En el servidor se implementó un módulo 
 que permite salvar el estado de la base de datos 
@@ -597,7 +630,15 @@ Subjects, Professors, SubjectDescriptions, TeachingAssignments,
 Places, Keywords, Thesis, ThesisCommittee.
 
 
+En este capítulo se describieron los pasos a seguir para realizar la asignación de docencia 
+y la planificación de las tesis a través del sistema que se propone. Se ilustraron las principales 
+funcionalidades que se deseaban incorporar como: conocer la carga docente de los profesores durante 
+el proceso de asignación, conocer la cantidad de participaciones de los profesores en los tribunales 
+y la exportación de la información de estos procesos a un documento CSV.
 
+En el próximo capítulo se describe la estructura del proyecto y algunos 
+detalles de implementación que pueden servir para incorporar nuevos procesos 
+en el sistema de gestión implementado.
 
 % Se implementó un modelo de optimización para la 
 % generación de asignaciones de docencia, pendiente
