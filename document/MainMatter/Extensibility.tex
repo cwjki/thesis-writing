@@ -104,6 +104,8 @@ Se definió una capa de abstracción para la comunicación con
 el servidor, que permite a partir de una \textit{url}, realizar las operaciones CRUD: \textit{create}, \textit{read}, \textit{update}, \textit{delete}. 
 A continuación se muestra su definición.
 
+
+
 \begin{verbatim}
     export const CrudServiceFactory = <T = any>(url: string) => {
     return {

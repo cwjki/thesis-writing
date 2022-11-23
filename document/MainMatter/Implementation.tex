@@ -2,14 +2,14 @@
 El objetivo de este trabajo es la informatización de los 
 procesos de asignación de docencia y 
 planificación de las tesis que se llevan a cabo 
-en la Facultad de Matemática y Computación de la Universidad de La Habana. 
+en la Facultad de Matemática y Computación de la Universidad de La Habana (MATCOM). 
 
 En este capítulo se presenta la aplicación web que se implementó 
 como propuesta de solución para la informatización de estos procesos. 
 En las secciones \ref{cap4:docencia} y \ref{cap4:tesis} se describen los pasos que se deben 
 seguir para realizar a través del sistema, la asignación de docencia y la planificación de las tesis, respectivamente.
 En la sección \ref{cap4:csv} se describe una funcionalidad que se implementó en el lado del servidor 
-para salvar el estado de la base datos en documentos CSV y poblar la base de datos a través de los mismos.
+para salvar el estado de la base datos en documentos CSV y poblar la base de datos a partir de los mismos.
 
 % P
 
@@ -28,8 +28,21 @@ para salvar el estado de la base datos en documentos CSV y poblar la base de dat
 % Quasar para la creación de las interfaces de usarios. Para almacenar los datos que 
 % se utilizó una base de datos SQLite.
 
-En la figura \ref{img-home-page} se ilustra la vista inicial del sistema de 
-gestión implementado.
+En la figura \ref{img-home-page} se ilustra la vista inicial de la 
+aplicación web que se implementó. En la parte superior se encuentra una 
+barra de navegación, desde la cual se puede acceder a todas las vistas 
+de la aplicación. Se crearon dos paneles principales, uno para la administración de 
+los departamentos y otro para la planificación de las tesis. En el 
+panel para la administración de los departamentos se muestran los cuatro departamentos 
+de la facultad MATCOM, con cuatro botones cada uno que llevan a las vistas 
+para administrar los profesores, las asignaturas, las cargas de las asignaturas 
+y las asignaciones de docencia correspondientes al departamento.
+En el panel para la planificación de las tesis se agregó un selector para definir qué curso escolar 
+se desea planificar y tres botones que 
+llevan a las vistas para administrar las tesis, los tribunales y las defensas, correspondientes 
+al curso escolar seleccionado.
+
+  
 
 
 \begin{figure}[H]
@@ -576,11 +589,11 @@ fin de realizar las tareas mencionadas previamente:
 
 \subsection{Exportar los datos de la base de datos}
 
-Se implemetó el comando \textit{save\_database}
+Se implemetó el comando \texttt{save\_database}
 que permite exportar una o todas las tablas de la base de datos.
 La información de cada tabla se almacena en un archivo CSV.
 Para exportar la información de una única tabla
-se debe especificar su nombre precedido del argumento \textit{-m}. Por 
+se debe especificar su nombre precedido del argumento \texttt{-m}. Por 
 ejemplo para salvar la tabla que contiene la información de los profesores, se debe 
 ejecutar el siguiente comando.
 
@@ -598,12 +611,12 @@ de la base de datos a documentos CSV, se debe ejecutar el siguiente comando.
 
 
 \subsection{Importar datos a la base de datos}
-Se implementó el comando \textit{fill\_database} que permite poblar la 
-base de datos a partir de los archivos CSV generados con el comando \textit{save\_database}.
+Se implementó el comando \texttt{fill\_database} que permite poblar la 
+base de datos a partir de los archivos CSV generados con el comando \texttt{save\_database}.
 Con este comando se puede poblar una o todas las tablas de la base de 
 datos. 
 Para poblar la información de una única tabla
-se debe especificar su nombre precedido del argumento \textit{-m}. Por 
+se debe especificar su nombre precedido del argumento \texttt{-m}. Por 
 ejemplo para llenar la tabla que contiene la información de las asignaturas, se debe 
 ejecutar el siguiente comando.
 
@@ -621,20 +634,20 @@ para la base de datos, se debe ejecutar el siguiente comando.
 
 Los posibles nombres de entidades a utilizar con
 el parámetro -m tanto para el comando 
-\textit{save\_database} como \textit{fill\_database} son:
-ClassTypes, Faculties,
-ScientificDegrees, TeachingCategories,
-Semesters, TeachingGroups, TimePeriods, ScholarYears,
-Careers, StudyPlans, CarmenTable, Departments,
-Subjects, Professors, SubjectDescriptions, TeachingAssignments,
-Places, Keywords, Thesis, ThesisCommittee.
+\texttt{save\_database} como \texttt{fill\_database} son:
+\texttt{ClassTypes}, \texttt{Faculties},
+\texttt{ScientificDegrees}, \texttt{TeachingCategories},
+\texttt{Semesters}, \texttt{TeachingGroups}, \texttt{TimePeriods}, \texttt{ScholarYears},
+\texttt{Careers}, \texttt{StudyPlans}, \texttt{CarmenTable}, \texttt{Departments},
+\texttt{Subjects}, \texttt{Professors}, \texttt{SubjectDescriptions}, \texttt{TeachingAssignments},
+\texttt{Places}, \texttt{Keywords}, \texttt{Thesis}, \texttt{ThesisCommittee}. \\
 
 
 En este capítulo se describieron los pasos a seguir para realizar la asignación de docencia 
 y la planificación de las tesis a través del sistema que se propone. Se ilustraron las principales 
 funcionalidades que se deseaban incorporar como: conocer la carga docente de los profesores durante 
 el proceso de asignación, conocer la cantidad de participaciones de los profesores en los tribunales 
-y la exportación de la información de estos procesos a un documento CSV.
+y la exportación de la información de estos procesos a un documento CSV. \\
 
 En el próximo capítulo se describe la estructura del proyecto y algunos 
 detalles de implementación que pueden servir para incorporar nuevos procesos 
