@@ -181,8 +181,8 @@
 \newenvironment{conclusions}%
   {\cleardoublepage%
    \phantomsection%
-   \addcontentsline{toc}{chapter}{Conclusiones}%
-   \chapter*{Conclusiones}}%
+   \addcontentsline{toc}{chapter}{Conclusiones y recomendaciones}%
+   \chapter*{Conclusiones y recomendaciones}}%
   {}
 \newenvironment{recomendations}%
   {\cleardoublepage%

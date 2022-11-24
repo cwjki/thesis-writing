@@ -1,2 +1,96 @@
 \chapter*{Introducción}\label{chapter:introduction}
 \addcontentsline{toc}{chapter}{Introducción}
+
+En la facultad de Matemática y Computación de la Universidad de La Habana (MATCOM)
+se realizan un conjunto de procesos para administrar y
+planificar las actividades docentes. La mayoría de 
+estas tareas se llevan a cabo de forma manual, provocando que se 
+cometan errores y se derroche tiempo que se pudiera emplear en 
+investigaciones, ya que muchos de estos procesos se realizan por 
+los profesores de la facultad. 
+
+% que conlleva realizar 
+% este tipo de tareas de forma manual
+Con el objetivo de lidiar con estos problemas, en nuestra facultad se han desarrollado 
+varias investigaciones que proponen algoritmos para automatizar algunos 
+de estos procesos. Por ejemplo, la planificación de exámenes 
+mundiales \cite{mundiales} y la organización de las defensas de tesis \cite{tribunales}.
+% En cada una de estas investigaciones se propone una aplicación distinta 
+% donde se resuelve un problema en particular.
+
+Los procesos de asignación de docencia y planificación de 
+las tesis continúan realizándose de forma manual. 
+Todos los semestres, los jefes de cada departamento de la facultad deben realizar la asignación de docencia, 
+que consiste en determinar qué profesores van a impartir las asignaturas correspondientes 
+al semestre.
+Por otra parte, como el ejercicio de culminación de estudios consiste en la realización 
+de una tesis que debe ser defendida ante un tribunal de profesores, el encargado 
+de planificar las tesis debe realizar anualmente, la confección de los tribunales y la programación de las defensas. 
+
+Este trabajo se centra en informatizar la asignación de docencia y 
+la planificación de las tesis. Para ello, se diseña una herramienta que permite 
+la posterior integración de otros procesos administrativos de la facultad utilizando una única base de datos, ya que muchos 
+comparten información.
+
+
+El objetivo general de este trabajo es diseñar e implementar un sistema
+que permita informatizar parte de la gestión de la facultad, en particular, 
+la asignación de docencia y la planificación de las tesis.
+
+Para cumplir con el objetivo general se plantean los siguientes objetivos 
+específicos. 
+
+\begin{itemize}
+    \item Consultar literatura dedicada a informatizar y/o automatizar procesos de administración
+    que se lleven a cabo en la facultad MATCOM. 
+    \item Consultar literatura sobre las tecnologías para el desarrollo del software.
+    \item Diseñar y modelar las entidades que intervienen en el proceso de asignación de docencia.
+    \item Diseñar y modelar las entidades que intervienen en el proceso de planificación de las tesis.
+    \item Implementar una aplicación web para informatizar la asignación de docencia y la 
+    planificación de las tesis.
+    
+    \item Comprobar el funcionamiento del sistema simulando la asignación de docencia 
+    y la planificación de las tesis correspondientes a un curso escolar. 
+\end{itemize}
+
+Se diseñó una base de datos en la que se almacena la información relacionada con los
+departamentos, los profesores, las asignaturas y las tesis. A partir de esta información
+se implementó una aplicación web con interfaces de usuario amigables, que reproducen el flujo 
+de trabajo existente para realizar la asignación de docencia y la planificación de las tesis,
+con el objetivo de facilitar la incorporación del sistema propuesto 
+al flujo de trabajo de los profesores.
+
+Este documento se compone de cinco capítulos. 
+En el capítulo \ref{chapter:preliminaries} se describe el funcionamiento 
+de la facultad, en particular, cómo se realizan los procesos de asignación 
+de la docencia y planificación de las tesis. Además, se presentan las herramientas 
+utilizadas para el desarrollo del software, especificando las características 
+principales de las tecnologías utilizadas.
+
+En el capítulo \ref{chapter:features} se describen las funcionalidades que 
+se desean para que el sistema facilite la realización de la asignación
+de docencia y la planificación de las tesis. 
+El flujo de los procesos se ilustra con ejemplos, destacando en 
+cuáles pasos se utiliza cada funcionalidad.
+
+En el capítulo \ref{chapter:database} se presenta el diseño de la base 
+de datos del sistema. Se describe la modelación de los procesos asignación de docencia y 
+planificación de las tesis.
+
+En el capítulo \ref{chapter:implementation} se presenta 
+la aplicación web que se propone en este trabajo para gestionar la 
+asignación de docencia y la planificación de las tesis. Se describen 
+los pasos que se deben seguir para realizar cada uno de estos procesos 
+a través del sistema. Además, se presenta una funcionalidad implementada 
+para salvar el estado de la base de datos en documentos CSV y poblarla 
+a partir de la información almacenada en los mismos. 
+
+Como uno de los objetivos del trabajo es la posterior integración de procesos 
+administrativos, en el capítulo \ref{chapter:extensibility}
+se proponen los pasos y pautas a seguir para incorporar nuevos procesos al 
+sistema. Además, se presenta la organización y estructura del 
+proyecto y se describen algunos detalles de implementación. 
+
+
+
+

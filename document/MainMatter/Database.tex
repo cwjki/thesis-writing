@@ -11,7 +11,7 @@ En este capítulo se presenta el diseño de la base de datos que se
 obtuvo siguiendo el enfoque relacional.
 En las secciones \ref{database:asignación-docencia} y
 \ref{database:planificación-tesis} se describen las modelaciones que se obtuvieron 
-para los procesos de asignación de la docencia y planificación de las tesis, respectivamente.
+para los procesos de asignación de docencia y planificación de las tesis, respectivamente.
 
 
 
@@ -25,7 +25,7 @@ para los procesos de asignación de la docencia y planificación de las tesis, r
 % En la figura \ref{} se muestra un
 % Como resultado se obtuvo 
 % el siguiente esquema
-Para la informatización del proceso de asignación de docencia, fue 
+Para informatizar la asignación de docencia, fue 
 necesario almacenar toda la información que interviene en este proceso.
 Para ello, se modelaron las entidades fundamentales, así como las interrelaciones
 que se establecen entre ellas. En la figura \ref{merxx-docencia} se muestra el esquema que se obtuvo a partir 
@@ -38,7 +38,7 @@ del modelo entidad-relación.
 % del modelo entidad-relación extendido.
 
 \begin{figure}[H]
-    \includegraphics[scale=0.31]{Graphics/Database/MERXX-TA-FINAL.png}
+    \includegraphics[scale=0.25]{Graphics/Database/MERXX-TA-FINAL.png}
     \caption{MER para la asignación de docencia}
     \label{merxx-docencia}
     
@@ -47,7 +47,7 @@ del modelo entidad-relación.
 
 Con el objetivo de simplificar la representación del modelo entidad-relación
 no se agregaron en la imagen \ref{merxx-docencia} los atributos correspondientes a cada entidad,
-a continuación se describen los datalles de cada entidad.
+a continuación se describen los detalles de cada una.
 
 
 \subparagraph{FACULTAD:}
@@ -123,12 +123,10 @@ El nombre del semestre se modela como un atributo.
 Pueden existir una o muchas asignaturas que se impartan en 
 el mismo semestre. 
 
-[NO NECESITO ESTO CREO]
 \subparagraph{PERÍODO DE TIEMPO:}
-Representa los períodos de tiempo del año, por ejemplo, enero--julio.
+Representa los períodos de tiempo en los que se imparten clases, por ejemplo, enero--julio.
 El nombre del período de tiempo se modela como un atributo.
-Pueden existir una o muchas asignaturas que se impartan en 
-el mismo período de tiempo.
+
 
 \subparagraph{CURSO ESCOLAR:}
 Representa los curso escolares, por ejemplo: 2020-2021.
@@ -145,19 +143,18 @@ Representa los tipos de actividades que se imparten en una asignatura,
 tales como: conferencias, clases prácticas, seminarios, laboratorios, otros. 
 
 
-\subparagraph{PLANIFICACIÓN DE ASIGNATURA:}
+\subparagraph{CARGA DE ASIGNATURA:}
 Se crea con el objetivo de modelar la separación de una asignatura
-según las actividades de clases a impartir, en un curso escolar, en un período de tiempo y para
-un grupo escolar específico. Está compuesta por la agregación de las entidades ASIGNATURA, AÑO ESCOLAR, ACTIVIDAD DE CLASE, GRUPO 
+según las actividades de clases a impartir durante un período de tiempo, de un curso escolar y para
+un año escolar específico. Está compuesta por la agregación de las entidades ASIGNATURA, CURSO ESCOLAR, ACTIVIDAD DE CLASE, AÑO  
 ESCOLAR Y PERÍODO DE TIEMPO.
-Se agregan los atributos cantidad de horas para el tipo de actividad a realizar y 
-la cantidad de grupos.
+Se agregan los atributos cantidad de horas a impartir y 
+la cantidad de grupos totales.
 Por ejemplo, para la asignatura Optimización Matemática I, que se imparte 
 en el tercer año de la carrera de Matemática, con un total de 64 horas clase, 
-se deben crear dos instancia de PLANIFICACIÓN DE ASIGNATURA, una con 32 horas 
+se deben crear dos instancia de CARGA DE ASIGNATURA, una con 32 horas 
 de conferencias y otra con 32 horas de clases prácticas, para que posteriormente
-se puedan asignar los profesores que se ocuparán de estas planificaciones. 
-[REVISAR LA CANT DE GRUPOS Y EL AÑO ESCOLAR]
+se puedan asignar los profesores que se ocuparán de impartir estas planificaciones. 
 
 
 
@@ -177,32 +174,66 @@ se puedan asignar los profesores que se ocuparán de estas planificaciones.
 
 
 \subparagraph{ASIGNACIÓN DE DOCENCIA:}
-Representa las asignaciones de profesores a planificaciones de asignaturas.
-Además se agrega un atributo porciento que indica el porcentaje del total de horas 
-a impartir, que asume el profesor asignado. Un profesor puede 
-tener asignada cero o muchas planificaciones de asignaturas y una planificación de 
+Representa las asignaciones de la docencia. Una asignación está compuesta
+por un PROFESOR y una CARGA DE ASIGNATURA. Además, tiene  
+los atributos grupo y porciento. El atributo grupo indica el grupo específico que 
+se le asigna al profesor. Por ejemplo, si existen tres grupos de clases prácticas, 
+indica cuál de ellos atiende el profesor.
+El atributo porciento indica el porcentaje del total de horas a impartir por el profesor 
+asignado. Por ejemplo, existen asignaturas en las que el total 
+de horas de una actividad de clase, para un mismo grupo, se distribuye entre varios profesores, como es el caso de las
+conferencias de la asignatura Modelos de Optimización I (ver tabla \ref{tabla-carga-asignatura-cap2}), que tiene un total
+de 32 horas a impartir, que se distribuyen entre la profesora Aymeeé Marrero 
+y el profesor Fernando Rodríguez, 16 horas cada uno. Para modelar este tipo de escenario
+se deben crear dos ASIGNACIÓN DE DOCENCIA para la CARGA DE ASIGNATURA correspondiente a las 
+conferencias de la asignatura Modelos de Optimización I, y asignar a los profesores 
+Aymeeé Marrero y Fernando Rodriguez con el 50 porciento de las horas cada uno.  
+Un profesor puede tener asignada cero o muchas cargas de asignaturas y una carga de 
 asignatura puede estar asignada a uno o muchos profesores.
-[Hay que añadir el año escolar o la tabla de carmen]
 
-\subparagraph{DESCRIPCIÓN DE CURSO:}
-Representa el grupo escolar vigente en el curso actual. Está 
-compuesta por la agregación de las entidades GRUPO ESCOLAR,
-PERÍODO DE TIEMPO, PLAN DE ESTUDIO y SEMESTRE.  
-Por ejemplo, una DESCRIPCIÓN DE CURSO puede ser 
-que el grupo escolar C4 (Computación de cuarto año), con plan de
-estudio E, se encuentra en el semestre 8,  en el período de tiempo septiembre-diciembre.
+% Representa las asignaciones de profesores a planificaciones de asignaturas.
+% Además se agrega un atributo porciento que indica el porcentaje del total de horas 
+% a impartir, que asume el profesor asignado. 
+% [Hay que añadir el año escolar o la tabla de carmen]
+
+\subparagraph{DETALLES DE AÑO:}
+El objetivo de esta entidad es representar el plan de estudio 
+por el que se rige un año escolar y el semestre de la carrera en el que 
+se encuentra. Está 
+compuesta por la agregación de las entidades AÑO ESCOLAR, PLAN DE ESTUDIO y 
+SEMESTRE. Por ejemplo, el 
+año escolar C4 (cuarto año de Computación), se rige por el plan E y se encuentra en el primer semestre de la carrera.
+A partir de los planes de estudio y los semestres en los que se encuentren los años escolares, 
+se puede determinar las asignaturas que se deben impartir en un período de tiempo. Por tanto, antes 
+de realizar el proceso de asignación de docencia se debe verificar que los datos 
+de los años escolares estén actualizados.
+
+
+% Representa el grupo escolar vigente en el curso actual. Está 
+% compuesta por la agregación de las entidades GRUPO ESCOLAR,
+% PERÍODO DE TIEMPO, PLAN DE ESTUDIO y SEMESTRE.  
+% Por ejemplo, una DESCRIPCIÓN DE CURSO puede ser 
+% que el grupo escolar C4 (Computación de cuarto año), con plan de
+% estudio E, se encuentra en el semestre 8,  en el período de tiempo septiembre-diciembre.
+    
 
 
 
-
-
+    
 
 \section{Modelación de los tribunales de tesis}\label{database:planificación-tesis}
-Se modelaron las entidades fundamentales 
-que intervienen en el proceso de planificación de las tesis, así como 
-las interrelaciones que se establecen entre ellas. En la figura 
-\ref{merxx-thesis} se muestra el esquema que se obtuvo a partir del 
-modelo entidad-relación extendido.
+Para informatizar la planificación de las tesis, fue 
+necesario almacenar toda la información que interviene en este proceso.
+Para ello, se modelaron las entidades fundamentales, así como las interrelaciones
+que se establecen entre ellas. En la figura \ref{merxx-thesis} se muestra el esquema que se obtuvo a partir 
+del modelo entidad-relación.
+
+
+% Se modelaron las entidades fundamentales 
+% que intervienen en el proceso de planificación de las tesis, así como 
+% las interrelaciones que se establecen entre ellas. En la figura 
+% \ref{merxx-thesis} se muestra el esquema que se obtuvo a partir del 
+% modelo entidad-relación extendido.
 
 
 \begin{figure}[H]
@@ -212,32 +243,37 @@ modelo entidad-relación extendido.
 \end{figure}
 
 
+Con el objetivo de simplificar la representación del modelo entidad-relación
+no se agregaron en la figura \ref{merxx-thesis} los atributos correspondientes a cada entidad,
+a continuación se describen los detalles de cada una.
+
 \subparagraph{TESIS:}
 Agrupa los datos asociados a una tesis.
 El título de la tesis y el autor se modelan como atributos, mientras que
-el tutor, los cotutores, curso escolar y las palabras claves se modelan como relaciones con 
-las entidades PROFESOR (tutor y cotutores), CURSO ESCOLAR y PALABRAS CLAVES.
+el tutor, los cotutores, curso escolar y las palabras clave se modelan como relaciones con 
+las entidades PROFESOR (tutor y cotutores), CURSO ESCOLAR y PALABRAS CLAVE.
 Una tesis tiene un único tutor, puede tener cero o muchos cotutores, pertenece a 
-un único curso escolar y tiene una o muchas palabras claves. 
+un único curso escolar y tiene una o muchas palabras clave. 
 
-\subparagraph{PALABRAS CLAVES:}
-Representa las palabras claves que describen el contenido de una tesis.
-El nombre o texto de las palabras claves se modela como un atributo. Una 
+\subparagraph{PALABRAS CLAVE:}
+Representa las palabras clave que describen el contenido de una tesis.
+El nombre o texto de las palabras clave se modela como un atributo. Una 
 palabra clave puede aparecer en una o muchas tesis. 
 
 
 \subparagraph{TRIBUNAL DE TESIS:}
 Representa el tribunal de la defensa de una tesis.
-Está compuesto por los miembros del tribunal: presidente, secretario y oponente, 
-y la tesis, campos que se modelan como relaciones con las entidades PROFESOR y TESIS, respectivamente.
+Se compone por los miembros del tribunal: presidente, secretario y oponente, 
+y la tesis.
+Estos campos se modelan como relaciones con las entidades PROFESOR y TESIS, respectivamente.
 Un tribunal de tesis tiene una única tesis, un único presidente, un único secretario y 
 un único oponente.
 
 
 \subparagraph{DEFENSA DE TESIS:}
 Representa el acto de defensa de la tesis. 
-Está compuesta por un tribunal de tesis, en un local y una 
-fecha determinada. La fecha se modela como un atributo mientras que 
+Se compone por un tribunal de tesis, un local y una 
+fecha. La fecha se modela como un atributo, mientras que 
 el tribunal y el local se modelan como relaciones con las entidades TRIBUNAL DE 
 TESIS y LOCAL, respectivamente. Una defensa de tesis tiene un único tribunal de tesis,
 una única fecha y un único local.
@@ -266,5 +302,5 @@ tutor o cotutor de cero o muchas tesis. \\
 En el próximo capítulo se presenta el sistema que se implementó en el 
 trabajo para la informatización de los procesos de asignación de docencia
 y planificación de las tesis, así como las principales funcionalidades que se 
-incorporaron para facilitar la realización la planificación de estos procesos.
+incorporaron para facilitar la realización de estos procesos.
 

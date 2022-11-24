@@ -4,15 +4,17 @@ permita la posterior integración de procesos de administración y planificació
 que se llevan a cabo en la Facultad de Matemática y Computación de la Universidad
 de La Habana. 
 En este capítulo
-se presenta la estructura del proyecto, se explican algunos detalles de implementación y 
+se presentan la organización y estructura del proyecto, 
+se explican algunos detalles de implementación y 
 se propone una guía de cómo agregar nuevos 
 procesos al sistema.
 
-En la sección \ref{cap5:structure} se describen las estructuras de los proyectos cliente y 
-servidor, así como algunas de las herramientas implementadas que se pueden 
+En la sección \ref{cap5:structure} se presenta la distribución de las 
+carpetas de los proyectos cliente y 
+servidor, y se describen algunas de las herramientas implementadas que se pueden 
 reutilizar en otros procesos que se deseen agregar al sistema.
-En la sección \ref{cap5:recommendations} se proponen una serie de pasos 
-a seguir para incorporar nuevos procesos en el sistema.
+En la sección \ref{cap5:recommendations} se proponen las pautas y pasos 
+a seguir para incorporar nuevos procesos al sistema.
 
 \section{Estructura del cliente y servidor}\label{cap5:structure}
 El desarrollo en el lado del servidor se llevó a cabo con el  
@@ -101,7 +103,7 @@ A continuación se describe qué encontrar en cada una de las carpetas.
 
 
 Se definió una capa de abstracción para la comunicación con 
-el servidor, que permite a partir de una \textit{url}, realizar las operaciones CRUD: \textit{create}, \textit{read}, \textit{update}, \textit{delete}. 
+el servidor que permite, a partir de una \textit{url}, realizar las operaciones CRUD: \textit{create}, \textit{read}, \textit{update}, \textit{delete}. 
 A continuación se muestra su definición.
 
 
@@ -132,7 +134,7 @@ En el fichero \texttt{resources.ts}, que se encuentra dentro de la carpeta \text
 se debe definir un servicio para cada uno de los \textit{endpoints}  
 con los que se quiera realizar la comunicación. Por ejemplo,
 para realizar las peticiones relacionadas a los profesores se 
-creó el servicio \texttt{professorService}, cuyo definición se muestra a continuación.
+creó el servicio \texttt{professorService}, cuya definición se muestra a continuación.
 
 \begin{verbatim}
     export const RESOURCES = {
@@ -163,10 +165,10 @@ se pueden realizar peticiones al servidor del estilo:
 Desde la aplicación web cliente se pueden visualizar y modificar todos los 
 datos que intervienen en los procesos que se informatizaron.
 Para ello, se creó una página para administrar los 
-datos de cada una de las entidades que se modelaron en la base de datos y
-se implementó una componente genérica que a partir de una configuración
+datos de cada una de las entidades que se modelaron en la base de datos.
+Se implementó una componente genérica que a partir de una configuración
 transforma los datos que se reciben desde el servidor y los muestra en una tabla.
-En esta tabla genérica se implementaron las operaciones create, delete y update. 
+En esta tabla genérica se implementaron las operaciones \textit{create}, \textit{delete} y \textit{update}. 
 A continuación se muestra la interfaz que define una configuración para esta  
 tabla.
 
@@ -192,12 +194,13 @@ tabla.
     }
 \end{verbatim}
 
-Para permitir las operaciones de \textit{create}, \textit{delete} o \textit{update} en una tabla se debe 
-indicar en la configuración con el campo \texttt{actions}, 
-en el campo \texttt{services} se debe indicar el servicio a partir del cual se va a 
-poblar la tabla, por ejemplo, el \texttt{professorService} que se describió anteriormente
+En el campo \texttt{actions} se debe especificar si se desean 
+habilitar las operaciones \textit{create}, \textit{delete} o \textit{update}.
+En el campo \texttt{services} se debe especificar el servicio
+a partir del cual se va a poblar la tabla, 
+por ejemplo, el \texttt{professorService} que se describió anteriormente,
 y en el campo \texttt{fields} se deben definir los datos que se deseen mostrar
-a partir de los objetos que se reciben con el servicio que se especifique.
+a partir de los objetos que se reciben con el servicio especificado.
 
 A continuación se ilustra un ejemplo de cómo configurar 
 una tabla para administrar los departamentos.
@@ -263,7 +266,7 @@ va a poblar la tabla es \texttt{departmentService}, en \texttt{fields}
 se especifica que los campos que se desean 
 mostrar son el nombre del departamento y la facultad a la que pertenece, y en 
 \texttt{actions} que se desean habilitar las operaciones 
-de create, update y delete en la tabla. En la 
+de \textit{create}, \textit{update} y \textit{delete} en la tabla. En la 
 figura \ref{cap5-table-department} se muestra el resultado de esta configuración.
 
 \begin{figure}[H]
@@ -334,7 +337,7 @@ de planificación de las tesis.
 
 En resumen, en el lado del servidor, se recomienda la creación de una nueva \textit{app} de Django que agrupe los ficheros necesarios para la modelación del 
 proceso que se desea incorporar en el sistema. Se deben definir los modelos, cómo se serializan los datos y a través de cuáles \textit{urls} se exponen.
-En el lado del cliente se recomienda definir interfaces para representen los tipos de las entidades que intervienen en el proceso, definir los servicios para realizar 
+En el lado del cliente se recomienda definir los tipos de los datos que se van a recibir, los servicios necesarios para realizar 
 las peticiones al servidor, agrupar las componentes y las vistas necesarias en carpetas que indiquen el proceso que se está informatizando y agregar un mecanismo para 
 acceder a esas vistas. 
 
